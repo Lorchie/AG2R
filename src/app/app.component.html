@@ -1,8 +1,8 @@
 <header class="row">
     <img class="col-1" src="../assets/img/Logo - ag2r lm.png">
-    <h5 class="text-center my-auto col">{{titre |uppercase}}</h5>
+    <h5 class="text-center my-auto col">{{metierCurrent.titre |uppercase}}</h5>
 </header>
 <div class="row">
-    <app-menu class="col-2"></app-menu>
+    <app-menu [menu]="metierCurrent.menu" class="col-2"></app-menu>
     <router-outlet></router-outlet>
 </div>

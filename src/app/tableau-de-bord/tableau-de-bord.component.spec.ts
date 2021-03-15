@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FinanceRhComponent } from './finance-rh.component';
+import { TableauDeBordComponent } from './tableau-de-bord.component';
 
-describe('FinanceRhComponent', () => {
-  let component: FinanceRhComponent;
-  let fixture: ComponentFixture<FinanceRhComponent>;
+describe('TableauDeBordComponent', () => {
+  let component: TableauDeBordComponent;
+  let fixture: ComponentFixture<TableauDeBordComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FinanceRhComponent ]
+      declarations: [ TableauDeBordComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FinanceRhComponent);
+    fixture = TestBed.createComponent(TableauDeBordComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

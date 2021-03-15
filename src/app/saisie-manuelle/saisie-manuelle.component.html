@@ -1,1 +1,7 @@
-<p>saisie-manuelle works!</p>
+<select class="custom-select" (change)="changeCity($event)" formControlName="cityName" (ngModel)="metierArray">
+    <option value="" [selected]="true" disabled>Choisir metier</option>
+    <option *ngFor="let city of metierArray" [value]="city.id">{{city.titre}}</option>
+ </select>
+
+
+ {{metierSelected}}

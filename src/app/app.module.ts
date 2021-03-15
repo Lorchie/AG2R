@@ -11,12 +11,9 @@ import { MenuComponent } from './menu/menu.component';
 import { MessageAccueilComponent } from './message-accueil/message-accueil.component';
 import { MenuIconAccueilComponent } from './menu-icon-accueil/menu-icon-accueil.component';
 import { ChartsModule } from 'ng2-charts';
-import { RetraiteComplementaireComponent } from './tableau_de_bord_metier/retraite-complementaire/retraite-complementaire.component';
-import { ClientDistributionComponent } from './tableau_de_bord_metier/client-distribution/client-distribution.component';
-import { PrevoyanceSanteComponent } from './tableau_de_bord_metier/prevoyance-sante/prevoyance-sante.component';
-import { EpargneRetraiteComponent } from './tableau_de_bord_metier/epargne-retraite/epargne-retraite.component';
-import { FinanceRhComponent } from './tableau_de_bord_metier/finance-rh/finance-rh.component';
+
 import { SaisieManuelleComponent } from './saisie-manuelle/saisie-manuelle.component';
+import { TableauDeBordComponent } from './tableau-de-bord/tableau-de-bord.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +22,8 @@ import { SaisieManuelleComponent } from './saisie-manuelle/saisie-manuelle.compo
     MenuComponent,
     MessageAccueilComponent,
     MenuIconAccueilComponent,
-    RetraiteComplementaireComponent,
-    ClientDistributionComponent,
-    PrevoyanceSanteComponent,
-    EpargneRetraiteComponent,
-    FinanceRhComponent,
-    SaisieManuelleComponent
+    SaisieManuelleComponent,
+    TableauDeBordComponent
   ],
   imports: [
     BrowserModule,

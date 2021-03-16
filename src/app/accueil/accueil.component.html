@@ -1,1 +1,61 @@
-ACCUail
+<div class="messageContainer" (click)="clickMessage(index)">
+    <div class="container">
+        <div class="row">
+            <div class="col ">
+                <div class="textMessage"><span class="colorMessage">Message:</span> {{messages[index].messages}}</div>
+            </div>
+            <div class="col-1">
+                <div class="test vertical-center">
+                    <div class="bulle">
+                        <div class="t text-center my-auto" style="width:100%;" [inlineSVG]="'assets/svg/bulle_message.svg'"></div>
+                        <div class="nbMessaget">{{longer}}</div>
+                    </div>
+                    <div class="t text-center my-auto" [inlineSVG]="'assets/svg/message.svg'"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<mat-radio-group class="d-flex justify-content-center radioMessage" name="opList" [(ngModel)]="radioOptions">
+    <mat-radio-button  name="opList" *ngFor="let op of messages" [value]="op.id" (click)="clickRadio(op.id)"></mat-radio-button>
+</mat-radio-group>
+
+
+<p class="blueUnderline">Résultats d'exploitations</p>
+
+<div class="containerNav">
+    <div class="row">
+        <div class="col iconAccueil shadow p-3 mb-5 rounded">
+            <a routerLink="/retraite-complementaire-component" routerLinkActive="active" >
+                <div class="t text-center my-auto" [inlineSVG]="'assets/svg/Retraite.svg'"></div>
+            </a>
+            <p>Retraite complémentaire & action social</p>
+        </div>
+        <div class="col iconAccueil shadow p-3 mb-5 rounded">
+            <a routerLink="/client-distribution-component" routerLinkActive="active" >
+                <div class="t text-center my-auto" [inlineSVG]="'assets/svg/Digital.svg'"></div>
+            </a>
+            <p>Clients, distribution & digital</p>
+        </div>
+        <div class="col iconAccueil shadow p-3 mb-5 rounded">
+            <a routerLink="/prevoyance-sante-component" routerLinkActive="active" >
+                <div class="t text-center my-auto" [inlineSVG]="'assets/svg/Prevoyance_sante.svg'"></div>
+            </a>
+            <p>Prévoyance santé</p>
+        </div>
+        <div class="col iconAccueil shadow p-3 mb-5 rounded">
+            <a routerLink="/epargne-retraite-component" routerLinkActive="active" >
+                <div class="t" [inlineSVG]="'assets/svg/Epargne.svg'"></div>
+            </a>
+            <p>Epargne et retraite supplémentaire</p>
+        </div>
+        <div class="col iconAccueil shadow p-3 mb-5 rounded">
+            <a routerLink="/finance-rh-component" routerLinkActive="active" >
+                <div class="t" [inlineSVG]="'assets/svg/Fonctions_supports.svg'"></div>
+            </a>
+            <p>Finance, RH & autres Fonction supports</p>
+        </div>
+    </div>
+</div>
+
+

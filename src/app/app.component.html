@@ -1,8 +1,14 @@
 <header class="row">
-    <img class="col-1" src="../assets/img/Logo - ag2r lm.png">
-    <h5 class="text-center my-auto col">{{metierCurrent.titre |uppercase}}</h5>
+    <img class="col-1 logo_AG2R" src="../assets/img/Logo - ag2r lm.png">
+    <h3 class="text-center my-auto col">{{metierCurrent.titre |uppercase}}</h3>
 </header>
 <div class="row">
-    <app-menu [menu]="metierCurrent.menu" class="col-2"></app-menu>
+    <app-menu [menu]="metierCurrent.menu" class="col-1"></app-menu>
     <router-outlet></router-outlet>
 </div>
+<svg style="width:0%;height:0%;">
+    <linearGradient id="gradient">
+        <stop offset="5%" stop-color="#00BAE3" />
+        <stop offset="95%" stop-color="#5AB88D" />
+      </linearGradient>
+</svg>

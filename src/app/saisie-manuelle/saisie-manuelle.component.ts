@@ -9,6 +9,8 @@ export class SaisieManuelleComponent implements OnInit {
 
   metierSelected:any;
 
+  myGroup:any;
+
   public metierArray:Array<{id: number, titre: string}> = [
     {id:0,titre:"INFORMATION PRODUCTION"},
     {id:1,titre:"Clients, distribution & digital"},

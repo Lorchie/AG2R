@@ -7,7 +7,7 @@ import { TableauDeBordComponent } from './tableau-de-bord/tableau-de-bord.compon
 
 const routes: Routes = [
   { path: '', component: AccueilComponent },
-  { path: 'accueil-component', component: TableauDeBordComponent },
+  { path: 'accueil-component', component: AccueilComponent },
   { path: 'client-distribution-component', component: TableauDeBordComponent },
   { path: 'epargne-retraite-component', component: TableauDeBordComponent },
   { path: 'finance-rh-component', component: TableauDeBordComponent },

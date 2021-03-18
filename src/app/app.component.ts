@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router,NavigationEnd  } from '@angular/router';
 import { filter } from 'rxjs/operators'
-import { Metier } from './metier';
+import { Metier } from './interfaces/metier';
 import * as MetierConstants from './const-tdb';
 
 

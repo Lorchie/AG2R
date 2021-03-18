@@ -12,10 +12,17 @@ import { MenuComponent } from './menu/menu.component';
 import { MessageAccueilComponent } from './message-accueil/message-accueil.component';
 import { ChartsModule } from 'ng2-charts';
 
+import { MatTableModule } from '@angular/material/table' 
+import { MatRadioModule } from '@angular/material/radio'; 
+
 import { SaisieManuelleComponent } from './saisie-manuelle/saisie-manuelle.component';
 import { TableauDeBordComponent } from './tableau-de-bord/tableau-de-bord.component';
 
-import { MatRadioModule } from '@angular/material/radio';
+
+import { FaitsMarquantsComponent } from './component-TDB/faits-marquants/faits-marquants.component';
+import { EtatPlanBatchComponent } from './component-TDB/etat-plan-batch/etat-plan-batch.component';
+import { ScenarioSuspendusComponent } from './component-TDB/scenario-suspendus/scenario-suspendus.component';
+import { TableauIncidentsComponent } from './component-TDB/tableau-incidents/tableau-incidents.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +31,11 @@ import { MatRadioModule } from '@angular/material/radio';
     MenuComponent,
     MessageAccueilComponent,
     SaisieManuelleComponent,
-    TableauDeBordComponent
+    TableauDeBordComponent,
+    FaitsMarquantsComponent,
+    EtatPlanBatchComponent,
+    ScenarioSuspendusComponent,
+    TableauIncidentsComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +45,8 @@ import { MatRadioModule } from '@angular/material/radio';
     ChartsModule,
     MatRadioModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

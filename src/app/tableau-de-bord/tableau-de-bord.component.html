@@ -1,1 +1,18 @@
-<p>tableau-de-bord works!</p>
+<div class="container">
+    <div class="row justify-content-between">
+        <div class="col componentTDB marginCol"><app-faits-marquants [metier]=""></app-faits-marquants></div>
+        <div class="col-8 componentTDB color"><app-tableau-incidents [metier]=""  [type]="'batch'"></app-tableau-incidents></div>
+        <div class="w-100"></div>
+        <div class="col componentTDB marginCol color"><app-etat-plan-batch [metier]=""></app-etat-plan-batch></div>
+        <div class="col-8 componentTDB color"><app-tableau-incidents [metier]=""  [type]="'scenario'"></app-tableau-incidents></div>
+        <div class="w-100"></div>
+        <div class="col componentTDB marginCol color"><app-scenario-suspendus [metier]=""></app-scenario-suspendus></div>
+        <div class="col-8 componentTDB color"><app-tableau-incidents [metier]=""  [type]="'intervention'"></app-tableau-incidents></div>
+    </div>
+</div>
+
+
+
+
+
+

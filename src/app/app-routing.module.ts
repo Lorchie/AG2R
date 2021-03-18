@@ -8,11 +8,11 @@ import { TableauDeBordComponent } from './tableau-de-bord/tableau-de-bord.compon
 const routes: Routes = [
   { path: '', component: AccueilComponent },
   { path: 'accueil-component', component: AccueilComponent },
-  { path: 'client-distribution-component', component: TableauDeBordComponent },
-  { path: 'epargne-retraite-component', component: TableauDeBordComponent },
-  { path: 'finance-rh-component', component: TableauDeBordComponent },
-  { path: 'prevoyance-sante-component', component: TableauDeBordComponent },
-  { path: 'retraite-complementaire-component', component: TableauDeBordComponent },
+  { path: 'client-distribution-component', component: TableauDeBordComponent,data : {metier : 'CL'} },
+  { path: 'epargne-retraite-component', component: TableauDeBordComponent,data : {metier : 'EP'} },
+  { path: 'finance-rh-component', component: TableauDeBordComponent,data : {metier : 'FI'} },
+  { path: 'prevoyance-sante-component', component: TableauDeBordComponent,data : {metier : 'PR'} },
+  { path: 'retraite-complementaire-component', component: TableauDeBordComponent,data : {metier : 'RE'} },
   { path: 'saisie-manuelle-component', component: SaisieManuelleComponent },
 ];
 @NgModule({

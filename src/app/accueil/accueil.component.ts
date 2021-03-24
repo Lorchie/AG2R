@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import * as Donnee from '../donnee';
+import { ApiCallService } from '../api-call.service'
+import { map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-accueil',
@@ -11,19 +14,19 @@ import { Component, OnInit } from '@angular/core';
 export class AccueilComponent implements OnInit {
 
   index: number = 0;
-  
 
-  messages: {messages:string,id:number}[] = [
-    {"messages":"il est une fois ??.?.......","id":0},
-    {"messages":"oui oefjihbfdhssdgudygstyfsfdghsghdsfsghdjdgfjhdgjhfvg gdh hdjhdsbjhds fugf fdsghfs gdsg fyugs gydsf ysgdsfg sdfd fsfd fssdfdcdsffc dsg dscfhdj hjf dhfj fh jhdfvhjfdhdjfb hjd bfhjd fvhjdfhjghdbd hbfddsbvgfvgdsvh v h sh vs hvf vhds b hfsbhdfvhsesdv hf sdbfdbhjdvsh h dh fshhjdsfvhdsfvvdfghdvghdsvsvgdsv s vg sdgd svgs dfgdsdsgdsvdsvghdsgdsv ghsdvghdsvghsvghsvghdsfvgefvg sdvgsdv ghsvghs vfghvhvdhsfdg sfvg vgdsv dsvgh fvghsdghdsvdshdhfvdfvdf hdvfscbdscvghfvdgvfdghvdgdbfhd vdfs vdsv fhvdf d vfghdvdg vd v dsvd  dsghjdsfgj dsfv dsd vghsf dvgfdv ghdsvhfj fdv sfvhgdsvgh dsfv ghdsv gh vghds vg dvdsvsvfdghsdsv gfhv gh svfgv gdsv fgh vdss vhddsfvsfhghj fhjshhjfsdb hfbhjsdbjhfvshdvhdfhdfbhshfj shfvshjvhjg dhj fhb hjdbhj dg jhfb dhjbdjhdjhvfjh vfhdghsvcghdvchgdvshjdsvhjvghdsvfghvds sghdgv hfggsdhfdsghvfsh hfsdvh vhsdv hfhf shdvfhshfsghfvghsghvdgdfguazertyuiopqsdfghjklmwxcvbnazertyuiopqsdfghjklmwxcvbnazertyuiopqsdfghjklmw","id":1},
-    {"messages":"tttt","id":2}
-  ];
+  messages: {messages:string,id:number}[] = Donnee.messageAccueil
+  
   longer:any = Object.keys(this.messages).length;
   radioOptions: number = 0;
-  constructor() { }
+  constructor(private api : ApiCallService) { }
 
   ngOnInit(): void {
+    this.api.getMessagesAccueil().subscribe(data => {
+      console.log(data);
+  });
   }
+  displaydata(data: any) {this.messages = data;}
 
   clickMessage (index:number) {
     if(index == this.longer -1){

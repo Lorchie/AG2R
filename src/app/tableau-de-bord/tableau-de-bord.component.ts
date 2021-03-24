@@ -11,18 +11,25 @@ import { Metier } from '../interfaces/metier';
   styleUrls: ['./tableau-de-bord.component.scss']
 })
 export class TableauDeBordComponent implements OnInit {
-  //metier: Metier;
+  metier: string ="";
   sub: any;
+  zoomBatch: boolean =false;
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.sub = this.route
     .data
-    .subscribe(v => console.log(v));
+    .subscribe(v => this.metier = v.metier);
+
+    console.log(this.metier);
   }
 
   ngOnDestroy() {
     this.sub.unsubscribe();
+  }
+
+  countChangedHandler(t:boolean){
+    this.zoomBatch = t;
   }
 
 }

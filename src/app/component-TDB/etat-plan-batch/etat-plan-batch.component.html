@@ -1,1 +1,16 @@
-<p>etat-plan-batch works!</p>
+<div class="chart-wrapper" [ngClass]="(zoom === true)?'graphZoom':'graph'">
+  <p class="colorBlue">Etat du plan batch : 7h00&emsp;
+    <a *ngIf="zoom" style="color:red"(click)="zoomCompnent(false)">&emsp;ZOOM</a>
+    <a *ngIf="!zoom" style="color:aqua"(click)="zoomCompnent(true)">&emsp;ZOOM</a>
+  </p>
+    <canvas baseChart 
+      [datasets]="barChartData"
+      [colors]="chartColors"
+      [labels]="barChartLabels"
+      [options]="barChartOptions"
+      [plugins]="barChartPlugins"
+      [legend]="barChartLegend"
+      [chartType]="barChartType">
+    </canvas>
+</div>
+

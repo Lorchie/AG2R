@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import * as IncidentConstants from '../../const-tdb';
 import * as Donnee from '../../donnee';
+import { ApiCallService } from '../../api-call.service'
 
 @Component({
   selector: 'app-tableau-incidents',
@@ -18,16 +19,19 @@ export class TableauIncidentsComponent implements OnInit {
   texteNb:string= "";
   texteTitre:string= "";
   nombre:string = "0";
-  constructor() { }
+  constructor(private api : ApiCallService) { }
 
   ngOnInit(): void {
+    console.log(this.metier);
     this.headers = IncidentConstants.headers.find(e => e.type === this.type)?.array;
     this.textes = IncidentConstants.textes.find(e => e.type === this.type)?.array;
     this.texteNb = this.textes.find((user: any) => user.id === "num").libelle;
     this.texteTitre = this.textes.find((user: any) => user.id === "titre").libelle
     switch (this.type) {
       case "batch":
-        this.incidents = Donnee.incidentsBatch;
+        if (this.metier){
+          this.incidents = this.api.getIncident(this.metier);
+        }
         this.nombre = this.incidents.length.toString();
         break; 
       case "scenario":

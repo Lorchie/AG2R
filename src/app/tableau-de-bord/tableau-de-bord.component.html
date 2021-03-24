@@ -1,14 +1,17 @@
-<div class="container">
+<div class="container" *ngIf="!zoomBatch">
     <div class="row justify-content-between">
-        <div class="col componentTDB marginCol"><app-faits-marquants [metier]=""></app-faits-marquants></div>
-        <div class="col-8 componentTDB color"><app-tableau-incidents [metier]=""  [type]="'batch'"></app-tableau-incidents></div>
+        <div class="col componentTDB marginCol divFaitsMarquand"><app-faits-marquants [metier]="metier"></app-faits-marquants></div>
+        <div class="col-8 componentTDB color"><app-tableau-incidents [metier]="metier"  [type]="'batch'"></app-tableau-incidents></div>
         <div class="w-100"></div>
-        <div class="col componentTDB marginCol color"><app-etat-plan-batch [metier]=""></app-etat-plan-batch></div>
-        <div class="col-8 componentTDB color"><app-tableau-incidents [metier]=""  [type]="'scenario'"></app-tableau-incidents></div>
+        <div class="col componentTDB marginCol color"><app-etat-plan-batch (zoomGrapah)="countChangedHandler($event)" [metier]="metier"></app-etat-plan-batch></div>
+        <div class="col-8 componentTDB color"><app-tableau-incidents [metier]="metier"  [type]="'scenario'"></app-tableau-incidents></div>
         <div class="w-100"></div>
-        <div class="col componentTDB marginCol color"><app-scenario-suspendus [metier]=""></app-scenario-suspendus></div>
-        <div class="col-8 componentTDB color"><app-tableau-incidents [metier]=""  [type]="'intervention'"></app-tableau-incidents></div>
+        <div class="col componentTDB marginCol color"><app-scenario-suspendus [metier]="metier"></app-scenario-suspendus></div>
+        <div class="col-8 componentTDB color"><app-tableau-incidents [metier]="metier"  [type]="'intervention'"></app-tableau-incidents></div>
     </div>
+</div>
+<div *ngIf="zoomBatch" class="color componentTDB marginCol">
+    <app-etat-plan-batch class="componentTDB marginCol color" (zoomGrapah)="countChangedHandler($event)" [zoom]="zoomBatch" [metier]="metier"></app-etat-plan-batch>
 </div>
 
 

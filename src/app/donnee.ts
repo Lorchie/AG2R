@@ -678,19 +678,6 @@ export const planBatch =[
         "endedNotOk": 0,
         "total": 3,
         "dateChargement": "2021-03-14T22:35:41.000+00:00"
-    },
-    {
-        "idBatch": 35,
-        "codeMetier": "PR",
-        "libMetier": "Prévoyance Santé",
-        "codeApplication": "TOTAUX",
-        "libApplication": "",
-        "endedOk": 3798,
-        "wait": 211,
-        "executing": 0,
-        "endedNotOk": 0,
-        "total": 4009,
-        "dateChargement": "2021-03-14T22:35:41.000+00:00"
     }
 ];
 
@@ -702,4 +689,39 @@ export const scenarioSuspendus = [
         "nbrScenario": 7,
         "dateChargement": "2021-03-18T09:31:31.000+00:00"
     }
+];
+
+export const faitsMarquants = [
+    {
+        "idFaitsMarquand": 0,
+        "codeMetier": "PR",
+        "libMetier": "Prévoyance Santé",
+        "message": "Petit problème dans le batch il y a trop de monde qui l'utilise, trouvé une nouvelle solutions si possible mais il faut aussi faire attention au grand méchant loup on sais jamais !!! Mais oui c'est claire il faut bien faire attention c'est un méchant pas beau ! :) bon je sais pas quoi mettre d'autre :'( déso maintenant",
+        "dateChargement": "2021-03-18T09:31:31.000+00:00"
+    },{
+        "idFaitsMarquand": 1,
+        "codeMetier": "PR",
+        "libMetier": "Prévoyance Santé",
+        "message": "oui",
+        "dateChargement": "2021-03-18T09:31:31.000+00:00"
+    },{
+        "idFaitsMarquand": 2,
+        "codeMetier": "PR",
+        "libMetier": "Prévoyance Santé",
+        "message": "sqdqdnsbdjhcsbjsqdvbsqhvq",
+        "dateChargement": "2021-03-18T09:31:31.000+00:00"
+    },{
+        "idFaitsMarquand": 3,
+        "codeMetier": "PR",
+        "libMetier": "Prévoyance Santé",
+        "message": "ffsfddsffs",
+        "dateChargement": "2021-03-18T09:31:31.000+00:00"
+    }
+
+];
+
+export const   messageAccueil: {messages:string,id:number}[] = [
+    {"messages":"il est une fois ??.?.......","id":0},
+    {"messages":"oui oefjihbfdhssdgudygstyfsfdghsghdsfsghdjdgfjhdgjhfvg gdh hdjhdsbjhds fugf fdsghfs gdsg fyugs gydsf ysgdsfg sdfd fsfd fssdfdcdsffc dsg dscfhdj hjf dhfj fh jhdfvhjfdhdjfb hjd bfhjd fvhjdfhjghdbd hbfddsbvgfvgdsvh v h sh vs hvf vhds b hfsbhdfvhsesdv hf sdbfdbhjdvsh h dh fshhjdsfvhdsfvvdfghdvghdsvsvgdsv s vg sdgd svgs dfgdsdsgdsvdsvghdsgdsv ghsdvghdsvghsvghsvghdsfvgefvg sdvgsdv ghsvghs vfghvhvdhsfdg sfvg vgdsv dsvgh fvghsdghdsvdshdhfvdfvdf hdvfscbdscvghfvdgvfdghvdgdbfhd vdfs vdsv fhvdf d vfghdvdg vd v dsvd  dsghjdsfgj dsfv dsd vghsf dvgfdv ghdsvhfj fdv sfvhgdsvgh dsfv ghdsv gh vghds vg dvdsvsvfdghsdsv gfhv gh svfgv gdsv fgh vdss vhddsfvsfhghj fhjshhjfsdb hfbhjsdbjhfvshdvhdfhdfbhshfj shfvshjvhjg dhj fhb hjdbhj dg jhfb dhjbdjhdjhvfjh vfhdghsvcghdvchgdvshjdsvhjvghdsvfghvds sghdgv hfggsdhfdsghvfsh hfsdvh vhsdv hfhf shdvfhshfsghfvghsghvdgdfguazertyuiopqsdfghjklmwxcvbnazertyuiopqsdfghjklmwxcvbnazertyuiopqsdfghjklmw","id":1},
+    {"messages":"tttt","id":2}
 ];

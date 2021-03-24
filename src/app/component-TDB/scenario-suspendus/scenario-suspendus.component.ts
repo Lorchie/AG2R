@@ -8,11 +8,18 @@ import * as Donnee from '../../donnee';
 })
 export class ScenarioSuspendusComponent implements OnInit {
 
+  nb: any;
   @Input() metier?: string;
 
   constructor() { }
 
   ngOnInit(): void {
+    let nombre = Donnee.scenarioSuspendus.find(e => e.codeMetier === this.metier)?.nbrScenario?.toString();
+    if(nombre){
+      this.nb = nombre
+    }else{
+      this.nb ="0"
+    }
   }
 
 }

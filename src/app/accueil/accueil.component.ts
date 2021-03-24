@@ -15,16 +15,15 @@ export class AccueilComponent implements OnInit {
 
   index: number = 0;
 
-  messages: {messages:string,id:number}[] = Donnee.messageAccueil
+  messages: any;
   
-  longer:any = Object.keys(this.messages).length;
+  longer:any;
   radioOptions: number = 0;
   constructor(private api : ApiCallService) { }
 
   ngOnInit(): void {
-    this.api.getMessagesAccueil().subscribe(data => {
-      console.log(data);
-  });
+    this.messages = this.api.getMessagesAccueil();
+    this.longer = Object.keys(this.messages).length;
   }
   displaydata(data: any) {this.messages = data;}
 

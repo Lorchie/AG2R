@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col ">
-                <div class="textMessage"><span class="colorMessage">Message:</span> {{messages[index].messages}}</div>
+                <div class="textMessage"><span class="colorMessage">Message:</span> {{messages[index].libMessage}}</div>
             </div>
             <div class="col-1">
                 <div class="test vertical-center">
@@ -17,7 +17,7 @@
     </div>
 </div>
 <mat-radio-group class="d-flex justify-content-center radioMessage" name="opList" [(ngModel)]="radioOptions">
-    <mat-radio-button  name="opList" *ngFor="let op of messages" [value]="op.id" (click)="clickRadio(op.id)"></mat-radio-button>
+    <mat-radio-button  name="opList" *ngFor="let op of messages, let i = index" [value]="i" (click)="clickRadio(i)"></mat-radio-button>
 </mat-radio-group>
 
 

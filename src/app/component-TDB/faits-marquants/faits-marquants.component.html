@@ -2,8 +2,8 @@
 <p>FAITS MARQUANTS :</p> 
 <div class="textMessage">
     <div *ngIf="longer == 0; else faitMarquant">Aucun fait marquant.</div>
-    <ng-template #faitMarquant>{{faitsMarquants[index].message}}</ng-template>
+    <ng-template #faitMarquant>{{faitsMarquants[indexG].libMessage}}</ng-template>
 </div>
 <mat-radio-group class="d-flex justify-content-center radioMessage" name="opList" [(ngModel)]="radioOptions">
-    <mat-radio-button  name="opList" *ngFor="let op of faitsMarquants" [value]="op.idFaitsMarquand" (click)="clickRadio(op.idFaitsMarquand)"></mat-radio-button>
+    <mat-radio-button  name="opList" *ngFor="let op of faitsMarquants, let i = index" [value]="i" (click)="clickRadio(i)"></mat-radio-button>
 </mat-radio-group>

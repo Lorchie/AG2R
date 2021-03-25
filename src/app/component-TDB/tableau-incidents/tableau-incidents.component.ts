@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import * as IncidentConstants from '../../const-tdb';
-import * as Donnee from '../../donnee';
 import { ApiCallService } from '../../api-call.service'
 
 @Component({
@@ -17,11 +16,11 @@ export class TableauIncidentsComponent implements OnInit {
   textes:any;
   incidentsVide:any;
   texteNb:string= "";
+  nombre:any;
   texteTitre:string= "";
-  nombre:string = "0";
   constructor(private api : ApiCallService) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     console.log(this.metier);
     this.headers = IncidentConstants.headers.find(e => e.type === this.type)?.array;
     this.textes = IncidentConstants.textes.find(e => e.type === this.type)?.array;
@@ -29,26 +28,61 @@ export class TableauIncidentsComponent implements OnInit {
     this.texteTitre = this.textes.find((user: any) => user.id === "titre").libelle
     switch (this.type) {
       case "batch":
-        if (this.metier){
-          this.incidents = this.api.getIncident(this.metier);
+        if(this.metier){
+          this.api.getIncident(this.metier).toPromise()
+          .then((res)=> {
+            console.log("sdf");
+              if(res instanceof Array){
+                var numberInt = res.length;
+                if(numberInt < 3){
+                  var i = 3 - numberInt
+                  this.incidentsVide = new Array(i);
+                }
+                this.nombre= numberInt.toString();
+              }
+             this.incidents = res
+          })
+          .catch()
         }
-        this.nombre = this.incidents.length.toString();
         break; 
       case "scenario":
-        this.incidents = Donnee.etatScenario;
-        this.nombre = this.incidents.length.toString();
+      if(this.metier){
+        this.api.getScenarioStatSuspendu(this.metier).toPromise()
+        .then((res)=> {
+          console.log("sdf");
+            if(res instanceof Array){
+              var numberInt = res.length;
+              if(numberInt < 3){
+                var i = 3 - numberInt
+                this.incidentsVide = new Array(i);
+              }
+              this.nombre= numberInt.toString();
+            }
+           this.incidents = res
+        })
+        .catch()
+      }
         break;
       case "intervention":
-        this.incidents = Donnee.etatIntervention;
-        this.nombre = this.incidents.length.toString();
+        if(this.metier){
+          this.api.getIntervention(this.metier).toPromise()
+          .then((res)=> {
+            console.log("sdf");
+              if(res instanceof Array){
+                var numberInt = res.length;
+                if(numberInt < 3){
+                  var i = 3 - numberInt
+                  this.incidentsVide = new Array(i);
+                }
+                this.nombre= numberInt.toString();
+              }
+             this.incidents = res
+          })
+          .catch()
+        }
         break;     
       default:
         break;
-    }
-    var numberInt =Number(this.nombre)
-    if(numberInt < 3){
-      var i = 3 - numberInt
-      this.incidentsVide = new Array(i);
     }
   }
 }

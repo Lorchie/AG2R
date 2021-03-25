@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as Donnee from '../donnee';
-import { ApiCallService } from '../api-call.service'
-import { map} from 'rxjs/operators';
+import { ApiCallService } from '../api-call.service';
 
 @Component({
   selector: 'app-accueil',
@@ -22,8 +20,17 @@ export class AccueilComponent implements OnInit {
   constructor(private api : ApiCallService) { }
 
   ngOnInit(): void {
-    this.messages = this.api.getMessagesAccueil();
-    this.longer = Object.keys(this.messages).length;
+      this.api.getMessagesAccueil().toPromise()
+      .then((res)=> {
+        console.log("sdf");
+          if(res instanceof Array){
+            this.longer = res.length;
+          }
+          console.log("ttt");
+          console.log(res);
+          this.messages = res;
+        })
+      .catch()
   }
   displaydata(data: any) {this.messages = data;}
 
@@ -33,7 +40,7 @@ export class AccueilComponent implements OnInit {
     }else{
       this.index = index + 1;
     }
-    this.radioOptions = this.messages[this.index].id;
+    this.radioOptions = this.index;
   }
   clickRadio (index:number){
     this.index = index;

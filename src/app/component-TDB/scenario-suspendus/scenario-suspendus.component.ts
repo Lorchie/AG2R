@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import * as Donnee from '../../donnee';
+import { ApiCallService } from '../../api-call.service'
 
 @Component({
   selector: 'app-scenario-suspendus',
@@ -11,14 +11,22 @@ export class ScenarioSuspendusComponent implements OnInit {
   nb: any;
   @Input() metier?: string;
 
-  constructor() { }
+  constructor(private api : ApiCallService) { }
 
   ngOnInit(): void {
-    let nombre = Donnee.scenarioSuspendus.find(e => e.codeMetier === this.metier)?.nbrScenario?.toString();
-    if(nombre){
-      this.nb = nombre
-    }else{
-      this.nb ="0"
+    if(this.metier){
+      this.api.getSuspendedScenarios(this.metier).toPromise()
+      .then((res)=> {
+        console.log("sdf");
+        if(res instanceof Array){
+          this.nb = res[0].nbrScenario;
+          console.log(res[0]);
+        }
+      })
+      .catch()
+    }
+    if(!this.nb){
+      this.nb = "0"
     }
   }
 

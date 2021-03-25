@@ -4,21 +4,27 @@
         <option *ngFor="let city of metierArray" [value]="city.id">{{city.titre}}</option>
      </select>
 </div>
-<div class="table-wrapper-scroll-y my-custom-scrollbar" *ngIf="metierSelected">
-    <table class="table table-striped table-sm">
-        <tbody class="tabMessage">
-            <tr *ngFor="let e of faitsMarquants" class="text-center">
-                <td>
-                    {{e.message}}
-                </td>
-                <td>
-                    <button>Supprimer</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-
-<div class="text-center padding">
-    <button class="btn-default">Supprimer Tout</button>
+<div *ngIf="metierSelected">
+    <div class="text-center padding form-group">
+        <textarea class="form-control" [(ngModel)]="oui"></textarea>
+        <button class="btn-default padding-sm" (click)="ajouter()">Ajouter</button>
+    </div>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar" *ngIf="metierSelected">
+        <table class="table table-striped table-sm">
+            <tbody class="tabMessage">
+                <tr *ngFor="let e of faitsMarquants" class="text-center">
+                    <td>
+                        {{e.libMessage}}
+                    </td>
+                    <td>
+                        <button (click)="supprimerMessage(e.idMessage)">Supprimer</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="text-center padding">
+        <button class="btn-default" (click)="supprimerAllMessage()">Supprimer Tout</button>
+    </div>
 </div>

@@ -1,8 +1,7 @@
 import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
-
-import * as Donnee from '../../donnee';
+import { ApiCallService } from '../../api-call.service'
 
 @Component({
   selector: 'app-etat-plan-batch',
@@ -11,7 +10,7 @@ import * as Donnee from '../../donnee';
 })
 export class EtatPlanBatchComponent implements OnInit {
 
-  arrayEtat: Array<any> = Donnee.planBatch;
+  arrayEtat:any;
 
   barChartOptions: ChartOptions = {
     responsive: true,
@@ -55,26 +54,40 @@ export class EtatPlanBatchComponent implements OnInit {
   zoomCompnent(bool:boolean) {
     this.zoomGrapah.emit(bool);
   }
-  constructor() { }
+  constructor(private api : ApiCallService) { }
 
   ngOnInit(): void {
+    if(this.metier){
+      this.api.getBatchPlans(this.metier).toPromise()
+      .then((res)=> { 
+        if(res instanceof Array){
+          this.arrayEtat = res;
+          res.forEach((element: any) => {
+            if(element.codeApplication != "TOTAUX"){
+              let t = element.codeApplication + " " + element.libApplication;
+              console.log(element);
+              console.log(element.codeApplication);
+              this.barChartLabels.push(t);;
+            }
+          });
+          res.forEach((element:any) => {
+            if(element.codeApplication != "TOTAUX"){
+              arrayEndedOk.push(element.endedOk);
+              arrayWait.push(element.wait);
+              arrayExecuting.push(element.executing);
+              arrayEndedNotOk.push(element.endedNotOk);
+            }
+          });
+        }
+      })
+      .catch;
+    }
 
-    this.arrayEtat.forEach((element,index) => {
-      let t = element.codeApplication + " " + element.libApplication
-      this.barChartLabels.push(t);
-    });
   
     let arrayEndedOk: number[] =[]
     let arrayWait: number[] =[]
     let arrayExecuting: number[] =[]
     let arrayEndedNotOk: number[] =[]
-
-    this.arrayEtat.forEach(element => {
-      arrayEndedOk.push(element.endedOk);
-      arrayWait.push(element.wait);
-      arrayExecuting.push(element.executing);
-      arrayEndedNotOk.push(element.endedNotOk);
-    });
 
     this.barChartData = [
       

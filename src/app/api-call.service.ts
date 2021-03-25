@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpParams,HttpHeaders } from '@angular/common/http';
 
 
 @Injectable({
@@ -12,38 +12,46 @@ export class ApiCallService {
   batchPlansUrl :string = "http://localhost:8081/api/batchPlans?businessId=";
   suspendedScenariosUrl :string = "http://localhost:8081/api/suspendedScenarios?businessId=";
   messagesAccueilUrl :string = "http://localhost:8081/api/messages?businessId=accueil";
-  messagesUrl :string = "http://localhost:8081/api/messages?businessId=";
+  messagesUrl :string = " http://localhost:8081/api/messages?businessId=";
+  scenarioStatSuspenduUrl :string = "http://localhost:8081/api/statesScenarios?businessId=";
+  supprimerMessageUrl: string = "http://localhost:8081/api/messages?param="
+  ajouterMessageUrl: string = "http://localhost:8081/api/messages"
 
   constructor(private http: HttpClient) { }
 
   getIncident(metier:string) {
-    this.http.get(this.incidentUrl + metier).subscribe(data => {
-      return data;
-    });
+    return this.http.get(this.incidentUrl + metier);
+
   }
   getIntervention(metier:string) {
-    this.http.get(this.interventionUrl + metier).subscribe(data => {
-      return data;
-    });
+    return this.http.get(this.interventionUrl + metier);
   }
   getBatchPlans(metier:string) {
-    this.http.get(this.batchPlansUrl + metier).subscribe(data => {
-      return data;
-    });
+    return this.http.get(this.batchPlansUrl + metier);
   }
   getSuspendedScenarios(metier:string) {
-    this.http.get(this.suspendedScenariosUrl + metier).subscribe(data => {
-      return data;
-    });
+    return this.http.get(this.suspendedScenariosUrl + metier);
+  }
+  getScenarioStatSuspendu(metier:string) {
+    return this.http.get(this.scenarioStatSuspenduUrl + metier);
   }
   getMessagesAccueil() {
-    this.http.get(this.messagesAccueilUrl).subscribe(data => {
-      return data;
-    });
+    return this.http.get(this.messagesAccueilUrl);
   }
   getMessages(metier:string) {
-    this.http.get(this.messagesUrl + metier).subscribe(data => {
-      return data;
-    });
+    return this.http.get(this.messagesUrl + metier);
+  }
+  deleteMessage(messageId:string){
+    return this.http.delete(this.supprimerMessageUrl+messageId);
+  }
+  
+  ajouterMessage(metier: any,message: string){
+    let messageObject = {
+      codeMetier: metier.code,
+      libMetier: metier.titre,
+      libMessage: message,
+       typeMessage: metier.typeMessage
+      };
+    return this.http.post(this.ajouterMessageUrl,messageObject);
   }
 }

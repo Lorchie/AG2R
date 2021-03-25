@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import * as Donnee from '../../donnee';
+import { ApiCallService } from '../../api-call.service'
 
 @Component({
   selector: 'app-faits-marquants',
@@ -12,27 +12,30 @@ import * as Donnee from '../../donnee';
 export class FaitsMarquantsComponent implements OnInit {
 
   @Input() metier?: string;
-  index: number = 0;
+  indexG: number = 0;
   faitsMarquants: any;
   radioOptions: number = 0;
   longer:number =0
-  constructor() { }
+  constructor(private api : ApiCallService) { }
+
 
   ngOnInit(): void {
-    this.faitsMarquants = Donnee.faitsMarquants;
-    this.longer = Object.keys(this.faitsMarquants).length;
-  }
-
-  clickMessage (index:number) {
-    if(index == this.longer -1){
-      this.index = 0;
-    }else{
-      this.index = index + 1;
+    if (this.metier){
+      this.api.getMessages(this.metier).toPromise()
+      .then((res)=> {
+        console.log("sdf");
+          if(res instanceof Array){
+            this.longer = res.length;
+          }
+          console.log("ttt");
+          console.log(res);
+          this.faitsMarquants = res;
+        })
+      .catch()
     }
-    this.radioOptions = this.faitsMarquants[this.index].id;
   }
   clickRadio (index:number){
-    this.index = index;
+    this.indexG = index;
   }
 
 }

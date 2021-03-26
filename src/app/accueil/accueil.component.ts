@@ -15,7 +15,7 @@ export class AccueilComponent implements OnInit {
 
   messages: any;
   
-  longer:any;
+  longer:number = 0;
   radioOptions: number = 0;
   constructor(private api : ApiCallService) { }
 

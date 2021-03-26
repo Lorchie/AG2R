@@ -16,7 +16,7 @@ export class TableauIncidentsComponent implements OnInit {
   textes:any;
   incidentsVide:any;
   texteNb:string= "";
-  nombre:any;
+  nombre:string = "0";
   texteTitre:string= "";
   constructor(private api : ApiCallService) { }
 
@@ -39,6 +39,8 @@ export class TableauIncidentsComponent implements OnInit {
                   this.incidentsVide = new Array(i);
                 }
                 this.nombre= numberInt.toString();
+              }else{
+                this.incidentsVide = new Array(3);
               }
              this.incidents = res
           })
@@ -57,6 +59,8 @@ export class TableauIncidentsComponent implements OnInit {
                 this.incidentsVide = new Array(i);
               }
               this.nombre= numberInt.toString();
+            }else{
+              this.incidentsVide = new Array(3);
             }
            this.incidents = res
         })
@@ -75,8 +79,10 @@ export class TableauIncidentsComponent implements OnInit {
                   this.incidentsVide = new Array(i);
                 }
                 this.nombre= numberInt.toString();
+              }else{
+                this.incidentsVide = new Array(3);
               }
-             this.incidents = res
+             this.incidents = res;
           })
           .catch()
         }

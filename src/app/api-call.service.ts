@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams,HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { throwError } from 'rxjs';
+
+import { retry, catchError } from 'rxjs/operators';
 
 
 @Injectable({
@@ -20,29 +23,45 @@ export class ApiCallService {
   constructor(private http: HttpClient) { }
 
   getIncident(metier:string) {
-    return this.http.get(this.incidentUrl + metier);
+    return this.http.get(this.incidentUrl + metier).pipe(
+      retry(1),
+      catchError(this.handleError));
 
   }
   getIntervention(metier:string) {
-    return this.http.get(this.interventionUrl + metier);
+    return this.http.get(this.interventionUrl + metier).pipe(
+      retry(1),
+      catchError(this.handleError));
   }
   getBatchPlans(metier:string) {
-    return this.http.get(this.batchPlansUrl + metier);
+    return this.http.get(this.batchPlansUrl + metier).pipe(
+      retry(1),
+      catchError(this.handleError));
   }
   getSuspendedScenarios(metier:string) {
-    return this.http.get(this.suspendedScenariosUrl + metier);
+    return this.http.get(this.suspendedScenariosUrl + metier).pipe(
+      retry(1),
+      catchError(this.handleError));
   }
   getScenarioStatSuspendu(metier:string) {
-    return this.http.get(this.scenarioStatSuspenduUrl + metier);
+    return this.http.get(this.scenarioStatSuspenduUrl + metier).pipe(
+      retry(1),
+      catchError(this.handleError));
   }
   getMessagesAccueil() {
-    return this.http.get(this.messagesAccueilUrl);
+    return this.http.get(this.messagesAccueilUrl).pipe(
+      retry(1),
+      catchError(this.handleError));
   }
   getMessages(metier:string) {
-    return this.http.get(this.messagesUrl + metier);
+    return this.http.get(this.messagesUrl + metier).pipe(
+      retry(1),
+      catchError(this.handleError));
   }
   deleteMessage(messageId:string){
-    return this.http.delete(this.supprimerMessageUrl+messageId);
+    return this.http.delete(this.supprimerMessageUrl+messageId).pipe(
+      retry(1),
+      catchError(this.handleError));
   }
   
   ajouterMessage(metier: any,message: string){
@@ -52,6 +71,28 @@ export class ApiCallService {
       libMessage: message,
        typeMessage: metier.typeMessage
       };
-    return this.http.post(this.ajouterMessageUrl,messageObject);
+    return this.http.post(this.ajouterMessageUrl,messageObject).pipe(
+      retry(1),
+      catchError(this.handleError));
+  }
+
+
+  handleError(error:any) {
+
+    let errorMessage = '';
+ 
+    if (error.error instanceof ErrorEvent) {
+ 
+      errorMessage = `Error: ${error.error.message}`;
+ 
+    } else {
+ 
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+ 
+    }
+ 
+    window.alert(errorMessage);
+    return throwError(errorMessage);
+
   }
 }

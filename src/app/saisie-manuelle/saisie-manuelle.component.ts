@@ -40,7 +40,6 @@ export class SaisieManuelleComponent implements OnInit {
       this.api.getMessages(this.metierSelected.code).toPromise()
       .then((res)=> {
           this.faitsMarquants = res;
-          console.log(res);
         })
       .catch()
     }

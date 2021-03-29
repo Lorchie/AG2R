@@ -13,23 +13,23 @@ import { Metier } from '../interfaces/metier';
 export class TableauDeBordComponent implements OnInit {
   metier: string ="";
   sub: any;
-  zoomBatch: boolean =false;
+  zoom: string = "";
+  zoomBool: boolean = false;
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.sub = this.route
     .data
     .subscribe(v => this.metier = v.metier);
-
-    console.log(this.metier);
   }
 
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
 
-  countChangedHandler(t:boolean){
-    this.zoomBatch = t;
+  funcZoom(t:any){
+    this.zoomBool = t.bool;
+    this.zoom = t.type;
   }
 
 }

@@ -49,10 +49,10 @@ export class EtatPlanBatchComponent implements OnInit {
   @Input() metier?: string;
   @Input() zoom?: boolean;
 
-  @Output() zoomGrapah = new EventEmitter<boolean>();
+  @Output() zoomGrapah = new EventEmitter<{bool: boolean, type: string}>();
 
   zoomCompnent(bool:boolean) {
-    this.zoomGrapah.emit(bool);
+    this.zoomGrapah.emit({bool:bool,type:"graphBatch"});
   }
   constructor(private api : ApiCallService) { }
 
@@ -64,10 +64,8 @@ export class EtatPlanBatchComponent implements OnInit {
           this.arrayEtat = res;
           res.forEach((element: any) => {
             if(element.codeApplication != "TOTAUX"){
-              let t = element.codeApplication + " " + element.libApplication;
-              console.log(element);
-              console.log(element.codeApplication);
-              this.barChartLabels.push(t);;
+              let label = element.codeApplication + " " + element.libApplication;
+              this.barChartLabels.push(label);;
             }
           });
           res.forEach((element:any) => {

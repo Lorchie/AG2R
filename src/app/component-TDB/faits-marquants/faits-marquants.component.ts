@@ -15,7 +15,8 @@ export class FaitsMarquantsComponent implements OnInit {
   indexG: number = 0;
   faitsMarquants: any;
   radioOptions: number = 0;
-  longer:number =0
+  longer:number = 0;
+  
   constructor(private api : ApiCallService) { }
 
 
@@ -23,12 +24,9 @@ export class FaitsMarquantsComponent implements OnInit {
     if (this.metier){
       this.api.getMessages(this.metier).toPromise()
       .then((res)=> {
-        console.log("sdf");
           if(res instanceof Array){
             this.longer = res.length;
           }
-          console.log("ttt");
-          console.log(res);
           this.faitsMarquants = res;
         })
       .catch()

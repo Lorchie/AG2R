@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import * as IncidentConstants from '../../const-tdb';
 import { ApiCallService } from '../../api-call.service'
 
@@ -10,6 +10,9 @@ import { ApiCallService } from '../../api-call.service'
 export class TableauIncidentsComponent implements OnInit {
   @Input() type?: string;
   @Input() metier?: string;
+  @Input() zoom?: boolean;
+
+  @Output() zoomTableau = new EventEmitter<{bool: boolean, type: string}>();
 
   incidents:any;
   headers:any;
@@ -18,10 +21,10 @@ export class TableauIncidentsComponent implements OnInit {
   texteNb:string= "";
   nombre:string = "0";
   texteTitre:string= "";
+  
   constructor(private api : ApiCallService) { }
 
-  async ngOnInit() {
-    console.log(this.metier);
+  ngOnInit() {
     this.headers = IncidentConstants.headers.find(e => e.type === this.type)?.array;
     this.textes = IncidentConstants.textes.find(e => e.type === this.type)?.array;
     this.texteNb = this.textes.find((user: any) => user.id === "num").libelle;
@@ -31,7 +34,6 @@ export class TableauIncidentsComponent implements OnInit {
         if(this.metier){
           this.api.getIncident(this.metier).toPromise()
           .then((res)=> {
-            console.log("sdf");
               if(res instanceof Array){
                 var numberInt = res.length;
                 if(numberInt < 3){
@@ -51,7 +53,6 @@ export class TableauIncidentsComponent implements OnInit {
       if(this.metier){
         this.api.getScenarioStatSuspendu(this.metier).toPromise()
         .then((res)=> {
-          console.log("sdf");
             if(res instanceof Array){
               var numberInt = res.length;
               if(numberInt < 3){
@@ -71,7 +72,6 @@ export class TableauIncidentsComponent implements OnInit {
         if(this.metier){
           this.api.getIntervention(this.metier).toPromise()
           .then((res)=> {
-            console.log("sdf");
               if(res instanceof Array){
                 var numberInt = res.length;
                 if(numberInt < 3){
@@ -89,6 +89,11 @@ export class TableauIncidentsComponent implements OnInit {
         break;     
       default:
         break;
+    }
+  }
+  zoomCompnent(bool:boolean) {
+    if(this.type){
+      this.zoomTableau.emit({bool:bool,type:this.type});
     }
   }
 }

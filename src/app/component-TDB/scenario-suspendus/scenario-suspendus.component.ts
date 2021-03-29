@@ -17,10 +17,8 @@ export class ScenarioSuspendusComponent implements OnInit {
     if(this.metier){
       this.api.getSuspendedScenarios(this.metier).toPromise()
       .then((res)=> {
-        console.log("sdf");
         if(res instanceof Array){
           this.nb = res[0].nbrScenario;
-          console.log(res[0]);
         }
       })
       .catch()

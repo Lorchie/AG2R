@@ -12,22 +12,18 @@ import { ApiCallService } from '../api-call.service';
 export class AccueilComponent implements OnInit {
 
   index: number = 0;
-
   messages: any;
-  
   longer:number = 0;
   radioOptions: number = 0;
+  
   constructor(private api : ApiCallService) { }
 
   ngOnInit(): void {
       this.api.getMessagesAccueil().toPromise()
       .then((res)=> {
-        console.log("sdf");
           if(res instanceof Array){
             this.longer = res.length;
           }
-          console.log("ttt");
-          console.log(res);
           this.messages = res;
         })
       .catch()

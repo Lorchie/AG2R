@@ -1,15 +1,17 @@
 <div class="row fontSizeTableau">
-    <div class="col-2">
+    <div class="col-2" *ngIf="!zoom">
         <div class="row justify-content-center" style="display: inline;" >
-                <p class="gradiant" style="font-size: 50px; padding: 10px 0px;">{{nombre}}</p>     
-                <span class="text">{{texteNb}}</span>
+                <p class="gradiant text-center" style="font-size: 50px; padding: 10px 0px;">{{nombre}}</p>     
+                <span class="text text-center">{{texteNb}}</span>
         </div>
-
     </div>
 
     <div class="col">
-        <span class="colorBlue">{{texteTitre}}</span>
-        <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <span class="colorBlue">{{texteTitre}}
+            <a *ngIf="zoom" style="color:black"(click)="zoomCompnent(false)" [inlineSVG]="'assets/svg/zoom-out.svg'"></a>
+            <a *ngIf="!zoom" style="color:black"(click)="zoomCompnent(true)" [inlineSVG]="'assets/svg/zoom-in.svg'"></a>
+        </span>
+        <div class="table-wrapper-scroll-y my-custom-scrollbar" [ngClass]="{'zoomTableau': zoom}">
             <table class="table table-striped table-sm">
                 <thead>
                     <tr>

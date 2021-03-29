@@ -30,7 +30,12 @@ td{
     position: relative;
     height: 120px;
     overflow: auto;
-    }
+}
+
+.zoomTableau{
+    height: 400px;
+}
+
 .table-wrapper-scroll-y {
     display: block;
 }
@@ -52,6 +57,7 @@ td{
 .graph{
     position: relative; height:25vh; width:25vw
 }
+
 .graphZoom{
     position: relative; height:75vh; width:75vw
 }

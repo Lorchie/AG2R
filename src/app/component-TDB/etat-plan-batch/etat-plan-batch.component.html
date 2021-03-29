@@ -1,16 +1,18 @@
-<div class="chart-wrapper" [ngClass]="(zoom === true)?'graphZoom':'graph'">
-  <p class="colorBlue">Etat du plan batch : 7h00&emsp;
-    <a *ngIf="zoom" style="color:black"(click)="zoomCompnent(false)" [inlineSVG]="'assets/svg/zoom-out.svg'"></a>
-    <a *ngIf="!zoom" style="color:black"(click)="zoomCompnent(true)" [inlineSVG]="'assets/svg/zoom-in.svg'"></a>
-  </p>
-    <canvas baseChart 
-      [datasets]="barChartData"
-      [colors]="chartColors"
-      [labels]="barChartLabels"
-      [options]="barChartOptions"
-      [plugins]="barChartPlugins"
-      [legend]="barChartLegend"
-      [chartType]="barChartType">
-    </canvas>
+<div class="etatPlanBatch">
+  <div class="chart-wrapper" [ngClass]="(zoom === true)?'graphZoom':'graph'">
+    <p class="colorBlue">Etat du plan batch : 7h00&emsp;
+      <a *ngIf="zoom" style="color:black"(click)="zoomCompnent(false)" [inlineSVG]="'assets/svg/zoom-out.svg'"></a>
+      <a *ngIf="!zoom" style="color:black"(click)="zoomCompnent(true)" [inlineSVG]="'assets/svg/zoom-in.svg'"></a>
+    </p>
+      <canvas baseChart 
+        [datasets]="barChartData"
+        [colors]="chartColors"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [chartType]="barChartType">
+      </canvas>
+  </div>
 </div>
 

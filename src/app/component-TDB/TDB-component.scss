@@ -1,9 +1,57 @@
 td{
-    padding: 0% !important;
+    padding: 0px !important;
 }
 
-.fontSizeTableau{
+.tableauIncident{
     font-size: 10px;
+
+    .textTitreTable{
+        color: #00BAE3;
+        font-size: 12px;
+        margin:10px;
+    }
+    
+    .texteNb{
+        display:block;
+        line-height:120%;
+    }
+
+    .zoomTableau{
+        height: 300px !important;
+    }
+
+    .table-wrapper-scroll-y {
+        display: block;
+    }
+
+    .my-custom-scrollbar {
+        position: relative;
+        height: 120px;
+        overflow: auto;
+    }
+}
+
+.etatPlanBatch{
+    .graph{
+        position: relative; height:25vh; width:25vw
+    }
+    
+    .graphZoom{
+        position: relative; height:75vh; width:75vw
+    }
+}
+
+.textFaitsMarquants{
+    font-size: 16px;
+    height: 80px;
+    max-width: 100%;
+    overflow-x:hidden;
+    overflow-y:auto;
+    padding-bottom: 15px;
+}
+
+.radioFaitsMarquants{
+    padding-top: 5px;
 }
 
 .gradiant{
@@ -11,33 +59,8 @@ td{
     background: linear-gradient(to right, #00BAE3 0%, #5AB88D 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-.colorBlue{
-    color: #00BAE3;
-    font-size: 12px;
-}
-.texteNb{
-    display:block;
-    line-height:120%;
-}
-
-.divNb{
-    border-right: solid;
-}
-
-.my-custom-scrollbar {
-    position: relative;
-    height: 120px;
-    overflow: auto;
-}
-
-.zoomTableau{
-    height: 400px;
-}
-
-.table-wrapper-scroll-y {
-    display: block;
+    font-size: 50px;
+    padding: 10px 0px;
 }
 
 ::-webkit-scrollbar {
@@ -52,27 +75,6 @@ td{
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
-}
-
-.graph{
-    position: relative; height:25vh; width:25vw
-}
-
-.graphZoom{
-    position: relative; height:75vh; width:75vw
-}
-
-.textMessage{
-    font-size: 16px;
-    height: 80px;
-    max-width: 100%;
-    overflow-x:hidden;
-    overflow-y:auto;
-    padding-bottom: 15px;
-}
-
-.radioMessage{
-    padding-top: 5px;
 }
 
 :host ::ng-deep {

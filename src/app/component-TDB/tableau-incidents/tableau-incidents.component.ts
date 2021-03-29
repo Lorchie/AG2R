@@ -37,8 +37,7 @@ export class TableauIncidentsComponent implements OnInit {
               if(res instanceof Array){
                 var numberInt = res.length;
                 if(numberInt < 3){
-                  var i = 3 - numberInt
-                  this.incidentsVide = new Array(i);
+                  this.createColEmpty(numberInt);
                 }
                 this.nombre= numberInt.toString();
               }else{
@@ -56,8 +55,7 @@ export class TableauIncidentsComponent implements OnInit {
             if(res instanceof Array){
               var numberInt = res.length;
               if(numberInt < 3){
-                var i = 3 - numberInt
-                this.incidentsVide = new Array(i);
+                this.createColEmpty(numberInt);
               }
               this.nombre= numberInt.toString();
             }else{
@@ -75,8 +73,7 @@ export class TableauIncidentsComponent implements OnInit {
               if(res instanceof Array){
                 var numberInt = res.length;
                 if(numberInt < 3){
-                  var i = 3 - numberInt
-                  this.incidentsVide = new Array(i);
+                  this.createColEmpty(numberInt);
                 }
                 this.nombre= numberInt.toString();
               }else{
@@ -95,5 +92,10 @@ export class TableauIncidentsComponent implements OnInit {
     if(this.type){
       this.zoomTableau.emit({bool:bool,type:this.type});
     }
+  }
+
+  createColEmpty(numberInt: number){
+    var i = 3 - numberInt
+    this.incidentsVide = new Array(i);
   }
 }

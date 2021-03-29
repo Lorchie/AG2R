@@ -9,7 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { MenuComponent } from './menu/menu.component';
-import { MessageAccueilComponent } from './message-accueil/message-accueil.component';
 import { ChartsModule } from 'ng2-charts';
 
 import { MatTableModule } from '@angular/material/table' 
@@ -29,7 +28,6 @@ import { TableauIncidentsComponent } from './component-TDB/tableau-incidents/tab
     AppComponent,
     AccueilComponent,
     MenuComponent,
-    MessageAccueilComponent,
     SaisieManuelleComponent,
     TableauDeBordComponent,
     FaitsMarquantsComponent,

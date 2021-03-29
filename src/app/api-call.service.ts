@@ -59,9 +59,7 @@ export class ApiCallService {
       catchError(this.handleError));
   }
   deleteMessage(messageId:string){
-    return this.http.delete(this.supprimerMessageUrl+messageId).pipe(
-      retry(1),
-      catchError(this.handleError));
+    return this.http.delete(this.supprimerMessageUrl+messageId);
   }
   
   ajouterMessage(metier: any,message: string){
@@ -71,11 +69,8 @@ export class ApiCallService {
       libMessage: message,
        typeMessage: metier.typeMessage
       };
-    return this.http.post(this.ajouterMessageUrl,messageObject).pipe(
-      retry(1),
-      catchError(this.handleError));
+    return this.http.post(this.ajouterMessageUrl,messageObject);
   }
-
 
   handleError(error:any) {
 
@@ -90,9 +85,7 @@ export class ApiCallService {
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
  
     }
- 
     window.alert(errorMessage);
     return throwError(errorMessage);
-
   }
 }

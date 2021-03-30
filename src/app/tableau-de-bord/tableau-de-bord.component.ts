@@ -1,20 +1,20 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostBinding } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Metier } from '../interfaces/metier';
 
 @Component({
   selector: 'app-tableau-de-bord',
-  host: {
-    class:'col container'
-  },
   templateUrl: './tableau-de-bord.component.html',
   styleUrls: ['./tableau-de-bord.component.scss']
 })
-export class TableauDeBordComponent implements OnInit {
-  metier: string ="";
+
+export class TableauDeBordComponent implements OnInit, OnDestroy {
+
+  @HostBinding('class') classes  = 'col container' ;
+  metier = '';
   sub: any;
-  zoom: string = "";
-  zoomBool: boolean = false;
+  zoom = '';
+  zoomBool = false;
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -23,13 +23,12 @@ export class TableauDeBordComponent implements OnInit {
     .subscribe(v => this.metier = v.metier);
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.sub.unsubscribe();
   }
 
-  funcZoom(t:any){
+  funcZoom(t: any): void{
     this.zoomBool = t.bool;
     this.zoom = t.type;
   }
-
 }

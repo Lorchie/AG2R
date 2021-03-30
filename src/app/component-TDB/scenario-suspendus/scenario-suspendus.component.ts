@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ApiCallService } from '../../api-call.service'
+import { ApiCallService } from '../../api-call.service';
 
 @Component({
   selector: 'app-scenario-suspendus',
@@ -11,20 +11,20 @@ export class ScenarioSuspendusComponent implements OnInit {
   nb: any;
   @Input() metier?: string;
 
-  constructor(private api : ApiCallService) { }
+  constructor(private api: ApiCallService) { }
 
   ngOnInit(): void {
-    if(this.metier){
+    if (this.metier){
       this.api.getSuspendedScenarios(this.metier).toPromise()
-      .then((res)=> {
-        if(res instanceof Array){
+      .then((res) => {
+        if (res instanceof Array){
           this.nb = res[0].nbrScenario;
         }
       })
-      .catch()
+      .catch();
     }
-    if(!this.nb){
-      this.nb = "0"
+    if (!this.nb){
+      this.nb = '0';
     }
   }
 

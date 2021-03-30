@@ -10,40 +10,40 @@ import { retry, catchError } from 'rxjs/operators';
 })
 export class ApiCallService {
 
-  incidentUrl :string = "http://localhost:8081/api/incidents?businessId=";
-  interventionUrl :string = "http://localhost:8081/api/interventions?businessId=";
-  batchPlansUrl :string = "http://localhost:8081/api/batchPlans?businessId=";
-  suspendedScenariosUrl :string = "http://localhost:8081/api/suspendedScenarios?businessId=";
-  messagesAccueilUrl :string = "http://localhost:8081/api/messages?businessId=accueil";
-  messagesUrl :string = " http://localhost:8081/api/messages?businessId=";
-  scenarioStatSuspenduUrl :string = "http://localhost:8081/api/statesScenarios?businessId=";
-  supprimerMessageUrl: string = "http://localhost:8081/api/messages?param="
-  ajouterMessageUrl: string = "http://localhost:8081/api/messages"
+  incidentUrl = 'http://localhost:8081/api/incidents?businessId=';
+  interventionUrl = 'http://localhost:8081/api/interventions?businessId=';
+  batchPlansUrl = 'http://localhost:8081/api/batchPlans?businessId=';
+  suspendedScenariosUrl = 'http://localhost:8081/api/suspendedScenarios?businessId=';
+  messagesAccueilUrl = 'http://localhost:8081/api/messages?businessId=accueil';
+  messagesUrl = ' http://localhost:8081/api/messages?businessId=';
+  scenarioStatSuspenduUrl = 'http://localhost:8081/api/statesScenarios?businessId=';
+  supprimerMessageUrl = 'http://localhost:8081/api/messages?param=';
+  ajouterMessageUrl = 'http://localhost:8081/api/messages';
 
   constructor(private http: HttpClient) { }
 
-  getIncident(metier:string) {
+  getIncident(metier: string) {
     return this.http.get(this.incidentUrl + metier).pipe(
       retry(1),
       catchError(this.handleError));
 
   }
-  getIntervention(metier:string) {
+  getIntervention(metier: string) {
     return this.http.get(this.interventionUrl + metier).pipe(
       retry(1),
       catchError(this.handleError));
   }
-  getBatchPlans(metier:string) {
+  getBatchPlans(metier: string) {
     return this.http.get(this.batchPlansUrl + metier).pipe(
       retry(1),
       catchError(this.handleError));
   }
-  getSuspendedScenarios(metier:string) {
+  getSuspendedScenarios(metier: string) {
     return this.http.get(this.suspendedScenariosUrl + metier).pipe(
       retry(1),
       catchError(this.handleError));
   }
-  getScenarioStatSuspendu(metier:string) {
+  getScenarioStatSuspendu(metier: string) {
     return this.http.get(this.scenarioStatSuspenduUrl + metier).pipe(
       retry(1),
       catchError(this.handleError));
@@ -53,37 +53,37 @@ export class ApiCallService {
       retry(1),
       catchError(this.handleError));
   }
-  getMessages(metier:string) {
+  getMessages(metier: string) {
     return this.http.get(this.messagesUrl + metier).pipe(
       retry(1),
       catchError(this.handleError));
   }
-  deleteMessage(messageId:string){
-    return this.http.delete(this.supprimerMessageUrl+messageId);
+  deleteMessage(messageId: string){
+    return this.http.delete(this.supprimerMessageUrl + messageId);
   }
-  
-  ajouterMessage(metier: any,message: string){
-    let messageObject = {
+
+  ajouterMessage(metier: any, message: string){
+    const messageObject = {
       codeMetier: metier.code,
       libMetier: metier.titre,
       libMessage: message,
        typeMessage: metier.typeMessage
       };
-    return this.http.post(this.ajouterMessageUrl,messageObject);
+    return this.http.post(this.ajouterMessageUrl, messageObject);
   }
 
-  handleError(error:any) {
+  handleError(error: any) {
 
     let errorMessage = '';
- 
+
     if (error.error instanceof ErrorEvent) {
- 
+
       errorMessage = `Error: ${error.error.message}`;
- 
+
     } else {
- 
+
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
- 
+
     }
     window.alert(errorMessage);
     return throwError(errorMessage);

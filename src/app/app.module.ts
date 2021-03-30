@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
-import { InlineSVGModule } from 'ng-inline-svg'
+import { InlineSVGModule } from 'ng-inline-svg';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,8 +11,8 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { MenuComponent } from './menu/menu.component';
 import { ChartsModule } from 'ng2-charts';
 
-import { MatTableModule } from '@angular/material/table' 
-import { MatRadioModule } from '@angular/material/radio'; 
+import { MatTableModule } from '@angular/material/table';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { SaisieManuelleComponent } from './saisie-manuelle/saisie-manuelle.component';
 import { TableauDeBordComponent } from './tableau-de-bord/tableau-de-bord.component';

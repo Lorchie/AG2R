@@ -8,7 +8,7 @@ import { Metier } from '../interfaces/metier';
 })
 export class MenuComponent implements OnInit {
   @Input() menu?: string;
-  
+
 
   constructor() { }
 

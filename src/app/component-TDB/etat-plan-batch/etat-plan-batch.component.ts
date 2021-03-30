@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
-import { ApiCallService } from '../../api-call.service'
+import { ApiCallService } from '../../api-call.service';
 
 @Component({
   selector: 'app-etat-plan-batch',
@@ -9,14 +9,15 @@ import { ApiCallService } from '../../api-call.service'
   styleUrls: ['../TDB-component.scss']
 })
 export class EtatPlanBatchComponent implements OnInit {
+  constructor(private api: ApiCallService) { }
 
-  arrayEtat:any;
+  arrayEtat: any;
 
   barChartOptions: ChartOptions = {
     responsive: true,
     maintainAspectRatio: true,
     legend: {
-      position: "bottom",
+      position: 'bottom',
       labels: {
         fontSize: 4,
         padding: 1,
@@ -43,88 +44,13 @@ export class EtatPlanBatchComponent implements OnInit {
   barChartLegend = true;
   barChartPlugins = [];
   barChartType: ChartType = 'bar';
-  barChartLabels: Label[] = [] 
-  barChartData: ChartDataSets[] = []
+  barChartLabels: Label[] = [];
+  barChartData: ChartDataSets[] = [];
 
   @Input() metier?: string;
   @Input() zoom?: boolean;
 
   @Output() zoomGrapah = new EventEmitter<{bool: boolean, type: string}>();
-
-  zoomCompnent(bool:boolean) {
-    this.zoomGrapah.emit({bool:bool,type:"graphBatch"});
-  }
-  constructor(private api : ApiCallService) { }
-
-  ngOnInit(): void {
-    if(this.metier){
-      this.api.getBatchPlans(this.metier).toPromise()
-      .then((res)=> { 
-        if(res instanceof Array){
-          this.arrayEtat = res;
-          res.forEach((element: any) => {
-            if(element.codeApplication != "TOTAUX"){
-              let label = element.codeApplication + " " + element.libApplication;
-              this.barChartLabels.push(label);;
-            }
-          });
-          res.forEach((element:any) => {
-            if(element.codeApplication != "TOTAUX"){
-              arrayEndedOk.push(element.endedOk);
-              arrayWait.push(element.wait);
-              arrayExecuting.push(element.executing);
-              arrayEndedNotOk.push(element.endedNotOk);
-            }
-          });
-        }
-      })
-      .catch;
-    }
-
-  
-    let arrayEndedOk: number[] =[]
-    let arrayWait: number[] =[]
-    let arrayExecuting: number[] =[]
-    let arrayEndedNotOk: number[] =[]
-
-    this.barChartData = [
-      
-      {barThickness: 5, data: arrayEndedOk, label: 'Ended OK' },
-      {barThickness: 5, data: arrayWait, label: 'Wait' },
-      {barThickness: 5, data: arrayExecuting, label: 'Execution' },
-      {barThickness: 5, data: arrayEndedNotOk, label: 'Ended Not OK' }
-    ];  
-    if(this.zoom){
-      this.barChartOptions = {
-        responsive: true,
-        maintainAspectRatio: true,
-        legend: {
-          position: "bottom",
-          labels: {
-            fontSize: 9,
-            padding: 20,
-            boxWidth: 20,
-          }
-        },
-        tooltips: {enabled: true},
-        scales: {
-          xAxes: [{
-              stacked: true,
-              ticks: {
-                fontSize: 9
-              }
-          }],
-          yAxes: [{
-            stacked: true,
-            ticks: {
-              fontSize: 9,
-              stepSize: 200
-          }
-        }]
-      },
-    }
-  }
-}
 
   public chartColors: Array<any> = [
     { // first color
@@ -160,4 +86,78 @@ export class EtatPlanBatchComponent implements OnInit {
       pointHoverBorderColor: '#CD1719'
     }
   ];
+
+  zoomCompnent(bool: boolean): void {
+    this.zoomGrapah.emit({bool, type: 'graphBatch'});
+  }
+
+  ngOnInit(): void {
+    if (this.metier){
+      this.api.getBatchPlans(this.metier).toPromise()
+      .then((res) => {
+        if (res instanceof Array){
+          this.arrayEtat = res;
+          res.forEach((element: any) => {
+            if (element.codeApplication !== 'TOTAUX'){
+              const label = element.codeApplication + ' ' + element.libApplication;
+              this.barChartLabels.push(label);
+            }
+          });
+          res.forEach((element: any) => {
+            if (element.codeApplication !== 'TOTAUX'){
+              arrayEndedOk.push(element.endedOk);
+              arrayWait.push(element.wait);
+              arrayExecuting.push(element.executing);
+              arrayEndedNotOk.push(element.endedNotOk);
+            }
+          });
+        }
+      })
+      .catch();
+    }
+
+
+    const arrayEndedOk: number[] = [];
+    const arrayWait: number[] = [];
+    const arrayExecuting: number[] = [];
+    const arrayEndedNotOk: number[] = [];
+
+    this.barChartData = [
+
+      {barThickness: 5, data: arrayEndedOk, label: 'Ended OK' },
+      {barThickness: 5, data: arrayWait, label: 'Wait' },
+      {barThickness: 5, data: arrayExecuting, label: 'Execution' },
+      {barThickness: 5, data: arrayEndedNotOk, label: 'Ended Not OK' }
+    ];
+    if (this.zoom){
+      this.barChartOptions = {
+        responsive: true,
+        maintainAspectRatio: true,
+        legend: {
+          position: 'bottom',
+          labels: {
+            fontSize: 9,
+            padding: 20,
+            boxWidth: 20,
+          }
+        },
+        tooltips: {enabled: true},
+        scales: {
+          xAxes: [{
+              stacked: true,
+              ticks: {
+                fontSize: 9
+              }
+          }],
+          yAxes: [{
+            stacked: true,
+            ticks: {
+              fontSize: 9,
+              stepSize: 200
+            }
+          }]
+        },
+      };
+    }
+  }
 }

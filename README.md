@@ -2,6 +2,18 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
 
+# Prerequisite
+
+[NPM 7+](https://www.npmjs.com/)
+
+# Installation
+
+Launch `npm install` in project to download all dependencies
+
+# Before push
+
+Launch `ng l` to check your modification 
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

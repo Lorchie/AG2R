@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 
 import { retry, catchError } from 'rxjs/operators';
 
@@ -22,47 +22,47 @@ export class ApiCallService {
 
   constructor(private http: HttpClient) { }
 
-  getIncident(metier: string) {
+  getIncident(metier: string): Observable<object>  {
     return this.http.get(this.incidentUrl + metier).pipe(
       retry(1),
       catchError(this.handleError));
 
   }
-  getIntervention(metier: string) {
+  getIntervention(metier: string): Observable<object> {
     return this.http.get(this.interventionUrl + metier).pipe(
       retry(1),
       catchError(this.handleError));
   }
-  getBatchPlans(metier: string) {
+  getBatchPlans(metier: string): Observable<object> {
     return this.http.get(this.batchPlansUrl + metier).pipe(
       retry(1),
       catchError(this.handleError));
   }
-  getSuspendedScenarios(metier: string) {
+  getSuspendedScenarios(metier: string): Observable<object> {
     return this.http.get(this.suspendedScenariosUrl + metier).pipe(
       retry(1),
       catchError(this.handleError));
   }
-  getScenarioStatSuspendu(metier: string) {
+  getScenarioStatSuspendu(metier: string): Observable<object> {
     return this.http.get(this.scenarioStatSuspenduUrl + metier).pipe(
       retry(1),
       catchError(this.handleError));
   }
-  getMessagesAccueil() {
+  getMessagesAccueil(): Observable<object> {
     return this.http.get(this.messagesAccueilUrl).pipe(
       retry(1),
       catchError(this.handleError));
   }
-  getMessages(metier: string) {
+  getMessages(metier: string): Observable<object> {
     return this.http.get(this.messagesUrl + metier).pipe(
       retry(1),
       catchError(this.handleError));
   }
-  deleteMessage(messageId: string){
+  deleteMessage(messageId: string): Observable<object> {
     return this.http.delete(this.supprimerMessageUrl + messageId);
   }
 
-  ajouterMessage(metier: any, message: string){
+  ajouterMessage(metier: any, message: string): Observable<object> {
     const messageObject = {
       codeMetier: metier.code,
       libMetier: metier.titre,
@@ -72,7 +72,7 @@ export class ApiCallService {
     return this.http.post(this.ajouterMessageUrl, messageObject);
   }
 
-  handleError(error: any) {
+  handleError(error: any): Observable<never> {
 
     let errorMessage = '';
 

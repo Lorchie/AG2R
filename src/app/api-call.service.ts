@@ -19,6 +19,7 @@ export class ApiCallService {
   scenarioStatSuspenduUrl = 'http://localhost:8081/api/statesScenarios?businessId=';
   supprimerMessageUrl = 'http://localhost:8081/api/messages?param=';
   ajouterMessageUrl = 'http://localhost:8081/api/messages';
+  ajouterFichierUrl = 'http://localhost:8081/api/uploadIntervention';
 
   constructor(private http: HttpClient) { }
 
@@ -70,6 +71,12 @@ export class ApiCallService {
        typeMessage: metier.typeMessage
       };
     return this.http.post(this.ajouterMessageUrl, messageObject);
+  }
+
+  postFile(fileToUpload: File){
+    const formData: FormData = new FormData();
+    formData.append('file', fileToUpload);
+    return this.http.post(this.ajouterFichierUrl, formData);
   }
 
   handleError(error: any): Observable<never> {

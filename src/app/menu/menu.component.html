@@ -1,36 +1,36 @@
-<nav class="list-group list-group-horizontal justify-content-center">
-    <ul class="list-group list-group-flush w-100 align-items-stretch">
-        <li class="list-group-item text-center d-inline-block" >
+<nav class="d-flex">
+    <ul class="list-inline mx-auto justify-content-center list-group">
+        <li class="list-inline-item list-group-item" >
             <a routerLink="/accueil-component" routerLinkActive="active" >
                 <div [ngClass]="{'actif': menu == 'Home'}" class="svg text-center my-auto" [inlineSVG]="'assets/svg/Home.svg'"></div>
             </a>
         </li>
-        <li class="list-group-item text-center d-inline-block">
+        <li class="list-inline-item list-group-item">
             <a routerLink="/retraite-complementaire-component" routerLinkActive="active" >
                 <div [ngClass]="{'actif': menu == 'Retraite'}" class="svg text-center my-auto" [inlineSVG]="'assets/svg/Retraite.svg'"></div>
             </a>
         </li>
-        <li class="list-group-item text-center d-inline-block">
+        <li class="list-inline-item list-group-item">
             <a routerLink="/client-distribution-component" routerLinkActive="active" >
                 <div [ngClass]="{'actif': menu == 'Digital'}" class="svg text-center my-auto" [inlineSVG]="'assets/svg/Digital.svg'"></div>
             </a>
         </li>
-        <li class="list-group-item text-center d-inline-block">
+        <li class="list-inline-item list-group-item">
             <a routerLink="/prevoyance-sante-component" routerLinkActive="active" >
                 <div [ngClass]="{'actif': menu == 'Prevoyance_sante'}" class="svg text-center my-auto" [inlineSVG]="'assets/svg/Prevoyance_sante.svg'"></div>
             </a>
         </li>
-        <li class="list-group-item text-center d-inline-block">
+        <li class="list-inline-item list-group-item">
             <a routerLink="/epargne-retraite-component" routerLinkActive="active" >
                 <div [ngClass]="{'actif': menu == 'Epargne'}" class="svg text-center my-auto" [inlineSVG]="'assets/svg/Epargne.svg'"></div>
             </a>
         </li>
-        <li class="list-group-item text-center d-inline-block">
+        <li class="list-inline-item list-group-item">
             <a routerLink="/finance-rh-component" routerLinkActive="active" >
                 <div [ngClass]="{'actif': menu == 'Fonctions_supports'}" class="svg text-center my-auto" [inlineSVG]="'assets/svg/Fonctions_supports.svg'"></div>
             </a>
         </li>
-        <li class="list-group-item text-center d-inline-block">
+        <li class="list-inline-item list-group-item">
             <a routerLink="/saisie-manuelle-component" routerLinkActive="active" >
                 <div [ngClass]="{'actif': menu == 'Reglages'}" class="svg text-center my-auto" [inlineSVG]="'assets/svg/Reglages.svg'"></div>
             </a>

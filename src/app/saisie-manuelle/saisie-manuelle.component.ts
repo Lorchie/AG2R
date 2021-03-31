@@ -11,7 +11,7 @@ export class SaisieManuelleComponent implements OnInit {
   @HostBinding('class') classes  = 'col container' ;
 
   metierSelected: any;
-
+  fileToUpload: any;
   myGroup: any;
   faitsMarquants: any;
   oui = '';
@@ -32,6 +32,19 @@ export class SaisieManuelleComponent implements OnInit {
   changeMetier(e: any): void {
     this.metierSelected = this.metierArray[e.target.value];
     this.callApi();
+  }
+
+  handleFileInput(target: any) {
+    console.log(target.files);
+    this.fileToUpload = target.files.item(0);
+  }
+
+  uploadFileToActivity() {
+    this.api.postFile(this.fileToUpload).subscribe(data => {
+        console.log("ok");
+      }, error => {
+        console.log(error);
+      });
   }
 
   callApi(): void{

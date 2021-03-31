@@ -1,4 +1,4 @@
-<div class="container" *ngIf="!zoomBool">
+<div class="container m-0" *ngIf="!zoomBool">
     <div class="row justify-content-between">
         <div class="col componentTDB marginCol divFaitsMarquand"><app-faits-marquants [metier]="metier"></app-faits-marquants></div>
         <div class="col-8 componentTDB color"><app-tableau-incidents (zoomTableau)="funcZoom($event)" [metier]="metier" [type]="'batch'" [zoom]="false"></app-tableau-incidents></div>

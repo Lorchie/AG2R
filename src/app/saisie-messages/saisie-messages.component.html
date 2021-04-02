@@ -1,0 +1,33 @@
+
+<div class="padding">
+    <select class="custom-select" (change)="changeMetier($event)" (ngModel)="metierArray">
+        <option value="" [selected]="true" disabled>Choisir metier</option>
+        <option *ngFor="let city of metierArray" [value]="city.id">{{city.titre}}</option>
+     </select>
+</div>
+<div *ngIf="metierSelected">
+    <div>    
+        <div class="text-center padding form-group">
+            <textarea class="form-control" [(ngModel)]="message"></textarea>
+            <button class="btn-default padding-sm" (click)="ajouter()">Ajouter</button>
+        </div>
+        <div class="table-wrapper-scroll-y my-custom-scrollbar" *ngIf="metierSelected">
+            <table class="table table-striped table-sm">
+                <tbody class="tabMessage">
+                    <tr *ngFor="let e of faitsMarquants" class="text-center">
+                        <td>
+                            {{e.libMessage}}
+                        </td>
+                        <td>
+                            <button (click)="supprimerMessage(e.idMessage)">Supprimer</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="text-center padding">
+            <button class="btn-default" (click)="supprimerAllMessage()">Supprimer Tout</button>
+        </div>
+    </div>
+</div>

@@ -10,73 +10,65 @@ import { retry, catchError } from 'rxjs/operators';
 })
 export class ApiCallService {
 
-  incidentUrl = 'http://localhost:8081/api/incidents?businessId=';
-  interventionUrl = 'http://localhost:8081/api/interventions?businessId=';
-  batchPlansUrl = 'http://localhost:8081/api/batchPlans?businessId=';
-  suspendedScenariosUrl = 'http://localhost:8081/api/suspendedScenarios?businessId=';
-  messagesAccueilUrl = 'http://localhost:8081/api/messages?businessId=accueil';
-  messagesUrl = ' http://localhost:8081/api/messages?businessId=';
-  scenarioStatSuspenduUrl = 'http://localhost:8081/api/statesScenarios?businessId=';
-  supprimerMessageUrl = 'http://localhost:8081/api/messages?param=';
-  ajouterMessageUrl = 'http://localhost:8081/api/messages';
-  ajouterFichierUrl = 'http://localhost:8081/api/uploadIntervention';
+  startUrl = 'http://localhost:8081/api/';
+  startUrlUpdate = 'http://localhost:8081/api/upload/'
+  endurlMetier = '?businessId='
+
+  messagesUrl = 'http://localhost:8081/api/messages?businessId=';
+
+  supprimerMessageUrl = this.startUrl + 'messages?param=';
+  ajouterMessageUrl = this.startUrl + 'messages';
+
+  uploadInterventionUrl = this.startUrlUpdate + 'interventions=' + this.endurlMetier;
+  uploadIncidentsUrl = 'http://localhost:8081/api/upload/incidents?businessId=';
+  uploadBatchPlansUrl = 'http://localhost:8081/api/upload/batchPlans?businessId=';
+  uploadStatesScenariosUrl = 'http://localhost:8081/api/upload/statesScenarios?businessId=';
+  uploadSuspendedUrl = 'http://localhost:8081/api/upload/suspended';
 
   constructor(private http: HttpClient) { }
 
-  getIncident(metier: string): Observable<object>  {
-    return this.http.get(this.incidentUrl + metier).pipe(
+  getDonnee(metier: string, type:string): Observable<object>  {
+    return this.http.get(this.startUrl + type + this.endurlMetier + metier).pipe(
       retry(1),
       catchError(this.handleError));
+  }
 
-  }
-  getIntervention(metier: string): Observable<object> {
-    return this.http.get(this.interventionUrl + metier).pipe(
-      retry(1),
-      catchError(this.handleError));
-  }
-  getBatchPlans(metier: string): Observable<object> {
-    return this.http.get(this.batchPlansUrl + metier).pipe(
-      retry(1),
-      catchError(this.handleError));
-  }
-  getSuspendedScenarios(metier: string): Observable<object> {
-    return this.http.get(this.suspendedScenariosUrl + metier).pipe(
-      retry(1),
-      catchError(this.handleError));
-  }
-  getScenarioStatSuspendu(metier: string): Observable<object> {
-    return this.http.get(this.scenarioStatSuspenduUrl + metier).pipe(
-      retry(1),
-      catchError(this.handleError));
-  }
-  getMessagesAccueil(): Observable<object> {
-    return this.http.get(this.messagesAccueilUrl).pipe(
-      retry(1),
-      catchError(this.handleError));
-  }
   getMessages(metier: string): Observable<object> {
     return this.http.get(this.messagesUrl + metier).pipe(
       retry(1),
       catchError(this.handleError));
   }
+
   deleteMessage(messageId: string): Observable<object> {
     return this.http.delete(this.supprimerMessageUrl + messageId);
   }
 
-  ajouterMessage(metier: any, message: string): Observable<object> {
+  ajouterMessage(metierObject: any, message: string): Observable<object> {
+    const messageObject = {
+      codeMetier: metierObject.code,
+      libMetier: metierObject.titre,
+      libMessage: message,
+      typeMessage: metierObject.typeMessage
+      };
+    return this.http.post(this.ajouterMessageUrl + metierObject.code, messageObject);
+  }
+
+  postUpload(fileToUpload: File,metier: string, type:string): Observable<object>{
+    const formData: FormData = new FormData();
+    formData.append('file', fileToUpload);
+    console.log(metier);
+    return this.http.post(this.startUrl + type + this.endurlMetier + metier, formData);
+  }
+
+  postSuspended(metier: any, nbrScenario: string): Observable<object>{
     const messageObject = {
       codeMetier: metier.code,
       libMetier: metier.titre,
-      libMessage: message,
-       typeMessage: metier.typeMessage
+      nbrScenario: nbrScenario
       };
-    return this.http.post(this.ajouterMessageUrl, messageObject);
-  }
-
-  postFile(fileToUpload: File){
-    const formData: FormData = new FormData();
-    formData.append('file', fileToUpload);
-    return this.http.post(this.ajouterFichierUrl, formData);
+    console.log(messageObject);
+    console.log(this.uploadSuspendedUrl);
+    return this.http.post(this.uploadSuspendedUrl, messageObject);
   }
 
   handleError(error: any): Observable<never> {

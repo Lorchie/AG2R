@@ -93,7 +93,7 @@ export class EtatPlanBatchComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.metier){
-      this.api.getBatchPlans(this.metier).toPromise()
+      this.api.getDonnee(this.metier,'batchPlans').toPromise()
       .then((res) => {
         if (res instanceof Array){
           this.arrayEtat = res;

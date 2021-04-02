@@ -1,0 +1,45 @@
+<div class="padding">
+    <select class="custom-select" (change)="changeMetier($event)" (ngModel)="metierArray">
+        <option value="" [selected]="true" disabled>Choisir metier</option>
+        <option *ngFor="let city of metierArray" [value]="city.id">{{city.titre}}</option>
+     </select>
+</div>
+<div *ngIf="metierSelected">
+    <div class="form-group mt-5">
+        <label for="file">Intervention : </label>
+        <br>
+        <input type="file" id="intervention" (change)="handleFileInput($event.target, 'intervention')">
+        <input type="file" id="intervention1" (change)="handleFileInput($event.target, 'intervention')">
+        <input type="file" id="intervention2" (change)="handleFileInput($event.target, 'intervention')">
+        <input type="file" id="intervention3" (change)="handleFileInput($event.target, 'intervention')">
+        <input type="file" id="intervention4" (change)="handleFileInput($event.target, 'intervention')">
+    </div>
+
+    <div class="form-group mt-5">
+        <label for="file">Incidents: </label>
+        <br>
+        <input type="file" id="incident" (change)="handleFileInput($event.target, 'incident')">
+    </div>
+
+    <div class="form-group mt-5">
+        <label for="file">Plan Batch: </label>
+        <br>
+        <input type="file" id="planBatch" (change)="handleFileInput($event.target, 'planBatch')">
+    </div>
+
+    <div class="form-group mt-5">
+        <label for="file">Etats des scénario: </label>
+        <br>
+        <input type="file" id="scenario" (change)="handleFileInput($event.target, 'scenario')">
+    </div>
+
+    <div class="form-group mt-5">
+        <label>Scénario suspendu: </label>
+        <br>
+        <input type="number" [(ngModel)]="nbrSuspendu">
+    </div>
+
+    <div class="container row align-center d-flex justify-content-center">
+        <button (click)="uploadFiles()">Valider</button>
+    </div>
+</div>

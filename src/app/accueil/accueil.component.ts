@@ -18,7 +18,7 @@ export class AccueilComponent implements OnInit {
   constructor(private api: ApiCallService) { }
 
   ngOnInit(): void {
-      this.api.getMessagesAccueil().toPromise()
+      this.api.getMessages('accueil').toPromise()
       .then((res) => {
           if (res instanceof Array){
             this.longer = res.length;

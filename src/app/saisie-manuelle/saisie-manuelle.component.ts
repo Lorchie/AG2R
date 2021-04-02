@@ -1,5 +1,4 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
-import { ApiCallService } from '../api-call.service';
 
 @Component({
   selector: 'app-saisie-manuelle',
@@ -7,14 +6,6 @@ import { ApiCallService } from '../api-call.service';
   styleUrls: ['./saisie-manuelle.component.scss']
 })
 export class SaisieManuelleComponent implements OnInit {
-
-  @HostBinding('class') classes  = 'col container' ;
-
-  metierSelected: any;
-  fileToUpload: any;
-  myGroup: any;
-  faitsMarquants: any;
-  oui = '';
 
   public metierArray: Array<{id: number, titre: string, code: string, typeMessage: string}> = [
     {id: 0, titre: 'Accueil', code: 'accueil', typeMessage: 'Accueil'},
@@ -25,65 +16,12 @@ export class SaisieManuelleComponent implements OnInit {
     {id: 5, titre: 'Finance, rh & autres Fonction supports', code: 'FRFS', typeMessage: 'Faits Marquants'},
   ];
 
-  constructor(private api: ApiCallService) { }
+  @HostBinding('class') classes  = 'col' ;
+
+  chargementDonnee = true;
+
+  constructor() { }
 
   ngOnInit(): void {
-  }
-  changeMetier(e: any): void {
-    this.metierSelected = this.metierArray[e.target.value];
-    this.callApi();
-  }
-
-  handleFileInput(target: any) {
-    console.log(target.files);
-    this.fileToUpload = target.files.item(0);
-  }
-
-  uploadFileToActivity() {
-    this.api.postFile(this.fileToUpload).subscribe(data => {
-        console.log("ok");
-      }, error => {
-        console.log(error);
-      });
-  }
-
-  callApi(): void{
-    if (this.metierSelected){
-      this.api.getMessages(this.metierSelected.code).toPromise()
-      .then((res) => {
-          this.faitsMarquants = res;
-        })
-      .catch();
-    }
-  }
-
-  supprimerMessage(id: number): void{
-    this.api.deleteMessage(id.toString()).subscribe(
-      x => console.log('Observer got a next value: ' + x),
-      () =>     this.callApi());
-  }
-
-  supprimerAllMessage(): void{
-    let id = '';
-    const longeur = this.faitsMarquants.length;
-    this.faitsMarquants.forEach((element: any, i: number) => {
-      if (i !== longeur - 1){
-        id = id + element.idMessage + ',';
-      }else{
-        id = id + element.idMessage;
-      }
-    });
-    this.api.deleteMessage(id).subscribe(
-      x => console.log('Observer got a next value: ' + x),
-      () =>     this.callApi());
-
-  }
-  ajouter(): void{
-    if (this.oui){
-      this.api.ajouterMessage(this.metierSelected, this.oui).subscribe(
-        x => console.log('Observer got a next value: ' + x),
-        () =>     this.callApi());
-    }
-    this.oui = '';
   }
 }

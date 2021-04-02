@@ -22,6 +22,8 @@ import { FaitsMarquantsComponent } from './component-TDB/faits-marquants/faits-m
 import { EtatPlanBatchComponent } from './component-TDB/etat-plan-batch/etat-plan-batch.component';
 import { ScenarioSuspendusComponent } from './component-TDB/scenario-suspendus/scenario-suspendus.component';
 import { TableauIncidentsComponent } from './component-TDB/tableau-incidents/tableau-incidents.component';
+import { ChargementDonneComponent } from './chargement-donne/chargement-donne.component';
+import { SaisieMessagesComponent } from './saisie-messages/saisie-messages.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { TableauIncidentsComponent } from './component-TDB/tableau-incidents/tab
     FaitsMarquantsComponent,
     EtatPlanBatchComponent,
     ScenarioSuspendusComponent,
-    TableauIncidentsComponent
+    TableauIncidentsComponent,
+    ChargementDonneComponent,
+    SaisieMessagesComponent
   ],
   imports: [
     BrowserModule,

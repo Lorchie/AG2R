@@ -59,17 +59,34 @@ export class SaisieMessagesComponent implements OnInit {
         id = id + element.idMessage;
       }
     });
-    this.api.deleteMessage(id).subscribe(
-      x => console.log('Observer got a next value: ' + x),
-      () =>     this.callApi());
+    this.api.deleteMessage(id).subscribe(      
+      result => {
+        // Handle result
+        console.log(result)
+      },
+      error => {
+        console.log(error)
+      },
+      () => {
+        this.callApi();
+      });
 
   }
   ajouter(): void{
     if (this.message){
-      this.api.ajouterMessage(this.metierSelected, this.message).subscribe(
-        x => console.log('Observer got a next value: ' + x),
-        () =>     this.callApi());
-    }
+      this.api.ajouterMessage(this.metierSelected, this.message).subscribe(      
+      result => {
+        // Handle result
+        console.log(result)
+      },
+      error => {
+        console.log(error)
+      },
+      () => {
+        this.callApi();
+      });
+
     this.message = '';
+    }
   }
 }

@@ -4,33 +4,63 @@
         <option *ngFor="let city of metierArray" [value]="city.id">{{city.titre}}</option>
      </select>
 </div>
-<div *ngIf="metierSelected">
-    <div class="form-group mt-5">
-        <label for="file">Intervention : </label>
-        <br>
-        <input type="file" id="intervention" (change)="handleFileInput($event.target, 'intervention')">
-        <input type="file" id="intervention1" (change)="handleFileInput($event.target, 'intervention')">
-        <input type="file" id="intervention2" (change)="handleFileInput($event.target, 'intervention')">
-        <input type="file" id="intervention3" (change)="handleFileInput($event.target, 'intervention')">
-        <input type="file" id="intervention4" (change)="handleFileInput($event.target, 'intervention')">
-    </div>
+<div *ngIf="metierSelected"  class="container">
+    <div class="row">
+        <div class="form-group mt-5 col">
+            <label for="file">Intervention : </label>
+            <br>
+            <div class="uploadfilecontainer" (click)="intervention.click()" appDragDropDirective (onFileDropped)="uploadFile($event,true,'intervention')">
+                <input hidden type="file" #intervention accept=".xlsx" (change)="uploadFile($event.target,false,'intervention')">
+            </div>
+            <div  class="files-list" *ngFor="let file of filesToUploadIntervention;let i= index">
+                <p class="marginFileName"> {{ file.name }} </p>
+                <button class="delete-file" (click)="deleteAttachment(i,'intervention')">
+                    Supprimer
+                </button>
+            </div>
+        </div>
 
-    <div class="form-group mt-5">
-        <label for="file">Incidents: </label>
-        <br>
-        <input type="file" id="incident" (change)="handleFileInput($event.target, 'incident')">
-    </div>
+        <div class="form-group mt-5 col">
+            <label for="file">Incidents: </label>
+            <br>
+            <div class="uploadfilecontainer" (click)="incident.click()" appDragDropDirective (onFileDropped)="uploadFile($event,true,'incident')">
+                <input hidden type="file" #incident accept=".xlsx" (change)="uploadFile($event.target,false,'incident')">
+            </div>
+            <div  class="files-list" *ngFor="let file of fileToUploadIncident;let i= index">
+                <p class="marginFileName"> {{ file.name }} </p>
+                <button class="delete-file" (click)="deleteAttachment(i,'incident')">
+                    Supprimer
+                </button>
+            </div>
+        </div>
 
-    <div class="form-group mt-5">
-        <label for="file">Plan Batch: </label>
-        <br>
-        <input type="file" id="planBatch" (change)="handleFileInput($event.target, 'planBatch')">
-    </div>
+        <div class="form-group mt-5 col">
+            <label for="file">Plan Batch: </label>
+            <br>
+            <div class="uploadfilecontainer" (click)="planBatch.click()" appDragDropDirective (onFileDropped)="uploadFile($event,true,'planBatch')">
+                <input hidden type="file" #planBatch accept=".xlsx" (change)="uploadFile($event.target,false,'planBatch')">
+            </div>
+            <div  class="files-list" *ngFor="let file of fileToUploadPlanBatch;let i= index">
+                <p class="marginFileName"> {{ file.name }} </p>
+                <button class="delete-file" (click)="deleteAttachment(i,'planBatch')">
+                    Supprimer
+                </button>
+            </div>
+        </div>
 
-    <div class="form-group mt-5">
-        <label for="file">Etats des scénario: </label>
-        <br>
-        <input type="file" id="scenario" (change)="handleFileInput($event.target, 'scenario')">
+        <div class="form-group mt-5 col">
+            <label for="file">Etats des scénario: </label>
+            <br>
+            <div class="uploadfilecontainer" (click)="scenario.click()" appDragDropDirective (onFileDropped)="uploadFile($event,true,'scenario')">
+                <input hidden type="file" #scenario accept=".xlsx" (change)="uploadFile($event.target,false,'scenario')">
+            </div>
+            <div  class="files-list" *ngFor="let file of fileToUploadScenario;let i= index">
+                <p class="marginFileName"> {{ file.name }} </p>
+                <button class="delete-file" (click)="deleteAttachment(i,'scenario')">
+                    Supprimer
+                </button>
+            </div>
+        </div>
     </div>
 
     <div class="form-group mt-5">

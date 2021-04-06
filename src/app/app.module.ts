@@ -24,6 +24,7 @@ import { ScenarioSuspendusComponent } from './component-TDB/scenario-suspendus/s
 import { TableauIncidentsComponent } from './component-TDB/tableau-incidents/tableau-incidents.component';
 import { ChargementDonneComponent } from './chargement-donne/chargement-donne.component';
 import { SaisieMessagesComponent } from './saisie-messages/saisie-messages.component';
+import { DragDropDirectiveDirective } from './drag-drop-directive.directive';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { SaisieMessagesComponent } from './saisie-messages/saisie-messages.compo
     ScenarioSuspendusComponent,
     TableauIncidentsComponent,
     ChargementDonneComponent,
-    SaisieMessagesComponent
+    SaisieMessagesComponent,
+    DragDropDirectiveDirective
   ],
   imports: [
     BrowserModule,

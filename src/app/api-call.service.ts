@@ -50,24 +50,25 @@ export class ApiCallService {
       libMessage: message,
       typeMessage: metierObject.typeMessage
       };
-    return this.http.post(this.ajouterMessageUrl + metierObject.code, messageObject);
+    console.log(messageObject);
+    console.log(this.ajouterMessageUrl);
+    return this.http.post(this.ajouterMessageUrl, messageObject);
   }
 
   postUpload(fileToUpload: File,metier: string, type:string): Observable<object>{
     const formData: FormData = new FormData();
     formData.append('file', fileToUpload);
-    console.log(metier);
-    return this.http.post(this.startUrl + type + this.endurlMetier + metier, formData);
+    return this.http.post(this.startUrlUpdate + type + this.endurlMetier + metier, formData);
   }
 
   postSuspended(metier: any, nbrScenario: string): Observable<object>{
     const messageObject = {
       codeMetier: metier.code,
       libMetier: metier.titre,
-      nbrScenario: nbrScenario
+      nbrScenario: nbrScenario.toString()
       };
     console.log(messageObject);
-    console.log(this.uploadSuspendedUrl);
+    console.log(this.http.post(this.uploadSuspendedUrl, messageObject));
     return this.http.post(this.uploadSuspendedUrl, messageObject);
   }
 

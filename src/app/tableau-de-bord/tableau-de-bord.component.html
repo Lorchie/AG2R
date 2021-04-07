@@ -1,13 +1,28 @@
-<div class="container m-0" *ngIf="!zoomBool">
-    <div class="row justify-content-between">
-        <div class="col componentTDB marginCol divFaitsMarquand"><app-faits-marquants [metier]="metier"></app-faits-marquants></div>
-        <div class="col-8 componentTDB color"><app-tableau-incidents (zoomTableau)="funcZoom($event)" [metier]="metier" [type]="'batch'" [zoom]="false"></app-tableau-incidents></div>
-        <div class="w-100"></div>
-        <div class="col componentTDB marginCol color"><app-etat-plan-batch (zoomGrapah)="funcZoom($event)" [metier]="metier"></app-etat-plan-batch></div>
-        <div class="col-8 componentTDB color"><app-tableau-incidents (zoomTableau)="funcZoom($event)" [metier]="metier"  [type]="'scenario'"></app-tableau-incidents></div>
-        <div class="w-100"></div>
-        <div class="col componentTDB marginCol color d-flex justify-content-center align-items-center"><app-scenario-suspendus [metier]="metier"></app-scenario-suspendus></div>
-        <div class="col-8 componentTDB color"><app-tableau-incidents (zoomTableau)="funcZoom($event)" [metier]="metier"  [type]="'intervention'"></app-tableau-incidents></div>
+<div class="container-fluid m-0 containerComponent" *ngIf="!zoomBool">
+    <div class="row justify-content-between containerComponent">
+        <div class="col-4">
+            <div class="row">
+                <div class="col componentTDB marginCol divFaitsMarquand"><app-faits-marquants [metier]="metier"></app-faits-marquants></div>
+            </div>
+            <div class="row h-50">
+                <div class="h-70 col componentTDB marginCol color"><app-etat-plan-batch (zoomGrapah)="funcZoom($event)" [metier]="metier"></app-etat-plan-batch></div>
+            </div>
+            <div class="row" style="height: 18%;">
+                <div class="col componentTDB marginCol color d-flex justify-content-center align-items-center"><app-scenario-suspendus [metier]="metier"></app-scenario-suspendus></div>
+            </div>
+        </div>
+
+        <div class="col-8">
+            <div class="row">
+                <div class="col componentTDB color"><app-tableau-incidents (zoomTableau)="funcZoom($event)" [metier]="metier" [type]="'batch'" [zoom]="false"></app-tableau-incidents></div>
+            </div>
+            <div class="row">
+                <div class="col componentTDB color"><app-tableau-incidents (zoomTableau)="funcZoom($event)" [metier]="metier"  [type]="'scenario'"></app-tableau-incidents></div>
+            </div>
+            <div class="row">
+                <div class="col componentTDB color"><app-tableau-incidents (zoomTableau)="funcZoom($event)" [metier]="metier"  [type]="'intervention'"></app-tableau-incidents></div>
+            </div>
+        </div>
     </div>
 </div>
 <div *ngIf="zoom == 'graphBatch' && zoomBool" class="color componentTDB marginCol">

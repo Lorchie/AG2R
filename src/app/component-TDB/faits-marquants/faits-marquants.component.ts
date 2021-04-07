@@ -8,7 +8,7 @@ import { ApiCallService } from '../../api-call.service';
 })
 export class FaitsMarquantsComponent implements OnInit {
 
-  @Input() metier?: string;
+  @Input() metier?: any;
   indexG = 0;
   faitsMarquants: any;
   radioOptions = 0;
@@ -20,7 +20,7 @@ export class FaitsMarquantsComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.metier){
-      this.api.getMessages(this.metier).toPromise()
+      this.api.getMessages(this.metier.code).toPromise()
       .then((res) => {
           if (res instanceof Array){
             this.longer = res.length;

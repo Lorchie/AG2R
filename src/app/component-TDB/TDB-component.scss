@@ -2,13 +2,17 @@ td{
     padding: 0px !important;
 }
 
+.textTitre{
+    color: #00BAE3;
+    font-size: 12px;
+    margin:10px;
+}
+
 .tableauIncident{
     font-size: 10px;
 
-    .textTitreTable{
-        color: #00BAE3;
-        font-size: 12px;
-        margin:10px;
+    .fontSize9{
+        font-size: 9px;
     }
     
     .texteNb{
@@ -35,6 +39,11 @@ td{
     .graph{
         position: relative; height:25vh; width:25vw
     }
+
+    .titrePlanBatch{
+        font-size: 9px;
+        margin: 0px;
+    }
     
     .graphZoom{
         position: relative; height:75vh; width:75vw
@@ -47,7 +56,8 @@ td{
     max-width: 100%;
     overflow-x:hidden;
     overflow-y:auto;
-    padding-bottom: 15px;
+    scroll-margin-left: 25px;
+    margin-bottom: 15px;
 }
 
 .radioFaitsMarquants{

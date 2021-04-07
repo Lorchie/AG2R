@@ -19,9 +19,9 @@ export class EtatPlanBatchComponent implements OnInit {
     legend: {
       position: 'bottom',
       labels: {
-        fontSize: 4,
-        padding: 1,
-        boxWidth: 1,
+        fontSize: 5,
+        padding: 5,
+        boxWidth: 5,
       }
     },
     tooltips: {enabled: false},
@@ -29,7 +29,7 @@ export class EtatPlanBatchComponent implements OnInit {
         xAxes: [{
             stacked: true,
             ticks: {
-              fontSize: 2
+              fontSize: 5
             }
         }],
         yAxes: [{
@@ -47,7 +47,7 @@ export class EtatPlanBatchComponent implements OnInit {
   barChartLabels: Label[] = [];
   barChartData: ChartDataSets[] = [];
 
-  @Input() metier?: string;
+  @Input() metier?: any;
   @Input() zoom?: boolean;
 
   @Output() zoomGrapah = new EventEmitter<{bool: boolean, type: string}>();
@@ -93,7 +93,7 @@ export class EtatPlanBatchComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.metier){
-      this.api.getDonnee(this.metier,'batchPlans').toPromise()
+      this.api.getDonnee(this.metier.code,'batchPlans').toPromise()
       .then((res) => {
         if (res instanceof Array){
           this.arrayEtat = res;

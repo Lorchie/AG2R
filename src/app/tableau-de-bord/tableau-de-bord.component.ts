@@ -11,7 +11,7 @@ import { Metier } from '../interfaces/metier';
 export class TableauDeBordComponent implements OnInit, OnDestroy {
 
   @HostBinding('class') classes  = 'col container' ;
-  metier = '';
+  metier: any;
   sub: any;
   zoom = '';
   zoomBool = false;
@@ -20,7 +20,7 @@ export class TableauDeBordComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.sub = this.route
     .data
-    .subscribe(v => this.metier = v.metier);
+    .subscribe(v => this.metier = v);
   }
 
   ngOnDestroy(): void {

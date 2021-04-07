@@ -9,13 +9,13 @@ import { ApiCallService } from '../../api-call.service';
 export class ScenarioSuspendusComponent implements OnInit {
 
   nb: any;
-  @Input() metier?: string;
+  @Input() metier?: any;
 
   constructor(private api: ApiCallService) { }
 
   ngOnInit(): void {
     if (this.metier){
-      this.api.getDonnee(this.metier,'suspendedScenarios').toPromise()
+      this.api.getDonnee(this.metier.code,'suspendedScenarios').toPromise()
       .then((res) => {
         if (res instanceof Array){
           this.nb = res[0].nbrScenario;

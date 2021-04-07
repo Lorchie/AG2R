@@ -9,7 +9,7 @@ import { ApiCallService } from '../../api-call.service';
 })
 export class TableauIncidentsComponent implements OnInit {
   @Input() type?: string;
-  @Input() metier?: string;
+  @Input() metier?: any;
   @Input() zoom?: boolean;
 
   @Output() zoomTableau = new EventEmitter<{bool: boolean, type: string}>();
@@ -32,7 +32,7 @@ export class TableauIncidentsComponent implements OnInit {
     switch (this.type) {
       case 'batch':
         if (this.metier){
-          this.api.getDonnee(this.metier,'incidents').toPromise()
+          this.api.getDonnee(this.metier.code,'incidents').toPromise()
           .then((res) => {
               if (res instanceof Array){
                 const numberInt = res.length;
@@ -50,7 +50,7 @@ export class TableauIncidentsComponent implements OnInit {
         break;
       case 'scenario':
       if (this.metier){
-        this.api.getDonnee(this.metier,'statesScenarios').toPromise()
+        this.api.getDonnee(this.metier.code,'statesScenarios').toPromise()
         .then((res) => {
             if (res instanceof Array){
               const numberInt = res.length;
@@ -68,7 +68,7 @@ export class TableauIncidentsComponent implements OnInit {
       break;
       case 'intervention':
         if (this.metier){
-          this.api.getDonnee(this.metier,'interventions').toPromise()
+          this.api.getDonnee(this.metier.code,'interventions').toPromise()
           .then((res) => {
               if (res instanceof Array){
                 const numberInt = res.length;

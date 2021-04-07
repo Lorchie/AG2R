@@ -8,7 +8,7 @@
 <div *ngIf="metierSelected">
     <div>    
         <div class="text-center padding form-group">
-            <textarea maxlength="255" class="form-control" [(ngModel)]="message"></textarea>
+            <textarea maxlength="255" class="form-control m-3" [(ngModel)]="message"></textarea>
             <button class="btn-default padding-sm" (click)="ajouter()">Ajouter</button>
         </div>
         <div class="table-wrapper-scroll-y my-custom-scrollbar" *ngIf="metierSelected">

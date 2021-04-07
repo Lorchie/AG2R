@@ -1,9 +1,10 @@
-<div class="etatPlanBatch">
+<div class="etatPlanBatch h-100">
   <div class="chart-wrapper" [ngClass]="(zoom === true)?'graphZoom':'graph'">
-    <p class="colorBlue">Etat du plan batch : 7h00&emsp;
-      <a *ngIf="zoom" style="color:black"(click)="zoomCompnent(false)" [inlineSVG]="'assets/svg/zoom-out.svg'"></a>
-      <a *ngIf="!zoom" style="color:black"(click)="zoomCompnent(true)" [inlineSVG]="'assets/svg/zoom-in.svg'"></a>
+    <p class="textTitre text-left">Etat du plan batch : 7h00&emsp;
+      <a *ngIf="zoom" style="color:black;float:right;"(click)="zoomCompnent(false)" [inlineSVG]="'assets/svg/zoom-out.svg'"></a>
+      <a *ngIf="!zoom" style="color:black;float:right;"(click)="zoomCompnent(true)" [inlineSVG]="'assets/svg/zoom-in.svg'"></a>
     </p>
+    <p class="text-center titrePlanBatch">Etats des batchs {{metier.titre}}</p>
       <canvas baseChart 
         [datasets]="barChartData"
         [colors]="chartColors"

@@ -15,4 +15,14 @@
 .divFaitsMarquand{
     background: linear-gradient(to right, #00BAE3 0%, #5AB88D 100%);
     border-radius: 20px;
+    color: white;
+}
+
+.containerComponent{
+    height: 100%;
+    padding-bottom: 3px;
+}
+
+.col-4{
+    max-width: 32% !important;
 }

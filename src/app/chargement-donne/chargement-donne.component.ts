@@ -14,10 +14,12 @@ export class ChargementDonneComponent implements OnInit {
   @ViewChild('myInput')
   myInputVariable: any;
 
-  fileToUploadPlanBatch: Array<any> = new Array;
-  fileToUploadIncident: Array<any> = new Array;
-  fileToUploadScenario: Array<any> = new Array;
-  filesToUploadIntervention: Array<any> = new Array;
+  fileToUploadPlanBatch: Array<any> = new Array();
+  fileToUploadIncident: Array<any> = new Array();
+  fileToUploadScenario: Array<any> = new Array();
+  filesToUploadIntervention: Array<any> = new Array();
+
+  filesChamps: any = [];
   metierSelected: any;
   nbrSuspendu: any;
 
@@ -38,8 +40,9 @@ export class ChargementDonneComponent implements OnInit {
     this.metierSelected = this.metierArray[e.target.value];
   }
 
-  uploadFileToActivity(fileToUpload: any,type: string): void {
-    this.api.postUpload(fileToUpload,this.metierSelected.code,type).subscribe(data => {
+  uploadFileToActivity(fileToUpload: any, type: string): void {
+    console.log(fileToUpload);
+    this.api.postUpload(fileToUpload, this.metierSelected.code, type).subscribe(data => {
         console.log('ok');
       }, error => {
         console.log(error);
@@ -47,41 +50,37 @@ export class ChargementDonneComponent implements OnInit {
   }
 
   uploadFiles(): void{
-    if(this.filesToUploadIntervention){
+    if (this.filesToUploadIntervention.length !== 0){
       this.filesToUploadIntervention.forEach(element => {
-        this.uploadFileToActivity(element,"interventions");
+        this.uploadFileToActivity(element, 'interventions');
       });
     }
 
-    if(this.fileToUploadIncident){
-      this.uploadFileToActivity(this.fileToUploadIncident[0],"incidents");
+    if (this.fileToUploadIncident.length !== 0){
+      this.uploadFileToActivity(this.fileToUploadIncident[0], 'incidents');
     }
-    if(this.fileToUploadPlanBatch){
-      this.uploadFileToActivity(this.fileToUploadPlanBatch[0],"batchPlans");
+    if (this.fileToUploadPlanBatch.length !== 0){
+      this.uploadFileToActivity(this.fileToUploadPlanBatch[0], 'batchPlans');
     }
-    if(this.fileToUploadScenario){
-      this.uploadFileToActivity(this.fileToUploadScenario[0],"statesScenarios")
+    if (this.fileToUploadScenario.length !== 0){
+      this.uploadFileToActivity(this.fileToUploadScenario[0], 'statesScenarios');
     }
-    if(this.nbrSuspendu){
-      this.api.postSuspended(this.metierSelected,this.nbrSuspendu).subscribe(data => {
-        console.log('ok');
-      }, error => {
-        console.log(error);
-      });
+    if (this.nbrSuspendu){
+      this.api.postSuspended(this.metierSelected, this.nbrSuspendu).subscribe();
     }
+    this.removeAllChamps();
   }
 
-  uploadFile(event:any,bool: boolean,name :string) {
-    let file;
-    if(!bool){
-      file = event.files;
+  uploadFile(event: any, bool: boolean, name: string): void {
+    let files;
+    if (!bool){
+      files = event.files;
     }else{
-      file = event
+      files = event;
     }
-    for (let index = 0; index < file.length; index++) {
-      const element = file[index];
-      if(element.type.indexOf('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') !== 0) {
-        console.log("invalid");
+    files.forEach((element: any) => {
+      if (element.type.indexOf('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') !== 0) {
+        console.log('invalid');
       }else{
         switch (name) {
           case 'intervention':
@@ -96,15 +95,15 @@ export class ChargementDonneComponent implements OnInit {
           case 'scenario':
             this.fileToUploadScenario[0] = element;
             break;
-         
+
           default:
             break;
         }
       }
-    } 
+    });
   }
 
-  deleteAttachment(index:number,name: string) {
+  deleteAttachment(index: number, name: string): void {
     switch (name) {
       case 'intervention':
         this.filesToUploadIntervention.splice(index, 1);
@@ -119,5 +118,17 @@ export class ChargementDonneComponent implements OnInit {
         this.fileToUploadScenario.splice(index, 1);
         break;
     }
+  }
+
+  removeAllChamps(): void{
+    this.nbrSuspendu = '';
+    console.log(this.filesChamps);
+    this.filesChamps.forEach((element: any) => {
+      element = '';
+    });
+    this.filesToUploadIntervention = [];
+    this.fileToUploadIncident = [];
+    this.fileToUploadPlanBatch = [];
+    this.fileToUploadScenario = [];
   }
 }

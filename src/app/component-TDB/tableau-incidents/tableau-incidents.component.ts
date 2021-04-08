@@ -32,7 +32,7 @@ export class TableauIncidentsComponent implements OnInit {
     switch (this.type) {
       case 'batch':
         if (this.metier){
-          this.api.getDonnee(this.metier.code,'incidents').toPromise()
+          this.api.getDonnee(this.metier.code, 'incidents').toPromise()
           .then((res) => {
               if (res instanceof Array){
                 const numberInt = res.length;
@@ -50,7 +50,7 @@ export class TableauIncidentsComponent implements OnInit {
         break;
       case 'scenario':
       if (this.metier){
-        this.api.getDonnee(this.metier.code,'statesScenarios').toPromise()
+        this.api.getDonnee(this.metier.code, 'statesScenarios').toPromise()
         .then((res) => {
             if (res instanceof Array){
               const numberInt = res.length;
@@ -68,7 +68,7 @@ export class TableauIncidentsComponent implements OnInit {
       break;
       case 'intervention':
         if (this.metier){
-          this.api.getDonnee(this.metier.code,'interventions').toPromise()
+          this.api.getDonnee(this.metier.code, 'interventions').toPromise()
           .then((res) => {
               if (res instanceof Array){
                 const numberInt = res.length;

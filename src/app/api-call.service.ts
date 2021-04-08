@@ -11,8 +11,8 @@ import { retry, catchError } from 'rxjs/operators';
 export class ApiCallService {
 
   startUrl = 'http://localhost:8081/api/';
-  startUrlUpdate = 'http://localhost:8081/api/upload/'
-  endurlMetier = '?businessId='
+  startUrlUpdate = 'http://localhost:8081/api/upload/';
+  endurlMetier = '?businessId=';
 
   messagesUrl = 'http://localhost:8081/api/messages?businessId=';
 
@@ -28,15 +28,23 @@ export class ApiCallService {
   httpOptions = {
     headers: new HttpHeaders(
       {
+        // 'Content-Type': 'application/json',
+        Authorization: 'Basic ' + btoa('test:123'),
+      }
+    )
+  };
+  httpOptionsPost = {
+    headers: new HttpHeaders(
+      {
         'Content-Type': 'application/json',
-        'Authorization': `Basic ` + btoa('test:123'),
+        Authorization: 'Basic ' + btoa('test:123'),
       }
     )
   };
 
   constructor(private http: HttpClient) { }
 
-  getDonnee(metier: string, type:string): Observable<object>  {
+  getDonnee(metier: string, type: string): Observable<object>  {
     return this.http.get(this.startUrl + type + this.endurlMetier + metier, this.httpOptions).pipe(
       retry(1),
       catchError(this.handleError));
@@ -49,7 +57,9 @@ export class ApiCallService {
   }
 
   deleteMessage(messageId: string): Observable<object> {
-    return this.http.delete(this.supprimerMessageUrl + messageId, this.httpOptions);
+    return this.http.delete(this.supprimerMessageUrl + messageId, this.httpOptions).pipe(
+      retry(1),
+      catchError(this.handleError));
   }
 
   ajouterMessage(metierObject: any, message: string): Observable<object> {
@@ -59,15 +69,17 @@ export class ApiCallService {
       libMessage: message,
       typeMessage: metierObject.typeMessage
       };
-    console.log(messageObject);
-    console.log(this.ajouterMessageUrl);
-    return this.http.post(this.ajouterMessageUrl, messageObject, this.httpOptions);
+    return this.http.post(this.ajouterMessageUrl, JSON.stringify(messageObject), this.httpOptionsPost).pipe(
+      retry(1),
+      catchError(this.handleError));
   }
 
-  postUpload(fileToUpload: File,metier: string, type:string): Observable<object>{
+  postUpload(fileToUpload: File, metier: string, type: string): Observable<object>{
     const formData: FormData = new FormData();
     formData.append('file', fileToUpload);
-    return this.http.post(this.startUrlUpdate + type + this.endurlMetier + metier, formData, this.httpOptions);
+    return this.http.post(this.startUrlUpdate + type + this.endurlMetier + metier, formData, this.httpOptions).pipe(
+      retry(1),
+      catchError(this.handleError));
   }
 
   postSuspended(metier: any, nbrScenario: string): Observable<object>{
@@ -76,9 +88,9 @@ export class ApiCallService {
       libMetier: metier.titre,
       nbrScenario: nbrScenario.toString()
       };
-    console.log(messageObject);
-    console.log(this.http.post(this.uploadSuspendedUrl, messageObject, this.httpOptions));
-    return this.http.post(this.uploadSuspendedUrl, messageObject, this.httpOptions);
+    return this.http.post(this.uploadSuspendedUrl, JSON.stringify(messageObject), this.httpOptionsPost).pipe(
+      retry(2),
+      catchError(this.handleError));
   }
 
   handleError(error: any): Observable<never> {

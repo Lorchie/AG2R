@@ -15,7 +15,7 @@ export class ScenarioSuspendusComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.metier){
-      this.api.getDonnee(this.metier.code,'suspendedScenarios').toPromise()
+      this.api.getDonnee(this.metier.code, 'suspendedScenarios').toPromise()
       .then((res) => {
         if (res instanceof Array){
           this.nb = res[0].nbrScenario;

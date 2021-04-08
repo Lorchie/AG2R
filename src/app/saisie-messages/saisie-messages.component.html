@@ -1,7 +1,7 @@
 
 <div class="padding">
-    <select class="custom-select" (change)="changeMetier($event)" (ngModel)="metierArray">
-        <option value="" [selected]="true" disabled>Choisir metier</option>
+    <select class="custom-select" (change)="changeMetier($event)">
+        <option value="" selected disabled>Choisir service</option>
         <option *ngFor="let city of metierArray" [value]="city.id">{{city.titre}}</option>
      </select>
 </div>

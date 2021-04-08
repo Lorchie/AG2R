@@ -8,11 +8,11 @@ import { TableauDeBordComponent } from './tableau-de-bord/tableau-de-bord.compon
 const routes: Routes = [
   { path: '', component: AccueilComponent },
   { path: 'accueil-component', component: AccueilComponent },
-  { path: 'client-distribution-component', component: TableauDeBordComponent, data : {code : 'CDD',titre : 'Clients, distribution & digital'} },
-  { path: 'epargne-retraite-component', component: TableauDeBordComponent, data : {code : 'ERS',titre : 'Epargne et retraite supplémentaire'} },
-  { path: 'finance-rh-component', component: TableauDeBordComponent, data : {code : 'FRFS',titre : 'Prévoyance santé'} },
-  { path: 'prevoyance-sante-component', component: TableauDeBordComponent, data : {code : 'PS',titre : 'Retraite complémentaire & action social'} },
-  { path: 'retraite-complementaire-component', component: TableauDeBordComponent, data : {code : 'RCAS',titre : 'Finance, rh & autres Fonction supports'} },
+  { path: 'client-distribution-component', component: TableauDeBordComponent, data : {code : 'CDD', titre : 'Clients, distribution & digital'} },
+  { path: 'epargne-retraite-component', component: TableauDeBordComponent, data : {code : 'ERS', titre : 'Epargne et retraite supplémentaire'} },
+  { path: 'finance-rh-component', component: TableauDeBordComponent, data : {code : 'FRFS', titre : 'Prévoyance santé'} },
+  { path: 'prevoyance-sante-component', component: TableauDeBordComponent, data : {code : 'PS', titre : 'Retraite complémentaire & action social'} },
+  { path: 'retraite-complementaire-component', component: TableauDeBordComponent, data : {code : 'RCAS', titre : 'Finance, rh & autres Fonction supports'} },
   { path: 'saisie-manuelle-component', component: SaisieManuelleComponent },
 ];
 @NgModule({

@@ -45,8 +45,9 @@ export class SaisieMessagesComponent implements OnInit {
 
   supprimerMessage(id: number): void{
     this.api.deleteMessage(id.toString()).subscribe(
-      x => console.log('Observer got a next value: ' + x),
-      () =>     this.callApi());
+      () => {
+        this.callApi();
+      });
   }
 
   supprimerAllMessage(): void{
@@ -59,14 +60,7 @@ export class SaisieMessagesComponent implements OnInit {
         id = id + element.idMessage;
       }
     });
-    this.api.deleteMessage(id).subscribe(      
-      result => {
-        // Handle result
-        console.log(result)
-      },
-      error => {
-        console.log(error)
-      },
+    this.api.deleteMessage(id).subscribe(
       () => {
         this.callApi();
       });
@@ -74,19 +68,12 @@ export class SaisieMessagesComponent implements OnInit {
   }
   ajouter(): void{
     if (this.message){
-      this.api.ajouterMessage(this.metierSelected, this.message).subscribe(      
-      result => {
-        // Handle result
-        console.log(result)
-      },
-      error => {
-        console.log(error)
-      },
-      () => {
-        this.callApi();
-      });
+      this.api.ajouterMessage(this.metierSelected, this.message).subscribe(
+        () => {
+          this.callApi();
+        });
 
-    this.message = '';
+      this.message = '';
     }
   }
 }

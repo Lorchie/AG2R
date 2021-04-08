@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 
 import { retry, catchError } from 'rxjs/operators';
@@ -25,22 +25,31 @@ export class ApiCallService {
   uploadStatesScenariosUrl = 'http://localhost:8081/api/upload/statesScenarios?businessId=';
   uploadSuspendedUrl = 'http://localhost:8081/api/upload/suspended';
 
+  httpOptions = {
+    headers: new HttpHeaders(
+      {
+        'Content-Type': 'application/json',
+        'Authorization': `Basic ` + btoa('test:123'),
+      }
+    )
+  };
+
   constructor(private http: HttpClient) { }
 
   getDonnee(metier: string, type:string): Observable<object>  {
-    return this.http.get(this.startUrl + type + this.endurlMetier + metier).pipe(
+    return this.http.get(this.startUrl + type + this.endurlMetier + metier, this.httpOptions).pipe(
       retry(1),
       catchError(this.handleError));
   }
 
   getMessages(metier: string): Observable<object> {
-    return this.http.get(this.messagesUrl + metier).pipe(
+    return this.http.get(this.messagesUrl + metier, this.httpOptions).pipe(
       retry(1),
       catchError(this.handleError));
   }
 
   deleteMessage(messageId: string): Observable<object> {
-    return this.http.delete(this.supprimerMessageUrl + messageId);
+    return this.http.delete(this.supprimerMessageUrl + messageId, this.httpOptions);
   }
 
   ajouterMessage(metierObject: any, message: string): Observable<object> {
@@ -52,13 +61,13 @@ export class ApiCallService {
       };
     console.log(messageObject);
     console.log(this.ajouterMessageUrl);
-    return this.http.post(this.ajouterMessageUrl, messageObject);
+    return this.http.post(this.ajouterMessageUrl, messageObject, this.httpOptions);
   }
 
   postUpload(fileToUpload: File,metier: string, type:string): Observable<object>{
     const formData: FormData = new FormData();
     formData.append('file', fileToUpload);
-    return this.http.post(this.startUrlUpdate + type + this.endurlMetier + metier, formData);
+    return this.http.post(this.startUrlUpdate + type + this.endurlMetier + metier, formData, this.httpOptions);
   }
 
   postSuspended(metier: any, nbrScenario: string): Observable<object>{
@@ -68,8 +77,8 @@ export class ApiCallService {
       nbrScenario: nbrScenario.toString()
       };
     console.log(messageObject);
-    console.log(this.http.post(this.uploadSuspendedUrl, messageObject));
-    return this.http.post(this.uploadSuspendedUrl, messageObject);
+    console.log(this.http.post(this.uploadSuspendedUrl, messageObject, this.httpOptions));
+    return this.http.post(this.uploadSuspendedUrl, messageObject, this.httpOptions);
   }
 
   handleError(error: any): Observable<never> {

@@ -10,7 +10,7 @@
             <label for="file">Intervention : </label>
             <br>
             <div class="uploadfilecontainer" (click)="intervention.click()" appDragDropDirective (fileDropped)="uploadFile($event,true,'intervention')">
-                <input hidden type="file" #intervention accept=".xlsx" (change)="uploadFile($event.target,false,'intervention')">
+                <input hidden type="file" #intervention accept=".xlsx" [(ngModel)]="filesChamps[3]" (change)="uploadFile($event.target,false,'intervention')">
             </div>
             <div  class="files-list" *ngFor="let file of filesToUploadIntervention;let i= index">
                 <p class="marginFileName"> {{ file.name }} </p>
@@ -25,6 +25,7 @@
             <br>
             <div class="uploadfilecontainer" (click)="incident.click()" appDragDropDirective (fileDropped)="uploadFile($event,true,'incident')">
                 <input hidden type="file" #incident accept=".xlsx" [(ngModel)]="filesChamps[0]" (change)="uploadFile($event.target,false,'incident')">
+                <span></span>
             </div>
             <div  class="files-list" *ngFor="let file of fileToUploadIncident;let i= index">
                 <p class="marginFileName"> {{ file.name }} </p>

@@ -61,7 +61,7 @@ export const textes = [
     type:  'intervention',
     array: [
       {id: 'num', libelle: 'Intervention en cours'},
-      {id: 'titre', libelle: 'Etat des intervention : 19h00 - 7h30'}
+      {id: 'titre', libelle: 'Etat des interventions : 19h00 - 7h30'}
     ]
   }
 ];

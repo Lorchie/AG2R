@@ -72,28 +72,28 @@ export class ChargementDonneComponent implements OnInit {
   }
 
   uploadFile(event: any, bool: boolean, name: string): void {
-    let files;
+    let files: FileList;
     if (!bool){
       files = event.files;
     }else{
       files = event;
     }
-    files.forEach((element: any) => {
-      if (element.type.indexOf('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') !== 0) {
-        console.log('invalid');
+    Array.from(files).forEach(file => {
+      if (file.type.indexOf('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') !== 0) {
+        window.alert('Le fichier que vous avez voulu upload n\'a pas le bon format ');
       }else{
         switch (name) {
           case 'intervention':
-            this.filesToUploadIntervention.push(element);
+            this.filesToUploadIntervention.push(file);
             break;
           case 'incident':
-            this.fileToUploadIncident[0] = element;
+            this.fileToUploadIncident[0] = file;
             break;
           case 'planBatch':
-            this.fileToUploadPlanBatch[0] = element;
+            this.fileToUploadPlanBatch[0] = file;
             break;
           case 'scenario':
-            this.fileToUploadScenario[0] = element;
+            this.fileToUploadScenario[0] = file;
             break;
 
           default:
@@ -122,7 +122,6 @@ export class ChargementDonneComponent implements OnInit {
 
   removeAllChamps(): void{
     this.nbrSuspendu = '';
-    console.log(this.filesChamps);
     this.filesChamps.forEach((element: any) => {
       element = '';
     });

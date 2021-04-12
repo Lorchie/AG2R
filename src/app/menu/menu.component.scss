@@ -1,12 +1,29 @@
- 
-.svg {
+ .svg {
     fill: #C6C6C6;
     height: 25px;
     width: 25px;
     
 }
+
 .actif{
   fill: #00B9E4;
+}
+
+@media only screen and (max-width: 1024px) {
+  .actif::before{
+    left: -15px !important;
+    border-left: 5px solid #00B9E4 !important;
+  }
+}
+
+.actif::before{
+  content: '';
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: -20px;
+  border-left: 5px solid #00B9E4;
 }
 
 .list-group-item{

@@ -19,9 +19,9 @@ export class EtatPlanBatchComponent implements OnInit {
     legend: {
       position: 'bottom',
       labels: {
-        fontSize: 5,
-        padding: 5,
-        boxWidth: 5,
+        fontSize: 8,
+        padding: 9,
+        boxWidth: 9,
       }
     },
     tooltips: {enabled: false},

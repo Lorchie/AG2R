@@ -12,17 +12,13 @@ export class ApiCallService {
 
   startUrl = 'http://localhost:8081/api/';
   startUrlUpdate = 'http://localhost:8081/api/upload/';
-  endurlMetier = '?businessId=';
+  endUrlMetier = '?businessId=';
 
   messagesUrl = 'http://localhost:8081/api/messages?businessId=';
 
   supprimerMessageUrl = this.startUrl + 'messages?param=';
   ajouterMessageUrl = this.startUrl + 'messages';
 
-  uploadInterventionUrl = this.startUrlUpdate + 'interventions=' + this.endurlMetier;
-  uploadIncidentsUrl = 'http://localhost:8081/api/upload/incidents?businessId=';
-  uploadBatchPlansUrl = 'http://localhost:8081/api/upload/batchPlans?businessId=';
-  uploadStatesScenariosUrl = 'http://localhost:8081/api/upload/statesScenarios?businessId=';
   uploadSuspendedUrl = 'http://localhost:8081/api/upload/suspended';
 
   httpOptions = {
@@ -45,7 +41,7 @@ export class ApiCallService {
   constructor(private http: HttpClient) { }
 
   getDonnee(metier: string, type: string): Observable<object>  {
-    return this.http.get(this.startUrl + type + this.endurlMetier + metier, this.httpOptions).pipe(
+    return this.http.get(this.startUrl + type + this.endUrlMetier + metier, this.httpOptions).pipe(
       retry(1),
       catchError(this.handleError));
   }
@@ -77,7 +73,7 @@ export class ApiCallService {
   postUpload(fileToUpload: File, metier: string, type: string): Observable<object>{
     const formData: FormData = new FormData();
     formData.append('file', fileToUpload);
-    return this.http.post(this.startUrlUpdate + type + this.endurlMetier + metier, formData, this.httpOptions).pipe(
+    return this.http.post(this.startUrlUpdate + type + this.endUrlMetier + metier, formData, this.httpOptions).pipe(
       retry(1),
       catchError(this.handleError));
   }

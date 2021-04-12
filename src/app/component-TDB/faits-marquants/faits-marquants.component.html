@@ -1,5 +1,5 @@
 
-    <p class="font-weight-bold">FAITS MARQUANTS :</p> 
+    <p class="font-weight-bold m-1">FAITS MARQUANTS :</p> 
     <div class="textFaitsMarquants">
         <div *ngIf="longer == 0; else faitMarquant">Aucun fait marquant.</div>
         <ng-template #faitMarquant>{{faitsMarquants[indexG].libMessage}}</ng-template>

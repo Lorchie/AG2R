@@ -11,7 +11,7 @@ export const   metiers: Array<Metier> = [
   {route: '/prevoyance-sante-component', titre: 'Prévoyance santé', menu: 'Prevoyance_sante'},
   {route: '/retraite-complementaire-component', titre: 'Retraite complémentaire & action social', menu: 'Retraite'},
   {route: '/finance-rh-component', titre: 'Finance, rh & autres\nFonction supports', menu: 'Fonctions_supports'},
-  {route: '/saisie-manuelle-component', titre: 'Saisie donnée', menu: 'Reglages'}
+  {route: '/saisie-manuelle-component', titre: 'Saisie données', menu: 'Reglages'}
 ];
 
 export const headers = [

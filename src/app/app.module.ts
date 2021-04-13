@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -27,6 +27,18 @@ import { SaisieMessagesComponent } from './saisie-messages/saisie-messages.compo
 import { DragDropDirectiveDirective } from './drag-drop-directive.directive';
 
 @NgModule({
+  exports: [
+    AccueilComponent,
+    MenuComponent,
+    SaisieManuelleComponent,
+    TableauDeBordComponent,
+    FaitsMarquantsComponent,
+    EtatPlanBatchComponent,
+    ScenarioSuspendusComponent,
+    TableauIncidentsComponent,
+    ChargementDonneComponent,
+    SaisieMessagesComponent
+  ],
   declarations: [
     AppComponent,
     AccueilComponent,
@@ -53,6 +65,7 @@ import { DragDropDirectiveDirective } from './drag-drop-directive.directive';
     MatTableModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }

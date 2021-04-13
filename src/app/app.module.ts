@@ -25,6 +25,10 @@ import { TableauIncidentsComponent } from './component-TDB/tableau-incidents/tab
 import { ChargementDonneComponent } from './chargement-donne/chargement-donne.component';
 import { SaisieMessagesComponent } from './saisie-messages/saisie-messages.component';
 import { DragDropDirectiveDirective } from './drag-drop-directive.directive';
+import { DialogPasswordComponent } from './dialog-password/dialog-password.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule} from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   exports: [
@@ -51,7 +55,8 @@ import { DragDropDirectiveDirective } from './drag-drop-directive.directive';
     TableauIncidentsComponent,
     ChargementDonneComponent,
     SaisieMessagesComponent,
-    DragDropDirectiveDirective
+    DragDropDirectiveDirective,
+    DialogPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +67,8 @@ import { DragDropDirectiveDirective } from './drag-drop-directive.directive';
     MatRadioModule,
     FormsModule,
     ReactiveFormsModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule, MatFormFieldModule, BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

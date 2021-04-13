@@ -24,9 +24,9 @@ export class DialogPasswordComponent implements OnInit {
   
   initiateForm(){
    this.passwordForm = this.fb.group({
-      password: ['', [Validators.required, Validators.minLength(4)]]
+      password: ['', [Validators.required]]
     },
-    {validator: Validators.compose([this.validate])});
+    {validator:this.validate});
   }
 
   validate(ac:AbstractControl): {[key: string]: any} | null {

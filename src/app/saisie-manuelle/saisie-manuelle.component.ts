@@ -1,4 +1,6 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogPasswordComponent } from '../dialog-password/dialog-password.component';
 
 @Component({
   selector: 'app-saisie-manuelle',
@@ -20,7 +22,11 @@ export class SaisieManuelleComponent implements OnInit {
 
   chargementDonnee = true;
 
-  constructor() { }
+  constructor(private dialog:MatDialog) { 
+    this.dialog.open(DialogPasswordComponent, {
+      width: '300px', disableClose: true,
+    });
+  }
 
   ngOnInit(): void {
   }

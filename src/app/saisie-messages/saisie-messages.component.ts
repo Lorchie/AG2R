@@ -12,7 +12,7 @@ export class SaisieMessagesComponent implements OnInit {
 
   metierSelected: any;
   myGroup: any;
-  faitsMarquants: any;
+  faitsMarquants: any = [];
   message = '';
 
   public metierArray: Array<{id: number, titre: string, code: string, typeMessage: string}> = [
@@ -37,13 +37,19 @@ export class SaisieMessagesComponent implements OnInit {
     if (this.metierSelected){
       this.api.getMessages(this.metierSelected.code).toPromise()
       .then((res) => {
+        if(res){
           this.faitsMarquants = res;
+        }else{
+          this.faitsMarquants = [];
+        }
+
         })
       .catch();
     }
   }
 
-  supprimerMessage(id: number): void{
+  supprimerMessage(event: any,id: number): void{
+    event.target.disabled = true;
     this.api.deleteMessage(id.toString()).subscribe(
       () => {
         this.callApi();

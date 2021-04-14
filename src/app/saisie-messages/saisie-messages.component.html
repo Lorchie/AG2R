@@ -19,7 +19,7 @@
                             {{e.libMessage}}
                         </td>
                         <td>
-                            <button (click)="supprimerMessage(e.idMessage)">Supprimer</button>
+                            <button (click)="supprimerMessage($event,e.idMessage)">Supprimer</button>
                         </td>
                     </tr>
                 </tbody>
@@ -28,7 +28,7 @@
         
 
         <div class="text-center padding" *ngIf="faitsMarquants.length > 1">
-            <button class="btn-default" (click)="supprimerAllMessage()">Supprimer Tout</button>
+            <button class="btn-default"  (click)="supprimerAllMessage()">Supprimer Tout</button>
         </div>
     </div>
 </div>

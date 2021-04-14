@@ -47,6 +47,10 @@ export class ChargementDonneComponent implements OnInit {
           window.alert(data.message);
         }
 
+        if (data.status === 201) {
+          window.alert(data.message);
+        }
+
       }, error => {
         console.log(error);
       }

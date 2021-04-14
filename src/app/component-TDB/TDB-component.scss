@@ -28,7 +28,11 @@ td{
     }
 
     .zoomTableau{
-        height: 300px !important;
+        height: 450px !important;
+        
+        .fontSize11{
+            font-size: 14px !important;
+        }
     }
 
     .table-wrapper-scroll-y {

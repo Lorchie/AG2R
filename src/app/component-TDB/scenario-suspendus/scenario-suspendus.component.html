@@ -1,6 +1,15 @@
-<div class="d-flex justify-content-center align-items-center">
-    <span class="gradiant">{{nb}}</span>
-    <span class="pl-2">Scénarios suspendus</span>
+<div [ngPlural]="nb" class="d-flex justify-content-center align-items-center">
+    <ng-template  ngPluralCase="0">
+        <span class="pl-2">Aucun scénario suspendu</span>
+    </ng-template>
+    <ng-template ngPluralCase="1">
+        <span class="gradiant">{{nb}}</span>
+        <span class="pl-2">Scénario suspendu</span>
+    </ng-template>
+    <ng-template ngPluralCase="other">
+        <span class="gradiant">{{nb}}</span>
+        <span class="pl-2">Scénarios suspendues</span>
+    </ng-template>
 </div>
 
 

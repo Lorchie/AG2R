@@ -4,15 +4,22 @@ td{
 
 .textTitre{
     color: #00BAE3;
-    font-size: 12px;
+    font-size: 14px;
     margin:10px;
 }
 
 .tableauIncident{
-    font-size: 10px;
 
-    .fontSize9{
-        font-size: 9px;
+    .fontSize14{
+        font-size: 14px;
+    }
+
+    .borderNB{
+        border-right: 2px solid RGB(245, 246, 250);
+    }
+
+    .fontSize11{
+        font-size: 11px;
     }
     
     .texteNb{
@@ -51,7 +58,6 @@ td{
 }
 
 .textFaitsMarquants{
-    font-size: 16px;
     height: 80px;
     max-width: 100%;
     overflow-x:hidden;
@@ -69,8 +75,8 @@ td{
     background: linear-gradient(to right, #00BAE3 0%, #5AB88D 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 50px;
-    padding: 10px 0px;
+    font-size: 70px;
+    padding: 15px 0px;
 }
 
 ::-webkit-scrollbar {

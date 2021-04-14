@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogPasswordComponent } from '../dialog-password/dialog-password.component';
 import { Metier } from '../interfaces/metier';
 
+declare var $:any;
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -17,9 +18,8 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openPasswordDialog(){
+  openPasswordDialog(): void{
     this.dialog.open(DialogPasswordComponent, {
-      height:'250px',
       width: '300px'
     });
 

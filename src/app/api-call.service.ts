@@ -84,6 +84,7 @@ export class ApiCallService {
       libMetier: metier.titre,
       nbrScenario: nbrScenario.toString()
       };
+      console.log(messageObject);
     return this.http.post(this.uploadSuspendedUrl, JSON.stringify(messageObject), this.httpOptionsPost).pipe(
       retry(2),
       catchError(this.handleError));

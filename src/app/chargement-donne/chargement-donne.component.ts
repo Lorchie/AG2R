@@ -24,11 +24,11 @@ export class ChargementDonneComponent implements OnInit {
   nbrSuspendu: any;
 
   public metierArray: Array<{id: number, titre: string, code: string, typeMessage: string}> = [
-    {id: 0, titre: 'Clients, distribution & digital', code: 'CDD', typeMessage: 'Faits Marquants'},
-    {id: 1, titre: 'Epargne et retraite supplémentaire', code: 'ERS', typeMessage: 'Faits Marquants'},
-    {id: 2, titre: 'Prévoyance santé', code: 'PS', typeMessage: 'Faits Marquants'},
-    {id: 3, titre: 'Retraite complémentaire & action social', code: 'RCAS', typeMessage: 'Faits Marquants'},
-    {id: 4, titre: 'Finance, rh & autres Fonction supports', code: 'FRFS', typeMessage: 'Faits Marquants'},
+    {id: 0, titre: 'Retraite complémentaire & Action Sociale', code: 'RCAS', typeMessage: 'Faits Marquants'},
+    {id: 1, titre: 'Clients, Distribution & Digital', code: 'CDD', typeMessage: 'Faits Marquants'},
+    {id: 2, titre: 'Prévoyance Santé', code: 'PS', typeMessage: 'Faits Marquants'},
+    {id: 3, titre: 'Epargne et Retraite Supplémentaire', code: 'ERS', typeMessage: 'Faits Marquants'},
+    {id: 4, titre: 'Finance, rh & autres Fonction Supports', code: 'FRFS', typeMessage: 'Faits Marquants'},
   ];
 
   constructor(private api: ApiCallService) { }
@@ -41,12 +41,16 @@ export class ChargementDonneComponent implements OnInit {
   }
 
   uploadFileToActivity(fileToUpload: any, type: string): void {
-    console.log(fileToUpload);
-    this.api.postUpload(fileToUpload, this.metierSelected.code, type).subscribe(data => {
-        console.log('ok');
+    this.api.postUpload(fileToUpload, this.metierSelected.code, type).subscribe((data:any) => {
+
+        if (data.status === 202) {
+          window.alert(data.message);
+        }
+
       }, error => {
         console.log(error);
-      });
+      }
+    );
   }
 
   uploadFiles(): void{
@@ -65,7 +69,7 @@ export class ChargementDonneComponent implements OnInit {
     if (this.fileToUploadScenario.length !== 0){
       this.uploadFileToActivity(this.fileToUploadScenario[0], 'statesScenarios');
     }
-    if (this.nbrSuspendu){
+    if (!this.isEmpty(this.nbrSuspendu)){
       this.api.postSuspended(this.metierSelected, this.nbrSuspendu).subscribe();
     }
     this.removeAllChamps();
@@ -129,5 +133,9 @@ export class ChargementDonneComponent implements OnInit {
     this.fileToUploadIncident = [];
     this.fileToUploadPlanBatch = [];
     this.fileToUploadScenario = [];
+  }
+
+  isEmpty(str:any): boolean {
+    return ( !(str >= 0)  || typeof(str) !== 'number' );
   }
 }

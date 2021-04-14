@@ -1,18 +1,16 @@
 <div class="messageContainer mt-3" (click)="clickMessage(index)">
-    <div class="container">
-        <div class="row">
-            <div class="col ">
-                <div class="textMessage" *ngIf="messages"><span class="colorMessage">Message:</span> {{messages[index].libMessage}}</div>
-                <div class="textMessage" *ngIf="!messages"><span class="colorMessage">Message:</span> Aucun message</div>
-            </div>
-            <div class="col-1">
-                <div class="containerMessage vertical-center">
-                    <div class="bulle">
-                        <div class="text-center my-auto" style="width:100%;" [inlineSVG]="'assets/svg/bulle_message.svg'"></div>
-                        <div class="nbMessage">{{longer}}</div>
-                    </div>
-                    <div class="svg text-center my-auto" [inlineSVG]="'assets/svg/message.svg'"></div>
+    <div class="row">
+        <div class="col ">
+            <div class="textMessage" *ngIf="messages"><span class="colorMessage">Message:</span><span class="font-italic">{{messages[index].libMessage}}</span></div>
+            <div class="textMessage" *ngIf="!messages"><span class="colorMessage">Message:</span> Aucun message</div>
+        </div>
+        <div class="col-1">
+            <div class="containerMessage vertical-center">
+                <div class="bulle">
+                    <div class="text-center my-auto" style="width:100%;" [inlineSVG]="'assets/svg/bulle_message.svg'"></div>
+                    <div class="nbMessage">{{longer}}</div>
                 </div>
+                <div class="svg text-center my-auto" [inlineSVG]="'assets/svg/message.svg'"></div>
             </div>
         </div>
     </div>
@@ -25,12 +23,16 @@
 
 <div class="row">
     <div class="col iconAccueil shadow p-3 mb-5 rounded" routerLink="/retraite-complementaire-component" routerLinkActive="active">
-        <div class="svg text-center my-auto" [inlineSVG]="'assets/svg/Retraite.svg'"></div>
-        <p>Retraite complémentaire & action social</p>
+        <div class="d-flex align-items-center">
+            <div class="svg text-center my-auto" [inlineSVG]="'assets/svg/Retraite.svg'"></div>
+        </div>
+        <div class="d-flex align-items-bottom">
+            <p>Retraite complémentaire & Action Sociale</p>
+        </div>
     </div>
     <div class="col iconAccueil shadow p-3 mb-5 rounded" routerLink="/client-distribution-component" routerLinkActive="active">
         <div class="svg text-center my-auto" [inlineSVG]="'assets/svg/Digital.svg'"></div>
-        <p>Clients, distribution & digital</p>
+        <p>Clients, Distribution & Digital</p>
     </div>
     <div class="col iconAccueil shadow p-3 mb-5 rounded" routerLink="/prevoyance-sante-component" routerLinkActive="active">
         <div class="svg text-center my-auto" [inlineSVG]="'assets/svg/Prevoyance_sante.svg'"></div>
@@ -38,11 +40,11 @@
     </div>
     <div class="col iconAccueil shadow p-3 mb-5 rounded" routerLink="/epargne-retraite-component" routerLinkActive="active">
         <div class="svg text-center my-auto" [inlineSVG]="'assets/svg/Epargne.svg'"></div>
-        <p>Epargne et retraite supplémentaire</p>
+        <p>Epargne et Retraite Supplémentaire</p>
     </div>
     <div class="col iconAccueil shadow p-3 mb-5 rounded" routerLink="/finance-rh-component" routerLinkActive="active">
         <div class="svg" [inlineSVG]="'assets/svg/Fonctions_supports.svg'"></div>
-        <p>Finance, RH & autres Fonction supports</p>
+        <p>Finance, RH & autres Fonctions supports</p>
     </div>
 </div>
 

@@ -27,7 +27,6 @@ export class TableauIncidentsComponent implements OnInit {
   ngOnInit(): void {
     this.headers = IncidentConstants.headers.find(e => e.type === this.type)?.array;
     this.textes = IncidentConstants.textes.find(e => e.type === this.type)?.array;
-    this.texteNb = this.textes.find((user: any) => user.id === 'num').libelle;
     this.texteTitre = this.textes.find((user: any) => user.id === 'titre').libelle;
     switch (this.type) {
       case 'batch':
@@ -44,6 +43,7 @@ export class TableauIncidentsComponent implements OnInit {
                 this.incidentsVide = new Array(3);
               }
               this.incidents = res;
+              this.setTextNb();
           })
           .catch();
         }
@@ -62,6 +62,7 @@ export class TableauIncidentsComponent implements OnInit {
               this.incidentsVide = new Array(3);
             }
             this.incidents = res;
+            this.setTextNb();
         })
         .catch();
       }
@@ -80,6 +81,7 @@ export class TableauIncidentsComponent implements OnInit {
                 this.incidentsVide = new Array(3);
               }
               this.incidents = res;
+              this.setTextNb();
           })
           .catch();
         }
@@ -87,7 +89,18 @@ export class TableauIncidentsComponent implements OnInit {
       default:
         break;
     }
+
+
   }
+
+  setTextNb(): void{
+    if(parseInt(this.nombre) < 2){
+      this.texteNb = this.textes.find((user: any) => user.id === 'num').libelle;
+    }else{
+      this.texteNb = this.textes.find((user: any) => user.id === 'numPluriel').libelle;
+    }
+  }
+
   zoomCompnent(bool: boolean): void {
     if (this.type){
       this.zoomTableau.emit({bool, type: this.type});

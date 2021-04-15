@@ -22,10 +22,15 @@ export class SaisieManuelleComponent implements OnInit {
 
   chargementDonnee = true;
 
+  passWord: any ;
+
   constructor(private dialog:MatDialog) { 
-    this.dialog.open(DialogPasswordComponent, {
-      width: '300px', disableClose: true,
-    });
+    this.passWord = localStorage.getItem('passwordAG2R');
+    if(this.passWord == null){
+        this.dialog.open(DialogPasswordComponent, {
+        width: '300px', disableClose: true,
+        });
+    }
   }
 
   ngOnInit(): void {

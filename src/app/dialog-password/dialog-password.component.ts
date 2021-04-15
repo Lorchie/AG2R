@@ -21,51 +21,58 @@ export class DialogPasswordComponent implements OnInit {
     message:""
   };
 
+  passWordVal: any ="";
+
   roleToCheck: string = "";
   messageToCheck: string = "";
 
-  passwordForm: FormGroup = this.fb.group({});
+
 
   falsePaswordMessage = 'Le mot de passe est incorrecte';
 
-  passwordNotOk = false;
+  setMessageError = false;
+
+  passwordOk = false;
 
   constructor(private router: Router, private fb: FormBuilder, public dialogRef: MatDialogRef<DialogPasswordComponent>, 
     private api: ApiCallService) { }
 
   ngOnInit(): void {
-    this.initiateForm();
+  
   }
 
-  initiateForm(): void{
-   this.passwordForm = this.fb.group({
-      password: ['', [Validators.required]]
-    },
-    {validator: this.validate});
-  }
+ 
 
   validate(ac: AbstractControl): {[key: string]: any} | null {
     const password: string = ac.value.password;
-    if (password.length < 5){
+    if (this.passwordOk){
       return{invalid: true};
     }
     return null;
   }
 
   checkPassword(): void {
+    
+      this.api.checkpassword(this.passWordVal).toPromise()
+      .then((res) => {
+          this.role = res as Role;
+   
+            this.roleToCheck = this.role.role;
+            this.messageToCheck = this.role.message;
 
-   // this.api.checkpassword2(this.passwordForm.value).subscribe((role:Role)=>{
-   //   this.roleToCheck = role.role;
-   //   this.messageToCheck = role.message;
+            if(this.roleToCheck != 'error'){
+              this.passwordOk = true;
+              localStorage.setItem('passwordAG2R',this.passWordVal )
+              this.dialogRef.close();
+            }else{
+              this.passwordOk = false;
+              this.setMessageError = true
+            }
+          
 
-   //   if(this.roleToCheck != 'error'){
-   //     this.router.navigate(['/saisie-manuelle-component']);
-   //   }else{
+        })
+      .catch();
 
-    //  }
-    //}
-     
-   // );
   
     this.router.navigate(['/saisie-manuelle-component']);
       
@@ -75,5 +82,9 @@ export class DialogPasswordComponent implements OnInit {
     this.dialogRef.close();
     this.router.navigate(['/accueil-component']);
   }
+
+  validateLength() { return this.passWordVal.length < 1; }
+
+
 
 }

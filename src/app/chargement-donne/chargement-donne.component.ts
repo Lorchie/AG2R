@@ -57,10 +57,27 @@ export class ChargementDonneComponent implements OnInit {
     );
   }
 
+  uploadFilesToActivity(fileToUpload: any, type: string): void {
+    this.api.postUploadList(fileToUpload, this.metierSelected.code, type).subscribe((data:any) => {
+
+        if (data.status === 202) {
+          window.alert(data.message);
+        }
+
+        if (data.status === 201) {
+          window.alert(data.message);
+        }
+
+      }, error => {
+        console.log(error);
+      }
+    );
+  }
+
   uploadFiles(): void{
 
     if (this.filesToUploadIntervention.length !== 0){
-      this.uploadFileToActivity(this.filesToUploadIntervention, 'interventions');
+      this.uploadFilesToActivity(this.filesToUploadIntervention, 'interventions');
 
     }
 

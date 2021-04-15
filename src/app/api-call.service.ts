@@ -81,6 +81,16 @@ export class ApiCallService {
       catchError(this.handleError));
   }
 
+  postUploadList(fileToUpload: File[], metier: string, type: string): Observable<object> {
+    const formData: FormData = new FormData();
+    for(var val of fileToUpload){
+      formData.append('file', val);
+    }
+    return this.http.post(this.startUrlUpdate + type + this.endUrlMetier + metier, formData, this.httpOptions).pipe(
+      retry(1),
+      catchError(this.handleError));
+  }
+
   postSuspended(metier: any, nbrScenario: string): Observable<object> {
     const messageObject = {
       codeMetier: metier.code,

@@ -14,8 +14,8 @@ export class SaisieManuelleComponent implements OnInit {
     {id: 1, titre: 'Clients, Distribution & Digital', code: 'CDD', typeMessage: 'Faits Marquants'},
     {id: 2, titre: 'Epargne et Retraite Supplémentaire', code: 'ERS', typeMessage: 'Faits Marquants'},
     {id: 3, titre: 'Prévoyance Santé', code: 'PS', typeMessage: 'Faits Marquants'},
-    {id: 4, titre: 'Retraite complémentaire & Action Sociale', code: 'RCAS', typeMessage: 'Faits Marquants'},
-    {id: 5, titre: 'Finance, RH & autres Fonction Supports', code: 'FRFS', typeMessage: 'Faits Marquants'},
+    {id: 4, titre: 'Retraite Complémentaire & Action Sociale', code: 'RCAS', typeMessage: 'Faits Marquants'},
+    {id: 5, titre: 'Finance, RH & autres Fonction Support', code: 'FRFS', typeMessage: 'Faits Marquants'},
   ];
 
   @HostBinding('class') classes  = 'col' ;
@@ -24,9 +24,9 @@ export class SaisieManuelleComponent implements OnInit {
 
   passWord: any ;
 
-  constructor(private dialog:MatDialog) { 
+  constructor(private dialog: MatDialog) {
     this.passWord = localStorage.getItem('passwordAG2R');
-    if(this.passWord == null){
+    if (this.passWord == null){
         this.dialog.open(DialogPasswordComponent, {
         width: '300px', disableClose: true,
         });

@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogPasswordComponent } from '../dialog-password/dialog-password.component';
 import { Metier } from '../interfaces/metier';
 
-declare var $:any;
+declare var $: any;
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',

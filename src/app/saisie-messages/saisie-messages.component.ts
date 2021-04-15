@@ -17,11 +17,11 @@ export class SaisieMessagesComponent implements OnInit {
 
   public metierArray: Array<{id: number, titre: string, code: string, typeMessage: string}> = [
     {id: 0, titre: 'Accueil', code: 'accueil', typeMessage: 'Accueil'},
-    {id: 1, titre: 'Retraite complémentaire & Action Sociale', code: 'RCAS', typeMessage: 'Faits Marquants'},
+    {id: 1, titre: 'Retraite Complémentaire & Action Sociale', code: 'RCAS', typeMessage: 'Faits Marquants'},
     {id: 2, titre: 'Clients, Distribution & Digital', code: 'CDD', typeMessage: 'Faits Marquants'},
     {id: 3, titre: 'Prévoyance Santé', code: 'PS', typeMessage: 'Faits Marquants'},
     {id: 4, titre: 'Epargne et Retraite Supplémentaire', code: 'ERS', typeMessage: 'Faits Marquants'},
-    {id: 5, titre: 'Finance, RH & autres Fonction Supports', code: 'FRFS', typeMessage: 'Faits Marquants'},
+    {id: 5, titre: 'Finance, RH & autres Fonction Support', code: 'FRFS', typeMessage: 'Faits Marquants'},
   ];
 
   constructor(private api: ApiCallService) { }
@@ -37,7 +37,7 @@ export class SaisieMessagesComponent implements OnInit {
     if (this.metierSelected){
       this.api.getMessages(this.metierSelected.code).toPromise()
       .then((res) => {
-        if(res){
+        if (res){
           this.faitsMarquants = res;
         }else{
           this.faitsMarquants = [];
@@ -48,7 +48,7 @@ export class SaisieMessagesComponent implements OnInit {
     }
   }
 
-  supprimerMessage(event: any,id: number): void{
+  supprimerMessage(event: any, id: number): void{
     event.target.disabled = true;
     this.api.deleteMessage(id.toString()).subscribe(
       () => {

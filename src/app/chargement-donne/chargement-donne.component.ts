@@ -24,11 +24,11 @@ export class ChargementDonneComponent implements OnInit {
   nbrSuspendu: any;
 
   public metierArray: Array<{id: number, titre: string, code: string, typeMessage: string}> = [
-    {id: 0, titre: 'Retraite complémentaire & Action Sociale', code: 'RCAS', typeMessage: 'Faits Marquants'},
+    {id: 0, titre: 'Retraite Complémentaire & Action Sociale', code: 'RCAS', typeMessage: 'Faits Marquants'},
     {id: 1, titre: 'Clients, Distribution & Digital', code: 'CDD', typeMessage: 'Faits Marquants'},
     {id: 2, titre: 'Prévoyance Santé', code: 'PS', typeMessage: 'Faits Marquants'},
     {id: 3, titre: 'Epargne et Retraite Supplémentaire', code: 'ERS', typeMessage: 'Faits Marquants'},
-    {id: 4, titre: 'Finance, RH & autres Fonction Supports', code: 'FRFS', typeMessage: 'Faits Marquants'},
+    {id: 4, titre: 'Finance, RH & autres Fonction Support', code: 'FRFS', typeMessage: 'Faits Marquants'},
   ];
 
   constructor(private api: ApiCallService) { }
@@ -41,7 +41,7 @@ export class ChargementDonneComponent implements OnInit {
   }
 
   uploadFileToActivity(fileToUpload: any, type: string): void {
-    this.api.postUpload(fileToUpload, this.metierSelected.code, type).subscribe((data:any) => {
+    this.api.postUpload(fileToUpload, this.metierSelected.code, type).subscribe((data: any) => {
 
         if (data.status === 202) {
           window.alert(data.message);
@@ -58,7 +58,7 @@ export class ChargementDonneComponent implements OnInit {
   }
 
   uploadFilesToActivity(fileToUpload: any, type: string): void {
-    this.api.postUploadList(fileToUpload, this.metierSelected.code, type).subscribe((data:any) => {
+    this.api.postUploadList(fileToUpload, this.metierSelected.code, type).subscribe((data: any) => {
 
         if (data.status === 202) {
           window.alert(data.message);
@@ -156,7 +156,7 @@ export class ChargementDonneComponent implements OnInit {
     this.fileToUploadScenario = [];
   }
 
-  isEmpty(str:any): boolean {
+  isEmpty(str: any): boolean {
     return ( !(str >= 0)  || typeof(str) !== 'number' );
   }
 }

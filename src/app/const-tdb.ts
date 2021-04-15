@@ -9,8 +9,8 @@ export const   metiers: Array<Metier> = [
   {route: '/client-distribution-component', titre: 'Clients, Distribution & Digital', menu: 'Digital'},
   {route: '/epargne-retraite-component', titre: 'Epargne et Retraite Supplémentaire', menu: 'Epargne'},
   {route: '/prevoyance-sante-component', titre: 'Prévoyance Santé', menu: 'Prevoyance_sante'},
-  {route: '/retraite-complementaire-component', titre: 'Retraite complémentaire & Action Sociale', menu: 'Retraite'},
-  {route: '/finance-rh-component', titre: 'Finance, RH & autres\nFonction supports', menu: 'Fonctions_supports'},
+  {route: '/retraite-complementaire-component', titre: 'Retraite Complémentaire & Action Sociale', menu: 'Retraite'},
+  {route: '/finance-rh-component', titre: 'Finance, RH & autres\nFonction support', menu: 'Fonctions_supports'},
   {route: '/saisie-manuelle-component', titre: 'Saisie données', menu: 'Reglages'}
 ];
 
@@ -62,9 +62,9 @@ export const textes = [
   {
     type:  'intervention',
     array: [
-      {id: 'num', libelle: 'Intervention en cours'},
-      {id: 'numPluriel', libelle: 'Interventions en cours'},
-      {id: 'titre', libelle: 'Etat des interventions : 19h00 - 7h30'}
+      {id: 'num', libelle: 'Intervention'},
+      {id: 'numPluriel', libelle: 'Interventions'},
+      {id: 'titre', libelle: 'Interventions : 7h00'}
     ]
   }
 ];

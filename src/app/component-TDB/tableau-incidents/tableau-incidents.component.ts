@@ -94,7 +94,7 @@ export class TableauIncidentsComponent implements OnInit {
   }
 
   setTextNb(): void{
-    if(parseInt(this.nombre) < 2){
+    if (parseInt(this.nombre, 10) < 2){
       this.texteNb = this.textes.find((user: any) => user.id === 'num').libelle;
     }else{
       this.texteNb = this.textes.find((user: any) => user.id === 'numPluriel').libelle;

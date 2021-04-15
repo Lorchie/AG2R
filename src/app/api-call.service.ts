@@ -83,7 +83,7 @@ export class ApiCallService {
 
   postUploadList(fileToUpload: File[], metier: string, type: string): Observable<object> {
     const formData: FormData = new FormData();
-    for(var val of fileToUpload){
+    for (const val of fileToUpload){
       formData.append('file', val);
     }
     return this.http.post(this.startUrlUpdate + type + this.endUrlMetier + metier, formData, this.httpOptions).pipe(
@@ -111,7 +111,7 @@ export class ApiCallService {
 
   checkpassword2(password: string): Observable<Role> {
     return this.http.get<Role>(this.checkPasswordUrl + password, this.httpOptionsPost
-    )
+    );
   }
 
   handleError(error: any): Observable<never> {

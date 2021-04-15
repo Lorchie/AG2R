@@ -13,11 +13,11 @@ const routes: Routes = [
   { path: 'epargne-retraite-component', component: TableauDeBordComponent, data :
    {code : 'ERS', titre : 'Epargne et Retraite Supplémentaire'} },
   { path: 'finance-rh-component', component: TableauDeBordComponent, data :
-   {code : 'FRFS', titre : 'Finance, RH & autres Fonctions Supports'} },
+   {code : 'FRFS', titre : 'Finance, RH & autres Fonctions Support'} },
   { path: 'prevoyance-sante-component', component: TableauDeBordComponent,
    data : {code : 'PS', titre : 'Prévoyance Santé'} },
   { path: 'retraite-complementaire-component', component: TableauDeBordComponent,
-   data : {code : 'RCAS', titre : 'Retraite complémentaire & Action Sociale'} },
+   data : {code : 'RCAS', titre : 'Retraite Complémentaire & Action Sociale'} },
   { path: 'saisie-manuelle-component', component: SaisieManuelleComponent },
 ];
 @NgModule({

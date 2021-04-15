@@ -4,13 +4,13 @@ export class TDBConst {
 
 }
 export const   metiers: Array<Metier> = [
-  {route: '/', titre: 'INFORMATION PRODUCTION', menu: 'Home'},
-  {route: '/accueil-component', titre: 'INFORMATION PRODUCTION', menu: 'Home'},
+  {route: '/', titre: 'RESULTATS D’EXPLOITATIONS', menu: 'Home'},
+  {route: '/accueil-component', titre: 'RESULTATS D’EXPLOITATIONS', menu: 'Home'},
   {route: '/client-distribution-component', titre: 'Clients, Distribution & Digital', menu: 'Digital'},
   {route: '/epargne-retraite-component', titre: 'Epargne et Retraite Supplémentaire', menu: 'Epargne'},
   {route: '/prevoyance-sante-component', titre: 'Prévoyance Santé', menu: 'Prevoyance_sante'},
   {route: '/retraite-complementaire-component', titre: 'Retraite complémentaire & Action Sociale', menu: 'Retraite'},
-  {route: '/finance-rh-component', titre: 'Finance, rh & autres\nFonction supports', menu: 'Fonctions_supports'},
+  {route: '/finance-rh-component', titre: 'Finance, RH & autres\nFonction supports', menu: 'Fonctions_supports'},
   {route: '/saisie-manuelle-component', titre: 'Saisie données', menu: 'Reglages'}
 ];
 

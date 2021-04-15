@@ -1,8 +1,8 @@
 <div class="messageContainer mt-3" (click)="clickMessage(index)">
     <div class="row">
         <div class="col ">
-            <div class="textMessage" *ngIf="messages"><span class="colorMessage">Message:</span><span class="font-italic">{{messages[index].libMessage}}</span></div>
-            <div class="textMessage" *ngIf="!messages"><span class="colorMessage">Message:</span> Aucun message</div>
+            <div class="textMessage" *ngIf="messages"><span class="colorMessage">Message: </span><span>{{messages[index].libMessage}}</span></div>
+            <div class="textMessage" *ngIf="!messages"><span class="colorMessage">Message: </span> Aucun message</div>
         </div>
         <div class="col-1">
             <div class="containerMessage vertical-center">
@@ -36,7 +36,7 @@
     </div>
     <div class="col iconAccueil shadow p-3 mb-5 rounded" routerLink="/prevoyance-sante-component" routerLinkActive="active">
         <div class="svg text-center my-auto" [inlineSVG]="'assets/svg/Prevoyance_sante.svg'"></div>
-        <p>Prévoyance santé</p>
+        <p>Prévoyance Santé</p>
     </div>
     <div class="col iconAccueil shadow p-3 mb-5 rounded" routerLink="/epargne-retraite-component" routerLinkActive="active">
         <div class="svg text-center my-auto" [inlineSVG]="'assets/svg/Epargne.svg'"></div>
@@ -44,7 +44,7 @@
     </div>
     <div class="col iconAccueil shadow p-3 mb-5 rounded" routerLink="/finance-rh-component" routerLinkActive="active">
         <div class="svg" [inlineSVG]="'assets/svg/Fonctions_supports.svg'"></div>
-        <p>Finance, RH & autres Fonctions supports</p>
+        <p>Finance, RH & autres Fonctions Supports</p>
     </div>
 </div>
 

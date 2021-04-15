@@ -1,3 +1,4 @@
+import { AUTO_STYLE } from '@angular/animations';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
@@ -124,10 +125,10 @@ export class EtatPlanBatchComponent implements OnInit {
 
     this.barChartData = [
 
-      {barThickness: 5, data: arrayEndedOk, label: 'Ended OK' },
-      {barThickness: 5, data: arrayWait, label: 'Wait' },
-      {barThickness: 5, data: arrayExecuting, label: 'Execution' },
-      {barThickness: 5, data: arrayEndedNotOk, label: 'Ended Not OK' }
+      {data: arrayEndedOk, label: 'Ended OK' },
+      {data: arrayWait, label: 'Wait' },
+      {data: arrayExecuting, label: 'Execution' },
+      {data: arrayEndedNotOk, label: 'Ended Not OK' }
     ];
     if (this.zoom){
       this.barChartOptions = {

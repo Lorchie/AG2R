@@ -28,7 +28,7 @@ export class ChargementDonneComponent implements OnInit {
     {id: 1, titre: 'Clients, Distribution & Digital', code: 'CDD', typeMessage: 'Faits Marquants'},
     {id: 2, titre: 'Prévoyance Santé', code: 'PS', typeMessage: 'Faits Marquants'},
     {id: 3, titre: 'Epargne et Retraite Supplémentaire', code: 'ERS', typeMessage: 'Faits Marquants'},
-    {id: 4, titre: 'Finance, rh & autres Fonction Supports', code: 'FRFS', typeMessage: 'Faits Marquants'},
+    {id: 4, titre: 'Finance, RH & autres Fonction Supports', code: 'FRFS', typeMessage: 'Faits Marquants'},
   ];
 
   constructor(private api: ApiCallService) { }
@@ -58,10 +58,10 @@ export class ChargementDonneComponent implements OnInit {
   }
 
   uploadFiles(): void{
+
     if (this.filesToUploadIntervention.length !== 0){
-      this.filesToUploadIntervention.forEach(element => {
-        this.uploadFileToActivity(element, 'interventions');
-      });
+      this.uploadFileToActivity(this.filesToUploadIntervention, 'interventions');
+
     }
 
     if (this.fileToUploadIncident.length !== 0){

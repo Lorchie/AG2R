@@ -21,7 +21,7 @@ export class SaisieMessagesComponent implements OnInit {
     {id: 2, titre: 'Clients, Distribution & Digital', code: 'CDD', typeMessage: 'Faits Marquants'},
     {id: 3, titre: 'Prévoyance Santé', code: 'PS', typeMessage: 'Faits Marquants'},
     {id: 4, titre: 'Epargne et Retraite Supplémentaire', code: 'ERS', typeMessage: 'Faits Marquants'},
-    {id: 5, titre: 'Finance, rh & autres Fonction Supports', code: 'FRFS', typeMessage: 'Faits Marquants'},
+    {id: 5, titre: 'Finance, RH & autres Fonction Supports', code: 'FRFS', typeMessage: 'Faits Marquants'},
   ];
 
   constructor(private api: ApiCallService) { }

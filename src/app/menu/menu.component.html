@@ -1,7 +1,7 @@
 <nav class="d-flex">
     <ul class="list-inline mx-auto justify-content-center list-group">
         <li class="list-inline-item list-group-item" >
-            <a routerLink="/accueil-component" routerLinkActive="active" data-toggle="tooltip" title="INFORMATION PRODUCTION">
+            <a routerLink="/accueil-component" routerLinkActive="active" data-toggle="tooltip" title="RESULTATS D’EXPLOITATIONS">
                 <div [ngClass]="{'actif': menu == 'Home'}" class="svg text-center my-auto" [inlineSVG]="'assets/svg/Home.svg'"></div>
             </a>
         </li>
@@ -31,7 +31,7 @@
             </a>
         </li>
         <li class="list-inline-item list-group-item">
-            <a routerLink="/saisie-manuelle-component" routerLinkActive="active">
+            <a routerLink="/saisie-manuelle-component" routerLinkActive="active" data-toggle="tooltip" title="SAISIE  MANUELLE">
                 <div [ngClass]="{'actif': menu == 'Reglages'}" class="svg text-center my-auto" [inlineSVG]="'assets/svg/Reglages.svg'"></div>
             </a>
         </li>

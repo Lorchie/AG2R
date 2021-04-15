@@ -6,7 +6,7 @@
         </div>
     </div>
 
-    <div class="col">
+    <div class="col" [ngClass]="{'zoom': zoom}">
         <p class="textTitre text-left">{{texteTitre}}
             <a *ngIf="zoom" class="zoomColor" style="float:right;" (click)="zoomCompnent(false)" [inlineSVG]="'assets/svg/zoom-out.svg'"></a>
             <a *ngIf="!zoom" class="zoomColor" style="float:right;"(click)="zoomCompnent(true)" [inlineSVG]="'assets/svg/zoom-in.svg'"></a>

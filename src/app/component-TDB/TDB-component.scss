@@ -27,13 +27,19 @@ td{
         line-height:120%;
     }
 
-    .zoomTableau{
-        height: 450px !important;
-        
-        .fontSize11{
-            font-size: 14px !important;
+    .zoom{
+        .zoomTableau{
+            height: 450px !important;
+            
+            .fontSize11{
+                font-size: 14px !important;
+            }
+        }
+        .textTitre{
+            font-size: 18px;
         }
     }
+
 
     .table-wrapper-scroll-y {
         display: block;
@@ -57,7 +63,15 @@ td{
     }
     
     .graphZoom{
-        position: relative; height:75vh; width:75vw
+        position: relative; height:75vh; width:75vw;
+
+        .titrePlanBatch{
+            font-size: 14px;
+        }
+
+        .textTitre{
+            font-size: 18px;
+        }
     }
 }
 

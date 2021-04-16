@@ -2,7 +2,7 @@
 <div class="padding">
     <select class="custom-select" (change)="changeMetier($event)">
         <option value="" selected disabled>Choisir business line</option>
-        <option *ngFor="let city of metierArray" [value]="city.id">{{city.titre}}</option>
+        <option *ngFor="let metier of metierArrayMessage" [value]="metier.id">{{metier?.titre}}</option>
      </select>
 </div>
 <div *ngIf="metierSelected">

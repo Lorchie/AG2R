@@ -1,17 +1,29 @@
 import { Metier } from './interfaces/metier';
 
-export class TDBConst {
-
-}
 export const   metiers: Array<Metier> = [
-  {route: '/', titre: 'RESULTATS D’EXPLOITATIONS', menu: 'Home'},
-  {route: '/accueil-component', titre: 'RESULTATS D’EXPLOITATIONS', menu: 'Home'},
-  {route: '/client-distribution-component', titre: 'Clients, Distribution & Digital', menu: 'Digital'},
-  {route: '/epargne-retraite-component', titre: 'Epargne et Retraite Supplémentaire', menu: 'Epargne'},
-  {route: '/prevoyance-sante-component', titre: 'Prévoyance Santé', menu: 'Prevoyance_sante'},
-  {route: '/retraite-complementaire-component', titre: 'Retraite Complémentaire & Action Sociale', menu: 'Retraite'},
-  {route: '/finance-rh-component', titre: 'Finance, RH & autres\nFonction support', menu: 'Fonctions_supports'},
-  {route: '/saisie-manuelle-component', titre: 'Saisie données', menu: 'Reglages'}
+  {id: 0, route: '/', titre: 'Resultats d’exploitations',
+   menu: 'Home', code: 'accueil', typeMessage: 'Accueil'},
+
+  {id: 1, route: '/accueil-component', titre: 'Resultats d’exploitations',
+   menu: 'Home', code: 'accueil', typeMessage: 'Accueil'},
+
+  {id: 2, route: '/retraite-complementaire-component', titre: 'Retraite Complémentaire & Action Sociale',
+   menu: 'Retraite', code: 'RCAS', typeMessage: 'Faits Marquants'},
+
+  {id: 3, route: '/client-distribution-component', titre: 'Clients, Distribution & Digital',
+   menu: 'Digital', code: 'CDD', typeMessage: 'Faits Marquants'},
+
+  {id: 4, route: '/prevoyance-sante-component', titre: 'Prévoyance Santé',
+   menu: 'Prevoyance_sante', code: 'PS', typeMessage: 'Faits Marquants'},
+
+  {id: 5, route: '/epargne-retraite-component', titre: 'Epargne et Retraite Supplémentaire',
+   menu: 'Epargne', code: 'ERS', typeMessage: 'Faits Marquants'},
+
+  {id: 6, route: '/finance-rh-component', titre: 'Finance, RH & autres\nFonction support',
+   menu: 'Fonctions_supports', code: 'FRFS', typeMessage: 'Faits Marquants'},
+
+  {id: 7, route: '/saisie-manuelle-component', titre: 'Saisie données',
+   menu: 'Reglages', code: '', typeMessage: ''}
 ];
 
 export const headers = [

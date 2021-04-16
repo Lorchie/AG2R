@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, HostBinding } from '@angular/core';
-import { ApiCallService } from '../../api-call.service';
+import { ApiCallService } from '../../API/api-call.service';
+import { Metier } from '../../interfaces/metier';
 
 @Component({
   selector: 'app-faits-marquants',
@@ -8,7 +9,7 @@ import { ApiCallService } from '../../api-call.service';
 })
 export class FaitsMarquantsComponent implements OnInit {
 
-  @Input() metier?: any;
+  @Input() metier?: Metier;
   index = 0;
   faitsMarquants: any;
   radioOptions = 0;

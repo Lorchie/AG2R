@@ -1,5 +1,7 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
-import { ApiCallService } from '../api-call.service';
+import { ApiCallService } from '../API/api-call.service';
+import { Metier } from '../interfaces/metier';
+import * as MetierConstants from '../const-tdb';
 
 @Component({
   selector: 'app-saisie-messages',
@@ -15,21 +17,17 @@ export class SaisieMessagesComponent implements OnInit {
   faitsMarquants: any = [];
   message = '';
 
-  public metierArray: Array<{id: number, titre: string, code: string, typeMessage: string}> = [
-    {id: 0, titre: 'Accueil', code: 'accueil', typeMessage: 'Accueil'},
-    {id: 1, titre: 'Retraite Complémentaire & Action Sociale', code: 'RCAS', typeMessage: 'Faits Marquants'},
-    {id: 2, titre: 'Clients, Distribution & Digital', code: 'CDD', typeMessage: 'Faits Marquants'},
-    {id: 3, titre: 'Prévoyance Santé', code: 'PS', typeMessage: 'Faits Marquants'},
-    {id: 4, titre: 'Epargne et Retraite Supplémentaire', code: 'ERS', typeMessage: 'Faits Marquants'},
-    {id: 5, titre: 'Finance, RH & autres Fonction Support', code: 'FRFS', typeMessage: 'Faits Marquants'},
-  ];
+  public metierArrayMessage: Array<Metier> = MetierConstants.metiers.map(obj => ({...obj}));
 
   constructor(private api: ApiCallService) { }
 
   ngOnInit(): void {
+    this.metierArrayMessage.splice(7, 1);
+    this.metierArrayMessage.splice(0, 1);
   }
+
   changeMetier(e: any): void {
-    this.metierSelected = this.metierArray[e.target.value];
+    this.metierSelected = this.metierArrayMessage[e.target.value];
     this.callApi();
   }
 

@@ -4,7 +4,7 @@
       <a *ngIf="zoom" class="zoomColor" style="float:right;" (click)="zoomCompnent(false)" [inlineSVG]="'assets/svg/zoom-out.svg'"></a>
       <a *ngIf="!zoom" class="zoomColor" style="float:right;"(click)="zoomCompnent(true)" [inlineSVG]="'assets/svg/zoom-in.svg'"></a>
     </p>
-    <p class="text-center titrePlanBatch p-1">Etat des batchs {{metier.titre}}</p>
+    <p class="text-center titrePlanBatch p-1">Etat des batchs {{metier?.titre}}</p>
       <canvas baseChart 
         [datasets]="barChartData"
         [colors]="chartColors"

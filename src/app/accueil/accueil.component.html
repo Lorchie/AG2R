@@ -19,7 +19,7 @@
     <mat-radio-button  name="opList" *ngFor="let op of messages, let i = index" [value]="i" (click)="clickRadio(i)"></mat-radio-button>
 </mat-radio-group>
 
-<p class="blueUnderline">Résultats d'exploitations</p>
+<p class="blueUnderline">{{metierArray[0].titre}}</p>
 
 <div class="row">
     <div class="col iconAccueil shadow p-3 mb-5 rounded" routerLink="/retraite-complementaire-component" routerLinkActive="active">
@@ -27,24 +27,24 @@
             <div class="svg text-center my-auto" [inlineSVG]="'assets/svg/Retraite.svg'"></div>
         </div>
         <div class="d-flex align-items-bottom">
-            <p>Retraite Complémentaire & Action Sociale</p>
+            <p>{{metierArray[1].titre}}</p>
         </div>
     </div>
     <div class="col iconAccueil shadow p-3 mb-5 rounded" routerLink="/client-distribution-component" routerLinkActive="active">
         <div class="svg text-center my-auto" [inlineSVG]="'assets/svg/Digital.svg'"></div>
-        <p>Clients, Distribution & Digital</p>
+        <p>{{metierArray[2].titre}}</p>
     </div>
     <div class="col iconAccueil shadow p-3 mb-5 rounded" routerLink="/prevoyance-sante-component" routerLinkActive="active">
         <div class="svg text-center my-auto" [inlineSVG]="'assets/svg/Prevoyance_sante.svg'"></div>
-        <p>Prévoyance Santé</p>
+        <p>{{metierArray[3].titre}}</p>
     </div>
     <div class="col iconAccueil shadow p-3 mb-5 rounded" routerLink="/epargne-retraite-component" routerLinkActive="active">
         <div class="svg text-center my-auto" [inlineSVG]="'assets/svg/Epargne.svg'"></div>
-        <p>Epargne et Retraite Supplémentaire</p>
+        <p>{{metierArray[4].titre}}</p>
     </div>
     <div class="col iconAccueil shadow p-3 mb-5 rounded" routerLink="/finance-rh-component" routerLinkActive="active">
         <div class="svg" [inlineSVG]="'assets/svg/Fonctions_supports.svg'"></div>
-        <p>Finance, RH & autres Fonctions Support</p>
+        <p>{{metierArray[5].titre}}</p>
     </div>
 </div>
 

@@ -1,8 +1,8 @@
-import { AUTO_STYLE } from '@angular/animations';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
-import { ApiCallService } from '../../api-call.service';
+import { ApiDonneService } from '../../API/api-donne.service';
+import { Metier } from '../../interfaces/metier';
 
 @Component({
   selector: 'app-etat-plan-batch',
@@ -10,7 +10,12 @@ import { ApiCallService } from '../../api-call.service';
   styleUrls: ['../TDB-component.scss']
 })
 export class EtatPlanBatchComponent implements OnInit {
-  constructor(private api: ApiCallService) { }
+  constructor(private api: ApiDonneService) { }
+
+  @Input() metier?: Metier;
+  @Input() zoom?: boolean;
+
+  @Output() zoomGrapah = new EventEmitter<{bool: boolean, type: string}>();
 
   arrayEtat: any;
 
@@ -47,11 +52,6 @@ export class EtatPlanBatchComponent implements OnInit {
   barChartType: ChartType = 'bar';
   barChartLabels: Label[] = [];
   barChartData: ChartDataSets[] = [];
-
-  @Input() metier?: any;
-  @Input() zoom?: boolean;
-
-  @Output() zoomGrapah = new EventEmitter<{bool: boolean, type: string}>();
 
   public chartColors: Array<any> = [
     { // first color
@@ -94,7 +94,7 @@ export class EtatPlanBatchComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.metier){
-      this.api.getDonnee(this.metier.code, 'batchPlans').toPromise()
+      this.api.getDonneeBatchPlans(this.metier.code).toPromise()
       .then((res) => {
         if (res instanceof Array){
           this.arrayEtat = res;

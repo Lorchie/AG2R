@@ -3,7 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 
 import { retry, catchError } from 'rxjs/operators';
-import { Role } from './dialog-password/dialog-password.component';
+import { Role } from '../dialog-password/dialog-password.component';
+import { Message } from '../interfaces/message';
 
 
 @Injectable({
@@ -43,14 +44,9 @@ export class ApiCallService {
 
   constructor(private http: HttpClient) { }
 
-  getDonnee(metier: string, type: string): Observable<object> {
-    return this.http.get(this.startUrl + type + this.endUrlMetier + metier, this.httpOptions).pipe(
-      retry(1),
-      catchError(this.handleError));
-  }
 
-  getMessages(metier: string): Observable<object> {
-    return this.http.get(this.messagesUrl + metier, this.httpOptions).pipe(
+  getMessages(metier: string): Observable<Message> {
+    return this.http.get<Message>(this.messagesUrl + metier, this.httpOptions).pipe(
       retry(1),
       catchError(this.handleError));
   }

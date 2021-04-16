@@ -1,5 +1,7 @@
 import { Component, OnInit, HostBinding, ElementRef, ViewChild } from '@angular/core';
-import { ApiCallService } from '../api-call.service';
+import { ApiCallService } from '../API/api-call.service';
+import { Metier } from '../interfaces/metier';
+import * as MetierConstants from '../const-tdb';
 
 @Component({
   selector: 'app-chargement-donne',
@@ -14,26 +16,22 @@ export class ChargementDonneComponent implements OnInit {
   @ViewChild('myInput')
   myInputVariable: any;
 
-  fileToUploadPlanBatch: Array<any> = new Array();
-  fileToUploadIncident: Array<any> = new Array();
-  fileToUploadScenario: Array<any> = new Array();
-  filesToUploadIntervention: Array<any> = new Array();
+  fileToUploadPlanBatch: Array<File> = new Array();
+  fileToUploadIncident: Array<File> = new Array();
+  fileToUploadScenario: Array<File> = new Array();
+  filesToUploadIntervention: Array<File> = new Array();
 
   filesChamps: any = [];
   metierSelected: any;
   nbrSuspendu: any;
 
-  public metierArray: Array<{id: number, titre: string, code: string, typeMessage: string}> = [
-    {id: 0, titre: 'Retraite Complémentaire & Action Sociale', code: 'RCAS', typeMessage: 'Faits Marquants'},
-    {id: 1, titre: 'Clients, Distribution & Digital', code: 'CDD', typeMessage: 'Faits Marquants'},
-    {id: 2, titre: 'Prévoyance Santé', code: 'PS', typeMessage: 'Faits Marquants'},
-    {id: 3, titre: 'Epargne et Retraite Supplémentaire', code: 'ERS', typeMessage: 'Faits Marquants'},
-    {id: 4, titre: 'Finance, RH & autres Fonction Support', code: 'FRFS', typeMessage: 'Faits Marquants'},
-  ];
+  public metierArray: Array<Metier> = MetierConstants.metiers.map(obj => ({...obj}));
 
   constructor(private api: ApiCallService) { }
 
   ngOnInit(): void {
+    this.metierArray.splice(7, 1);
+    this.metierArray.splice(0, 2);
   }
 
   changeMetier(e: any): void {

@@ -30,8 +30,8 @@ export class ChargementDonneComponent implements OnInit {
   constructor(private api: ApiCallService) { }
 
   ngOnInit(): void {
-    this.metierArray.splice(7, 1);
-    this.metierArray.splice(0, 2);
+    this.metierArray.splice(6, 1);
+    this.metierArray.splice(0, 1);
   }
 
   changeMetier(e: any): void {

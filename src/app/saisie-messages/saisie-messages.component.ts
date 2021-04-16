@@ -22,8 +22,7 @@ export class SaisieMessagesComponent implements OnInit {
   constructor(private api: ApiCallService) { }
 
   ngOnInit(): void {
-    this.metierArrayMessage.splice(7, 1);
-    this.metierArrayMessage.splice(0, 1);
+    this.metierArrayMessage.splice(6, 1);
   }
 
   changeMetier(e: any): void {

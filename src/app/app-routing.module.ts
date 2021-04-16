@@ -9,16 +9,16 @@ import { SaisieManuelleComponent } from './saisie-manuelle/saisie-manuelle.compo
 import { TableauDeBordComponent } from './tableau-de-bord/tableau-de-bord.component';
 
 
-const metierArray: Array<Metier> = MetierConstants.metiers;
+const metierArray: Array<Metier> = MetierConstants.metiers.map(obj => ({...obj}));
 
 const routes: Routes = [
   { path: '', component: AccueilComponent },
   { path: 'accueil-component', component: AccueilComponent },
-  { path: 'client-distribution-component', component: TableauDeBordComponent, data : metierArray[2] },
-  { path: 'epargne-retraite-component', component: TableauDeBordComponent, data : metierArray[3]},
-  { path: 'finance-rh-component', component: TableauDeBordComponent, data : metierArray[4]},
-  { path: 'prevoyance-sante-component', component: TableauDeBordComponent, data : metierArray[5]},
-  { path: 'retraite-complementaire-component', component: TableauDeBordComponent, data : metierArray[6]},
+  { path: 'retraite-complementaire-component', component: TableauDeBordComponent, data : metierArray[1]},
+  { path: 'client-distribution-component', component: TableauDeBordComponent, data : metierArray[2]},
+  { path: 'prevoyance-sante-component', component: TableauDeBordComponent, data : metierArray[3]},
+  { path: 'epargne-retraite-component', component: TableauDeBordComponent, data : metierArray[4]},
+  { path: 'finance-rh-component', component: TableauDeBordComponent, data : metierArray[5]},
   { path: 'saisie-manuelle-component', component: SaisieManuelleComponent },
 ];
 @NgModule({

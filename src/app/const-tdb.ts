@@ -1,8 +1,6 @@
 import { Metier } from './interfaces/metier';
 
 export const   metiers: Array<Metier> = [
-  {id: 0, route: '/', titre: 'Resultats d’exploitations',
-   menu: 'Home', code: 'accueil', typeMessage: 'Accueil'},
 
   {id: 1, route: '/accueil-component', titre: 'Resultats d’exploitations',
    menu: 'Home', code: 'accueil', typeMessage: 'Accueil'},

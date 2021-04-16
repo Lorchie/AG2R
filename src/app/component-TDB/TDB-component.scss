@@ -92,6 +92,7 @@ td{
     font-weight: bold;
     background: linear-gradient(to right, #00BAE3 0%, #5AB88D 100%);
     -webkit-background-clip: text;
+            background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 70px;
     padding: 15px 15px;
@@ -102,13 +103,15 @@ td{
 }
 
 ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+            box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
 
 :host ::ng-deep {

@@ -5,6 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { Role } from '../dialog-password/dialog-password.component';
 import { Message } from '../interfaces/message';
+import { environment } from '../../environments/environment';
 
 
 @Injectable({
@@ -12,18 +13,18 @@ import { Message } from '../interfaces/message';
 })
 export class ApiCallService {
 
-  startUrl = 'http://localhost:8081/api/';
-  startUrlUpdate = 'http://localhost:8081/api/upload/';
+  startUrl = environment.url;
+  startUrlUpdate = this.startUrl + 'upload/';
   endUrlMetier = '?businessId=';
 
-  messagesUrl = 'http://localhost:8081/api/messages?businessId=';
+  messagesUrl = this.startUrl + 'messages?businessId=';
 
-  checkPasswordUrl = 'http://localhost:8081/api/users/role?password=';
+  checkPasswordUrl = 'users/role?password=';
 
   supprimerMessageUrl = this.startUrl + 'messages?param=';
   ajouterMessageUrl = this.startUrl + 'messages';
 
-  uploadSuspendedUrl = 'http://localhost:8081/api/upload/suspended';
+  uploadSuspendedUrl = 'upload/suspended';
 
   httpOptions = {
     headers: new HttpHeaders(

@@ -6,6 +6,7 @@ import { Incidents } from '../interfaces/incidents';
 import { Interventions } from '../interfaces/interventions';
 import { SuspendedScenarios } from '../interfaces/suspended-scenarios';
 import { StatesScenarios } from '../interfaces/states-scenarios';
+import { environment } from '../../environments/environment';
 
 import { retry, catchError } from 'rxjs/operators';
 
@@ -13,8 +14,8 @@ import { retry, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ApiDonneService {
-  startUrl = 'http://localhost:8081/api/';
-  startUrlUpdate = 'http://localhost:8081/api/upload/';
+  startUrl = environment.url;
+  startUrlUpdate = this.startUrl + '/upload/';
   endUrlMetier = '?businessId=';
 
   httpOptions = {

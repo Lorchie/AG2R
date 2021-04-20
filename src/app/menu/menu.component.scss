@@ -49,3 +49,9 @@
   padding: 21px 0px !important;
 }
 
+@media screen and (min-height: 650px)
+{
+  .list-group-item{
+    padding: 24px 0px !important;
+  }
+}

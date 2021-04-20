@@ -8,9 +8,23 @@
   fill: #00B9E4;
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1024px) and (min-width: 901px) {
   .actif::before{
-    left: -15px !important;
+    left: -100% !important;
+    border-left: 5px solid #00B9E4 !important;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .actif::before{
+    left: -70% !important;
+    border-left: 5px solid #00B9E4 !important;
+  }
+}
+
+@media only screen and (max-width: 1100px) and (min-width: 1025px) {
+  .actif::before{
+    left: -120% !important;
     border-left: 5px solid #00B9E4 !important;
   }
 }
@@ -21,7 +35,7 @@
   top: 0px;
   right: 0px;
   bottom: 0px;
-  left: -20px;
+  left: -170%;
   border-left: 5px solid #00B9E4;
 }
 

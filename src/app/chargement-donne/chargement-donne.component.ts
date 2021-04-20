@@ -11,7 +11,7 @@ import * as MetierConstants from '../const-tdb';
 
 export class ChargementDonneComponent implements OnInit {
 
-  @HostBinding('class') classes  = 'col container' ;
+  @HostBinding('class') classes  = 'col container-fluid' ;
 
   @ViewChild('myInput')
   myInputVariable: any;

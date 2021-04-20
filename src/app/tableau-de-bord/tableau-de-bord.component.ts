@@ -10,7 +10,7 @@ import { Metier } from '../interfaces/metier';
 
 export class TableauDeBordComponent implements OnInit, OnDestroy {
 
-  @HostBinding('class') classes  = 'col container' ;
+  @HostBinding('class') classes  = 'col container-fluid' ;
   metier?: Metier;
   sub: any;
   zoom = '';

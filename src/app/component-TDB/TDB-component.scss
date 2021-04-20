@@ -17,7 +17,6 @@ td{
     .borderNB{
         border-right: 2px solid RGB(245, 246, 250);
     }
-
     .fontSize11{
         font-size: 11px;
     }
@@ -95,7 +94,7 @@ td{
             background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 70px;
-    padding: 15px 15px;
+    padding: 15px 17px;
 }
 
 ::-webkit-scrollbar {
@@ -137,5 +136,15 @@ td{
         width: 20px;  /*double of your required circle radius*/
         left: calc(50% - 10px); /*'10px'-same as your required circle radius*/
         top: calc(50% - 10px); /*'10px'-same as your required circle radius*/
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 1007px)
+{
+    .fontSize11{
+        font-size: 10px !important;
+    }
+    .fontSize14{
+        font-size: 13px !important;
     }
 }

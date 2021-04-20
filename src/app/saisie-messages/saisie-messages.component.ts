@@ -10,7 +10,7 @@ import * as MetierConstants from '../const-tdb';
 })
 export class SaisieMessagesComponent implements OnInit {
 
-  @HostBinding('class') classes  = 'col container' ;
+  @HostBinding('class') classes  = 'col container-fluid' ;
 
   metierSelected: any;
   myGroup: any;

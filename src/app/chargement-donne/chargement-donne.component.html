@@ -4,7 +4,7 @@
         <option *ngFor="let metier of metierArray; let i = index" [value]="i">{{metier?.titre}}</option>
      </select>
 </div>
-<div *ngIf="metierSelected"  class="container">
+<div *ngIf="metierSelected"  class="container-fluid">
     <div class="row">
         <div class="form-group mt-5 col">
             <label for="file">Interventions : </label>
@@ -70,7 +70,7 @@
         <input type="number" [(ngModel)]="nbrSuspendu">
     </div>
 
-    <div class="container row align-center d-flex justify-content-center">
+    <div class="container-fluid row align-center d-flex justify-content-center">
         <button (click)="uploadFiles()">Valider</button>
     </div>
 </div>

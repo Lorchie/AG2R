@@ -19,7 +19,7 @@ export class ApiCallService {
 
   messagesUrl = this.startUrl + 'messages?businessId=';
 
-  checkPasswordUrl = 'users/role?password=';
+  checkPasswordUrl = this.startUrl + 'users/role?password=';
 
   supprimerMessageUrl = this.startUrl + 'messages?param=';
   ajouterMessageUrl = this.startUrl + 'messages';

@@ -28,7 +28,35 @@ export class TableauIncidentsComponent implements OnInit {
   ngOnInit(): void {
     this.headers = IncidentConstants.headers.find(e => e.type === this.type)?.array;
     this.textes = IncidentConstants.textes.find(e => e.type === this.type)?.array;
-    this.texteTitre = this.textes.find((user: any) => user.id === 'titre').libelle;
+    if (Array.isArray(this.textes)){
+      this.texteTitre = this.textes.find((user: any) => user.id === 'titre').libelle;
+    }
+    this.initTableauIncidents();
+  }
+
+  setTextNb(): void{
+    if (parseInt(this.nombre, 10) < 2){
+      this.texteNb = this.textes.find((user: any) => user.id === 'num').libelle;
+    }else{
+      this.texteNb = this.textes.find((user: any) => user.id === 'numPluriel').libelle;
+    }
+  }
+
+  zoomCompnent(bool: boolean): void {
+    if (this.type){
+      this.zoomTableau.emit({bool, type: this.type});
+    }
+  }
+
+  createColEmpty(numberInt: number): Array<any>{
+    if (numberInt < 3){
+      const i = 3 - numberInt;
+      return new Array(i);
+    }
+    return new Array(0);
+  }
+
+  initTableauIncidents(): void{
     switch (this.type) {
       case 'batch':
         if (this.metier){
@@ -37,7 +65,7 @@ export class TableauIncidentsComponent implements OnInit {
               if (res instanceof Array){
                 const numberInt = res.length;
                 if (numberInt < 3){
-                  this.createColEmpty(numberInt);
+                  this.incidentsVide = this.createColEmpty(numberInt);
                 }
                 this.nombre = numberInt.toString();
               }else{
@@ -56,7 +84,7 @@ export class TableauIncidentsComponent implements OnInit {
             if (res instanceof Array){
               const numberInt = res.length;
               if (numberInt < 3){
-                this.createColEmpty(numberInt);
+                this.incidentsVide = this.createColEmpty(numberInt);
               }
               this.nombre = numberInt.toString();
             }else{
@@ -75,7 +103,7 @@ export class TableauIncidentsComponent implements OnInit {
               if (res instanceof Array){
                 const numberInt = res.length;
                 if (numberInt < 3){
-                  this.createColEmpty(numberInt);
+                  this.incidentsVide = this.createColEmpty(numberInt);
                 }
                 this.nombre = numberInt.toString();
               }else{
@@ -90,26 +118,5 @@ export class TableauIncidentsComponent implements OnInit {
       default:
         break;
     }
-
-
-  }
-
-  setTextNb(): void{
-    if (parseInt(this.nombre, 10) < 2){
-      this.texteNb = this.textes.find((user: any) => user.id === 'num').libelle;
-    }else{
-      this.texteNb = this.textes.find((user: any) => user.id === 'numPluriel').libelle;
-    }
-  }
-
-  zoomCompnent(bool: boolean): void {
-    if (this.type){
-      this.zoomTableau.emit({bool, type: this.type});
-    }
-  }
-
-  createColEmpty(numberInt: number): void{
-    const i = 3 - numberInt;
-    this.incidentsVide = new Array(i);
   }
 }

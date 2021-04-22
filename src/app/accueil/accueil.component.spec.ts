@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AccueilComponent } from './accueil.component';
 
 describe('AccueilComponent', () => {
@@ -8,6 +10,16 @@ describe('AccueilComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        HttpClientTestingModule,
+        MatDialogModule
+      ],
+      providers: [
+        {
+          provide: MatDialogRef,
+          useValue: {}
+        }
+      ],
       declarations: [ AccueilComponent ]
     })
     .compileComponents();

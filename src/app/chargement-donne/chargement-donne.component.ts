@@ -76,9 +76,7 @@ export class ChargementDonneComponent implements OnInit {
 
     if (this.filesToUploadIntervention.length !== 0){
       this.uploadFilesToActivity(this.filesToUploadIntervention, 'interventions');
-
     }
-
     if (this.fileToUploadIncident.length !== 0){
       this.uploadFileToActivity(this.fileToUploadIncident[0], 'incidents');
     }

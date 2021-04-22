@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { ActivatedRoute } from '@angular/router';
 import { TableauDeBordComponent } from './tableau-de-bord.component';
 
 describe('TableauDeBordComponent', () => {
@@ -8,6 +9,7 @@ describe('TableauDeBordComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      providers: [ActivatedRoute],
       declarations: [ TableauDeBordComponent ]
     })
     .compileComponents();
@@ -17,9 +19,5 @@ describe('TableauDeBordComponent', () => {
     fixture = TestBed.createComponent(TableauDeBordComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
   });
 });

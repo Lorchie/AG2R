@@ -15,7 +15,6 @@ import { retry, catchError } from 'rxjs/operators';
 })
 export class ApiDonneService {
   startUrl = environment.url;
-  startUrlUpdate = this.startUrl + '/upload/';
   endUrlMetier = '?businessId=';
 
   httpOptions = {

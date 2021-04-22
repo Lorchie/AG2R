@@ -19,12 +19,12 @@ export class ApiCallService {
 
   messagesUrl = this.startUrl + 'messages?businessId=';
 
-  checkPasswordUrl = 'users/role?password=';
+  checkPasswordUrl = this.startUrl + 'users/role?password=';
 
   supprimerMessageUrl = this.startUrl + 'messages?param=';
   ajouterMessageUrl = this.startUrl + 'messages';
 
-  uploadSuspendedUrl = 'upload/suspended';
+  uploadSuspendedUrl = this.startUrl + 'upload/suspended';
 
   httpOptions = {
     headers: new HttpHeaders(
@@ -94,7 +94,7 @@ export class ApiCallService {
       libMetier: metier.titre,
       nbrScenario: nbrScenario.toString()
     };
-    console.log(messageObject);
+    console.log(this.uploadSuspendedUrl);
     return this.http.post(this.uploadSuspendedUrl, JSON.stringify(messageObject), this.httpOptionsPost).pipe(
       retry(2),
       catchError(this.handleError));

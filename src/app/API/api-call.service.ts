@@ -24,7 +24,7 @@ export class ApiCallService {
   supprimerMessageUrl = this.startUrl + 'messages?param=';
   ajouterMessageUrl = this.startUrl + 'messages';
 
-  uploadSuspendedUrl = 'upload/suspended';
+  uploadSuspendedUrl = this.startUrl + 'upload/suspended';
 
   httpOptions = {
     headers: new HttpHeaders(

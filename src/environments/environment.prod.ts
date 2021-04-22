@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  url: 'ressources.racine.local:8081/api/'
+  url: 'http://localhost:8070/tb-api/api/'
 };

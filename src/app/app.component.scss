@@ -21,7 +21,7 @@ header{
     background-color: #C6C6C6!important;   /*inner circle color change*/
 }
 
-::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
    border-color:#C6C6C6!important; /*outer ring color change*/
 }
 

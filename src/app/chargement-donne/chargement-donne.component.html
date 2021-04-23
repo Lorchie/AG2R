@@ -67,7 +67,8 @@
     <div class="form-group mt-5">
         <label>Scénario suspendu: </label>
         <br>
-        <input type="number" [(ngModel)]="nbrSuspendu">
+        <input type="number" [(ngModel)]="nbrSuspendu" min="0">
+        <p class="text-danger" *ngIf="nbrSuspendu < 0">Le nombre de scénarios suspendus ne doit être inférieur à 0</p>
     </div>
 
     <div class="container-fluid row align-center d-flex justify-content-center">

@@ -29,6 +29,7 @@ import { DialogPasswordComponent } from './dialog-password/dialog-password.compo
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule} from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   exports: [
@@ -62,7 +63,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    InlineSVGModule.forRoot({ baseUrl: 'http://localhost:4200/' }),
+    InlineSVGModule.forRoot({ baseUrl: environment.base_url }),
     ChartsModule,
     MatRadioModule,
     FormsModule,

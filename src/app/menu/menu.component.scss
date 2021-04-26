@@ -1,12 +1,42 @@
- 
-.svg {
+ .svg {
     fill: #C6C6C6;
     height: 25px;
-    width: 25px;
-    
+    width: 25px; 
 }
+
 .actif{
   fill: #00B9E4;
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 901px) {
+  .actif::before{
+    left: -100% !important;
+    border-left: 5px solid #00B9E4 !important;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .actif::before{
+    left: -70% !important;
+    border-left: 5px solid #00B9E4 !important;
+  }
+}
+
+@media only screen and (max-width: 1100px) and (min-width: 1025px) {
+  .actif::before{
+    left: -120% !important;
+    border-left: 5px solid #00B9E4 !important;
+  }
+}
+
+.actif::before{
+  content: '';
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: -170%;
+  border-left: 5px solid #00B9E4;
 }
 
 .list-group-item{
@@ -19,3 +49,9 @@
   padding: 21px 0px !important;
 }
 
+@media screen and (min-height: 650px)
+{
+  .list-group-item{
+    padding: 24px 0px !important;
+  }
+}

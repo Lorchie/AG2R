@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import * as MetierConstants from './const-tdb';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -26,10 +27,15 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('FRONTTableauDeBord');
   });
 
-  it('should render title', () => {
+  it('should return retraite complementaire', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('FRONTTableauDeBord app is running!');
+    const app = fixture.componentInstance;
+    expect(app.getCurrentMetier('/retraite-complementaire-component') === MetierConstants.metiers[1]);
+  });
+
+  it('should return accueil', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app.getCurrentMetier('') === MetierConstants.metiers[0]);
   });
 });

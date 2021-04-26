@@ -1,8 +1,8 @@
 
 <div class="padding">
-    <select class="custom-select" (change)="changeMetier($event)" (ngModel)="metierArray">
-        <option value="" [selected]="true" disabled>Choisir metier</option>
-        <option *ngFor="let city of metierArray" [value]="city.id">{{city.titre}}</option>
+    <select class="custom-select" (change)="changeMetier($event)">
+        <option value="" selected disabled>Choisir business line</option>
+        <option *ngFor="let metier of metierArrayMessage; let i = index" [value]="i">{{metier?.titre}}</option>
      </select>
 </div>
 <div *ngIf="metierSelected">
@@ -19,15 +19,16 @@
                             {{e.libMessage}}
                         </td>
                         <td>
-                            <button (click)="supprimerMessage(e.idMessage)">Supprimer</button>
+                            <button (click)="supprimerMessage($event,e.idMessage)">Supprimer</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
         
-        <div class="text-center padding">
-            <button class="btn-default" (click)="supprimerAllMessage()">Supprimer Tout</button>
+
+        <div class="text-center padding" *ngIf="faitsMarquants.length > 1">
+            <button class="btn-default"  (click)="supprimerAllMessage()">Supprimer Tout</button>
         </div>
     </div>
 </div>

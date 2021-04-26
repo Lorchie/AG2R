@@ -19,7 +19,7 @@
   .files-list {
     display: flex;
     justify-content: space-between;
-    font-size: 8px;
+    font-size: 12px;
     width: 100%;
     margin: 5px auto;
     background: #ffffff;
@@ -36,4 +36,9 @@
 
   .marginFileName{
       margin: 5px;
+  }
+
+  .btn-valider {
+    background-color: #00B9E4 !important;
+    border-color: #9ecbec !important;
   }

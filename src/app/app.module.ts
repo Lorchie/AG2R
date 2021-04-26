@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -25,8 +25,25 @@ import { TableauIncidentsComponent } from './component-TDB/tableau-incidents/tab
 import { ChargementDonneComponent } from './chargement-donne/chargement-donne.component';
 import { SaisieMessagesComponent } from './saisie-messages/saisie-messages.component';
 import { DragDropDirectiveDirective } from './drag-drop-directive.directive';
+import { DialogPasswordComponent } from './dialog-password/dialog-password.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule} from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
+  exports: [
+    AccueilComponent,
+    MenuComponent,
+    SaisieManuelleComponent,
+    TableauDeBordComponent,
+    FaitsMarquantsComponent,
+    EtatPlanBatchComponent,
+    ScenarioSuspendusComponent,
+    TableauIncidentsComponent,
+    ChargementDonneComponent,
+    SaisieMessagesComponent
+  ],
   declarations: [
     AppComponent,
     AccueilComponent,
@@ -39,20 +56,23 @@ import { DragDropDirectiveDirective } from './drag-drop-directive.directive';
     TableauIncidentsComponent,
     ChargementDonneComponent,
     SaisieMessagesComponent,
-    DragDropDirectiveDirective
+    DragDropDirectiveDirective,
+    DialogPasswordComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    InlineSVGModule.forRoot({ baseUrl: 'http://localhost:4200/' }),
+    InlineSVGModule.forRoot({ baseUrl: environment.base_url }),
     ChartsModule,
     MatRadioModule,
     FormsModule,
     ReactiveFormsModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule, MatFormFieldModule, BrowserAnimationsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }

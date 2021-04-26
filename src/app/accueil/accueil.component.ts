@@ -1,5 +1,7 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
-import { ApiCallService } from '../api-call.service';
+import { ApiCallService } from '../API/api-call.service';
+import { Metier } from '../interfaces/metier';
+import * as MetierConstants from '../const-tdb';
 
 @Component({
   selector: 'app-accueil',
@@ -7,6 +9,8 @@ import { ApiCallService } from '../api-call.service';
   styleUrls: ['./accueil.component.scss']
 })
 export class AccueilComponent implements OnInit {
+
+  public metierArray: Array<Metier> = MetierConstants.metiers.map(obj => ({...obj}));
 
   @HostBinding('class') classes  = 'col' ;
 
@@ -18,7 +22,9 @@ export class AccueilComponent implements OnInit {
   constructor(private api: ApiCallService) { }
 
   ngOnInit(): void {
-      this.api.getMessages('accueil').toPromise()
+    this.metierArray.splice(7, 1);
+    this.metierArray.splice(0, 1);
+    this.api.getMessages('accueil').toPromise()
       .then((res) => {
           if (res instanceof Array){
             this.longer = res.length;

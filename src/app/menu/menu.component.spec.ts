@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MenuComponent } from './menu.component';
 
 describe('MenuComponent', () => {
@@ -8,6 +9,15 @@ describe('MenuComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        MatDialogModule
+      ],
+      providers: [
+        {
+          provide: MatDialogRef,
+          useValue: {}
+        }
+      ],
       declarations: [ MenuComponent ]
     })
     .compileComponents();

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, HostBinding } from '@angular/core';
-import { ApiCallService } from '../../api-call.service';
+import { ApiCallService } from '../../API/api-call.service';
+import { Metier } from '../../interfaces/metier';
 
 @Component({
   selector: 'app-faits-marquants',
@@ -8,8 +9,8 @@ import { ApiCallService } from '../../api-call.service';
 })
 export class FaitsMarquantsComponent implements OnInit {
 
-  @Input() metier?: any;
-  indexG = 0;
+  @Input() metier?: Metier;
+  index = 0;
   faitsMarquants: any;
   radioOptions = 0;
   longer = 0;
@@ -31,7 +32,16 @@ export class FaitsMarquantsComponent implements OnInit {
     }
   }
   clickRadio(index: number): void{
-    this.indexG = index;
+    this.index = index;
+  }
+
+  clickMessage(index: number): void {
+    if (index === this.longer - 1){
+      this.index = 0;
+    }else{
+      this.index = index + 1;
+    }
+    this.radioOptions = this.index;
   }
 
 }

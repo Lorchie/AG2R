@@ -1,17 +1,27 @@
 import { Metier } from './interfaces/metier';
 
-export class TDBConst {
-
-}
 export const   metiers: Array<Metier> = [
-  {route: '/', titre: 'INFORMATION PRODUCTION', menu: 'Home'},
-  {route: '/accueil-component', titre: 'INFORMATION PRODUCTION', menu: 'Home'},
-  {route: '/client-distribution-component', titre: 'Clients, distribution & digital', menu: 'Digital'},
-  {route: '/epargne-retraite-component', titre: 'Epargne et retraite supplémentaire', menu: 'Epargne'},
-  {route: '/prevoyance-sante-component', titre: 'Prévoyance santé', menu: 'Prevoyance_sante'},
-  {route: '/retraite-complementaire-component', titre: 'Retraite complémentaire & action social', menu: 'Retraite'},
-  {route: '/finance-rh-component', titre: 'Finance, rh & autres\nFonction supports', menu: 'Fonctions_supports'},
-  {route: '/saisie-manuelle-component', titre: 'Saisie donnée', menu: 'Reglages'}
+
+  {id: 1, route: '/accueil-component', titre: 'Resultats d’exploitations',
+   menu: 'Home', code: 'accueil', typeMessage: 'Accueil'},
+
+  {id: 2, route: '/retraite-complementaire-component', titre: 'Retraite Complémentaire & Action Sociale',
+   menu: 'Retraite', code: 'RCAS', typeMessage: 'Faits Marquants'},
+
+  {id: 3, route: '/client-distribution-component', titre: 'Clients, Distribution & Digital',
+   menu: 'Digital', code: 'CDD', typeMessage: 'Faits Marquants'},
+
+  {id: 4, route: '/prevoyance-sante-component', titre: 'Prévoyance Santé',
+   menu: 'Prevoyance_sante', code: 'PS', typeMessage: 'Faits Marquants'},
+
+  {id: 5, route: '/epargne-retraite-component', titre: 'Epargne et Retraite Supplémentaire',
+   menu: 'Epargne', code: 'ERS', typeMessage: 'Faits Marquants'},
+
+  {id: 6, route: '/finance-rh-component', titre: 'Finance, RH & autres\nFonction support',
+   menu: 'Fonctions_supports', code: 'FRFS', typeMessage: 'Faits Marquants'},
+
+  {id: 7, route: '/saisie-manuelle-component', titre: 'Saisie données',
+   menu: 'Reglages', code: '', typeMessage: ''}
 ];
 
 export const headers = [
@@ -47,6 +57,7 @@ export const textes = [
     type:  'batch',
     array: [
       {id: 'num', libelle: 'Incident batch en cours'},
+      {id: 'numPluriel', libelle: 'Incidents batch en cours'},
       {id: 'titre', libelle: 'Incidents batch en cours : 19h00 - 7h30'}
     ]
   },
@@ -54,14 +65,16 @@ export const textes = [
     type:  'scenario',
     array: [
       {id: 'num', libelle: 'Scénario en erreur à 7h30'},
+      {id: 'numPluriel', libelle: 'Scénarios en erreur à 7h30'},
       {id: 'titre', libelle: 'Etat des scénarios NewTest à l\'ouverture du service : 7h30'}
     ]
   },
   {
     type:  'intervention',
     array: [
-      {id: 'num', libelle: 'Intervention en cours'},
-      {id: 'titre', libelle: 'Etat des intervention : 19h00 - 7h30'}
+      {id: 'num', libelle: 'Intervention'},
+      {id: 'numPluriel', libelle: 'Interventions'},
+      {id: 'titre', libelle: 'Interventions : 7h00'}
     ]
   }
 ];

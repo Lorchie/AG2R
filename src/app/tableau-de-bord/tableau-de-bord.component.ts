@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, HostBinding } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Metier } from '../interfaces/metier';
 
 @Component({
@@ -10,8 +10,8 @@ import { Metier } from '../interfaces/metier';
 
 export class TableauDeBordComponent implements OnInit, OnDestroy {
 
-  @HostBinding('class') classes  = 'col container' ;
-  metier: any;
+  @HostBinding('class') classes  = 'col container-fluid' ;
+  metier?: Metier;
   sub: any;
   zoom = '';
   zoomBool = false;
@@ -20,7 +20,7 @@ export class TableauDeBordComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.sub = this.route
     .data
-    .subscribe(v => this.metier = v);
+    .subscribe(v => this.metier = v as Metier);
   }
 
   ngOnDestroy(): void {

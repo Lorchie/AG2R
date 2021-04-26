@@ -1,24 +1,24 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { FormsModule } from '@angular/forms';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
-import { SaisieManuelleComponent } from './saisie-manuelle.component';
+import { DialogPasswordComponent } from './dialog-password.component';
 
-describe('SaisieManuelleComponent', () => {
-  let component: SaisieManuelleComponent;
-  let fixture: ComponentFixture<SaisieManuelleComponent>;
+describe('DialogPasswordComponent', () => {
+  let component: DialogPasswordComponent;
+  let fixture: ComponentFixture<DialogPasswordComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule.withRoutes([]),
+        ReactiveFormsModule,
         MatDialogModule,
-        BrowserAnimationsModule,
         HttpClientTestingModule,
-        ReactiveFormsModule
+        FormsModule
       ],
       providers: [
         {
@@ -26,13 +26,13 @@ describe('SaisieManuelleComponent', () => {
           useValue: {}
         }
       ],
-      declarations: [ SaisieManuelleComponent ]
+      declarations: [ DialogPasswordComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SaisieManuelleComponent);
+    fixture = TestBed.createComponent(DialogPasswordComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

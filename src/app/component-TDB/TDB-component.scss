@@ -4,15 +4,21 @@ td{
 
 .textTitre{
     color: #00BAE3;
-    font-size: 12px;
+    font-size: 14px;
     margin:10px;
 }
 
 .tableauIncident{
-    font-size: 10px;
 
-    .fontSize9{
-        font-size: 9px;
+    .fontSize14{
+        font-size: 14px;
+    }
+
+    .borderNB{
+        border-right: 2px solid RGB(245, 246, 250);
+    }
+    .fontSize11{
+        font-size: 11px;
     }
     
     .texteNb{
@@ -20,9 +26,19 @@ td{
         line-height:120%;
     }
 
-    .zoomTableau{
-        height: 300px !important;
+    .zoom{
+        .zoomTableau{
+            height: 450px !important;
+            
+            .fontSize11{
+                font-size: 14px !important;
+            }
+        }
+        .textTitre{
+            font-size: 18px;
+        }
     }
+
 
     .table-wrapper-scroll-y {
         display: block;
@@ -46,12 +62,19 @@ td{
     }
     
     .graphZoom{
-        position: relative; height:75vh; width:75vw
+        position: relative; height:75vh; width:75vw;
+
+        .titrePlanBatch{
+            font-size: 14px;
+        }
+
+        .textTitre{
+            font-size: 18px;
+        }
     }
 }
 
 .textFaitsMarquants{
-    font-size: 16px;
     height: 80px;
     max-width: 100%;
     overflow-x:hidden;
@@ -68,9 +91,10 @@ td{
     font-weight: bold;
     background: linear-gradient(to right, #00BAE3 0%, #5AB88D 100%);
     -webkit-background-clip: text;
+            background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 50px;
-    padding: 10px 0px;
+    font-size: 70px;
+    padding: 15px 17px;
 }
 
 ::-webkit-scrollbar {
@@ -78,13 +102,15 @@ td{
 }
 
 ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+            box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
 
 :host ::ng-deep {
@@ -110,5 +136,15 @@ td{
         width: 20px;  /*double of your required circle radius*/
         left: calc(50% - 10px); /*'10px'-same as your required circle radius*/
         top: calc(50% - 10px); /*'10px'-same as your required circle radius*/
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 1007px)
+{
+    .fontSize11{
+        font-size: 10px !important;
+    }
+    .fontSize14{
+        font-size: 13px !important;
     }
 }

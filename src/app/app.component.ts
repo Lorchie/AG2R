@@ -12,6 +12,7 @@ import * as MetierConstants from './const-tdb';
 })
 export class AppComponent  {
 
+  title = 'FRONTTableauDeBord';
   metierCurrent: Metier = MetierConstants.metiers[0];
 
   constructor(private router: Router){

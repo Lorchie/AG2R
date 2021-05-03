@@ -1,11 +1,14 @@
 <div class="messageContainer mt-3" (click)="clickMessage(index)">
     <div class="row">
         <div class="col ">
-            <div class="textMessage" *ngIf="messages"><span class="colorMessage">Message: </span><span>{{messages[index].libMessage}}</span></div>
+            <div class="textMessage" style="cursor: pointer;" *ngIf="messages">
+                <span class="colorMessage">Message: </span>
+                <span [innerHTML]="messages[index].libMessage"></span>
+            </div>
             <div class="textMessage" *ngIf="!messages"><span class="colorMessage">Message: </span> Aucun message</div>
         </div>
         <div class="col-1">
-            <div class="containerMessage vertical-center">
+            <div class="containerMessage vertical-center" style="cursor: pointer;">
                 <div class="bulle">
                     <div class="text-center my-auto" style="width:100%;" [inlineSVG]="'assets/svg/bulle_message.svg'"></div>
                     <div class="nbMessage">{{longer}}</div>
@@ -19,16 +22,12 @@
     <mat-radio-button  name="opList" *ngFor="let op of messages, let i = index" [value]="i" (click)="clickRadio(i)"></mat-radio-button>
 </mat-radio-group>
 
-<p class="blueUnderline">{{metierArray[0].titre}}</p>
+<p class="blueUnderline">Business Line</p>
 
 <div class="row">
     <div class="col iconAccueil shadow p-3 mb-5 rounded" routerLink="/retraite-complementaire-component" routerLinkActive="active">
-        <div class="d-flex align-items-center">
-            <div class="svg text-center my-auto" [inlineSVG]="'assets/svg/Retraite.svg'"></div>
-        </div>
-        <div class="d-flex align-items-bottom">
-            <p>{{metierArray[1].titre}}</p>
-        </div>
+        <div class="svg text-center my-auto" [inlineSVG]="'assets/svg/Retraite.svg'"></div>
+        <p>{{metierArray[1].titre}}</p>
     </div>
     <div class="col iconAccueil shadow p-3 mb-5 rounded" routerLink="/client-distribution-component" routerLinkActive="active">
         <div class="svg text-center my-auto" [inlineSVG]="'assets/svg/Digital.svg'"></div>

@@ -1,15 +1,15 @@
 <div class="row tableauIncident">
     <div class="col-2 d-flex align-items-center borderNB" *ngIf="!zoom">
         <div class="row d-flex justify-content-center" style="display: inline;" >
-                <p class="gradiant text-center">{{nombre}}</p>     
-                <span class="text text-center fontSize14">{{texteNb}}</span>
+                <div class="gradiant text-center">{{nombre}}</div><br>    
+                <div class="text text-center fontSize14">{{texteNb}}</div>
         </div>
     </div>
 
     <div class="col" [ngClass]="{'zoom': zoom}">
         <p class="textTitre text-left">{{texteTitre}}
-            <a *ngIf="zoom" class="zoomColor" style="float:right;" (click)="zoomCompnent(false)" [inlineSVG]="'assets/svg/zoom-out.svg'"></a>
-            <a *ngIf="!zoom" class="zoomColor" style="float:right;"(click)="zoomCompnent(true)" [inlineSVG]="'assets/svg/zoom-in.svg'"></a>
+            <a *ngIf="zoom" class="zoomColor" (click)="zoomCompnent(false)" [inlineSVG]="'assets/svg/zoom-out.svg'"></a>
+            <a *ngIf="!zoom" class="zoomColor" (click)="zoomCompnent(true)" [inlineSVG]="'assets/svg/zoom-in.svg'"></a>
           </p>
 
         <div class="table-wrapper-scroll-y my-custom-scrollbar" [ngClass]="{'zoomTableau': zoom}">

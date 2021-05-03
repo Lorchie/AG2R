@@ -33,8 +33,12 @@ export class SaisieMessagesComponent implements OnInit {
   callApi(): void{
     if (this.metierSelected){
       this.api.getMessages(this.metierSelected.code).toPromise()
-      .then((res) => {
+      .then((res: any) => {
         if (res){
+          res = res.map((element: any) => {
+            element.libMessage = element.libMessage.replaceAll("\n", "<br/>");
+            return element
+          });
           this.faitsMarquants = res;
         }else{
           this.faitsMarquants = [];

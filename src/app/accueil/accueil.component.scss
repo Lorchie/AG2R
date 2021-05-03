@@ -48,7 +48,6 @@
 }
 
 .blueUnderline{
-    text-decoration: underline;
     color: #00B9E4;
     font-size: 20px;
 }
@@ -62,7 +61,8 @@
 
     .svg {
         width: 70px;
-        margin-left: 25%;
+        margin-left: auto!important;
+        margin-right: auto!important;
         shape-rendering: crispEdges;
         fill: url(#gradient);
         padding-bottom: 20px;

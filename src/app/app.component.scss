@@ -25,8 +25,10 @@ header{
    border-color:#C6C6C6!important; /*outer ring color change*/
 }
 
-.zoomColor{
+::ng-deep .zoomColor{
     color:#00BAE3;
+    cursor: pointer;
+    float: right;
 }
 
 * {

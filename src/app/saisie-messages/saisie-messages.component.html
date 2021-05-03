@@ -8,7 +8,7 @@
 <div *ngIf="metierSelected">
     <div>    
         <div class="text-center padding form-group">
-            <textarea maxlength="255" class="form-control m-3" [(ngModel)]="message"></textarea>
+            <textarea maxlength="255" type="multiliner" class="form-control m-3" [(ngModel)]="message"></textarea>
             <button class="btn-default padding-sm" (click)="ajouter()">Ajouter</button>
         </div>
         <div class="table-wrapper-scroll-y my-custom-scrollbar" *ngIf="metierSelected">
@@ -16,7 +16,7 @@
                 <tbody class="tabMessage">
                     <tr *ngFor="let e of faitsMarquants" class="text-center">
                         <td>
-                            {{e.libMessage}}
+                            <span [innerHTML]="e.libMessage"></span>
                         </td>
                         <td>
                             <button (click)="supprimerMessage($event,e.idMessage)">Supprimer</button>

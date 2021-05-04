@@ -17,7 +17,7 @@ export const   metiers: Array<Metier> = [
   {id: 5, route: '/epargne-retraite-component', titre: 'Épargne et Retraite Supplémentaire',
    menu: 'Epargne', code: 'ERS', typeMessage: 'Faits Marquants'},
 
-  {id: 6, route: '/finance-rh-component', titre: 'Finance, RH et autres\nFonctions support',
+  {id: 6, route: '/finance-rh-component', titre: 'Finance, RH & autres\nFonctions Support',
    menu: 'Fonctions_supports', code: 'FRFS', typeMessage: 'Faits Marquants'},
 
   {id: 7, route: '/saisie-manuelle-component', titre: 'Saisie données',

@@ -5,7 +5,7 @@ export const   metiers: Array<Metier> = [
   {id: 1, route: '/accueil-component', titre: 'Résultats d’exploitation',
    menu: 'Home', code: 'accueil', typeMessage: 'Accueil'},
 
-  {id: 2, route: '/retraite-complementaire-component', titre: 'Retraite Complémentaire & Action Sociale',
+  {id: 2, route: '/retraite-complementaire-component', titre: 'Retraite Complémentaire et Action Sociale',
    menu: 'Retraite', code: 'RCAS', typeMessage: 'Faits Marquants'},
 
   {id: 3, route: '/client-distribution-component', titre: 'Clients, Distribution & Digital',

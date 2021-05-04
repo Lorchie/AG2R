@@ -14,6 +14,9 @@ export class AppComponent  {
 
   title = 'FRONTTableauDeBord';
   metierCurrent: Metier = MetierConstants.metiers[0];
+  day: string = "";
+  month: string = "";
+  date: any;
 
   constructor(private router: Router){
 
@@ -21,6 +24,7 @@ export class AppComponent  {
     .subscribe((event) => {
       this.metierCurrent = this.getCurrentMetier(event.url);
     });
+    this.updateDate();
   }
   getCurrentMetier(url: string): Metier{
     for (const object of MetierConstants.metiers) {
@@ -29,5 +33,53 @@ export class AppComponent  {
       }
     }
     return MetierConstants.metiers[0];
+  }
+
+  updateDate(): void{
+    this.date = new Date();
+    switch (this.date.getDay()) {
+      case 0:
+        this.day = "Dimanche";
+        break;
+      case 1:
+        this.day = "Lundi";
+        break;
+      case 2:
+        this.day = "Mardi";
+        break;
+      case 3:
+        this.day = "Mercredi";
+        break;
+      case 4:
+        this.day = "Jeudi";
+        break;
+      case 5:
+        this.day = "Vendredi";
+        break;
+      case 6:
+        this.day = "Samedi";
+    }
+    switch (this.date.getMonth()) {
+      case 0:
+        this.month = "Janvier";
+        break;
+      case 1:
+        this.month = "Février";
+        break;
+      case 2:
+        this.month = "Mars";
+        break;
+      case 3:
+        this.month = "Avril";
+        break;
+      case 4:
+        this.month = "Mai";
+        break;
+      case 5:
+        this.month = "Juin";
+        break;
+      case 6:
+        this.month = "Juillet";
+    }
   }
 }

@@ -2,7 +2,7 @@
     <div class="col-2 d-flex align-items-center borderNB" *ngIf="!zoom">
         <div class="row d-flex justify-content-center" style="display: inline;" >
                 <div class="gradiant text-center">{{nombre}}</div><br>    
-                <div class="text text-center fontSize14">{{texteNb}}</div>
+                <div class="text text-center fontSize14 m-1">{{texteNb}}</div>
         </div>
     </div>
 
@@ -16,15 +16,15 @@
             <table class="table table-striped table-sm">
                 <thead>
                     <tr>
-                        <th  *ngFor = "let column of headers" class="font-weight-bold text-uppercase text-center th-sm fontSize11">
+                        <th class="align-middle" *ngFor = "let column of headers" class="font-weight-bold text-uppercase text-left th-sm fontSize11">
                             {{column.libelle}}
                         </th>
                     </tr>
                 </thead>
                 <tbody class="tabIncident">
-                    <tr *ngFor = "let incident of incidents" class="text-center fontSize11">
-                        <td *ngFor = "let column of headers">
-                            {{incident[column.id]}}        
+                    <tr *ngFor = "let incident of incidents" class="text-left  fontSize11">
+                        <td class="align-middle" *ngFor = "let column of headers">
+                            {{incident[column.id]}}  
                         </td>
                         <td></td>
                     </tr>

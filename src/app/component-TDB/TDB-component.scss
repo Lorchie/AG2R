@@ -97,6 +97,16 @@ td{
     padding: 15px 17px;
 }
 
+.gradiantSuspendu{
+    font-weight: bold;
+    background: linear-gradient(to right, #00BAE3 0%, #5AB88D 100%);
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 70px;
+    padding: 15px 5px;
+}
+
 ::-webkit-scrollbar {
     width: 5px;
 }

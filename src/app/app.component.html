@@ -1,7 +1,7 @@
-<header class="row">
+<header class="row" >
     <img class="col-1 logo_AG2R" src="assets/img/Logo-ag2r.png">
-    <h2 class="text-center my-auto col">{{metierCurrent.titre |uppercase}}</h2>
-    <p><p>{{day}} {{date  | date:'dd'}} {{month}} {{date  | date:'YYYY'}}</p>
+    <h2 [ngStyle]="{'margin-left':displayDate ? '6%' : '0%' }" class="text-center my-auto col">{{metierCurrent.titre |uppercase}}</h2>
+    <p *ngIf="displayDate">{{day}} {{date  | date:'dd'}} {{month}} {{date  | date:'YYYY'}}</p>
 </header>
 <div class="row">
     <app-menu [menu]="metierCurrent.menu" class="col-1"></app-menu>

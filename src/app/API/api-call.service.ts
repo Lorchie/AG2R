@@ -6,6 +6,7 @@ import { retry, catchError } from 'rxjs/operators';
 import { Role } from '../dialog-password/dialog-password.component';
 import { Message } from '../interfaces/message';
 import { environment } from '../../environments/environment';
+import { BusinessLastDate } from '../interfaces/businessLastDate';
 
 
 @Injectable({
@@ -25,6 +26,8 @@ export class ApiCallService {
   ajouterMessageUrl = this.startUrl + 'messages';
 
   uploadSuspendedUrl = this.startUrl + 'upload/suspended';
+
+  lastUpdateUrl = this.startUrl + 'businessUpdateDate?businessCode='
 
   httpOptions = {
     headers: new HttpHeaders(
@@ -66,6 +69,12 @@ export class ApiCallService {
       typeMessage: metierObject.typeMessage
     };
     return this.http.post(this.ajouterMessageUrl, JSON.stringify(messageObject), this.httpOptionsPost).pipe(
+      retry(1),
+      catchError(this.handleError));
+  }
+
+  getLastUpdate(metier: string): Observable<BusinessLastDate> {
+    return this.http.get<BusinessLastDate>(this.lastUpdateUrl + metier, this.httpOptions).pipe(
       retry(1),
       catchError(this.handleError));
   }

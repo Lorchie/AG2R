@@ -3,6 +3,7 @@ import { Router, NavigationEnd  } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { Metier } from './interfaces/metier';
 import * as MetierConstants from './const-tdb';
+import { ApiCallService } from './API/api-call.service';
 
 
 @Component({
@@ -18,13 +19,31 @@ export class AppComponent  {
   month: string = "";
   date: any;
 
-  constructor(private router: Router){
+  displayDate : boolean = true;
+
+
+  constructor(private router: Router, private api: ApiCallService){
 
     this.router.events.pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
     .subscribe((event) => {
       this.metierCurrent = this.getCurrentMetier(event.url);
+      this.getLastDate();
     });
-    this.updateDate();
+  }
+
+  getLastDate(): void {
+   if(this.metierCurrent.code != ''){
+    this.displayDate = true;
+      this.api.getLastUpdate(this.metierCurrent.code).toPromise()
+      .then((res: any) => {
+        this.date = new Date(res.updateDate);
+        this.updateDate();
+        })
+      .catch();
+    }else{
+      this.displayDate = false;
+    }
+    
   }
   getCurrentMetier(url: string): Metier{
     for (const object of MetierConstants.metiers) {
@@ -35,8 +54,15 @@ export class AppComponent  {
     return MetierConstants.metiers[0];
   }
 
+  
+
   updateDate(): void{
-    this.date = new Date();
+
+   // alert(this.date+ "est"+new Date())
+    if(this.date == undefined){
+      this.date = new Date();
+    }
+
     switch (this.date.getDay()) {
       case 0:
         this.day = "Dimanche";

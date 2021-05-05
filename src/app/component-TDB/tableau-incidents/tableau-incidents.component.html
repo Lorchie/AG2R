@@ -23,7 +23,7 @@
                 </thead>
                 <tbody class="tabIncident">
                     <tr *ngFor = "let incident of incidents" class="text-left  fontSize11">
-                        <td class="align-middle" *ngFor = "let column of headers">
+                        <td [ngClass]="{'text-center': column.id === 'prioriteInc'}" class="align-middle" *ngFor = "let column of headers">
                             {{incident[column.id]}}  
                         </td>
                         <td></td>

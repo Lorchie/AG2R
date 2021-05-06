@@ -35,7 +35,7 @@ describe('AccueilComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have method clickMessage', () =>{
+  it('should have method clickMessage', () => {
     component.longer = 2;
     component.clickMessage(1);
     expect(component.radioOptions).toEqual(0);
@@ -44,7 +44,7 @@ describe('AccueilComponent', () => {
 
   });
 
-  it('should have method clickRadio', () =>{
+  it('should have method clickRadio', () => {
     component.clickRadio(1);
     expect(component.clickRadio).toHaveBeenCalled;
 

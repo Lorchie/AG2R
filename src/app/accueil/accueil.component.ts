@@ -29,8 +29,8 @@ export class AccueilComponent implements OnInit {
             this.longer = res.length;
           }
           res = res.map((element: any) => {
-            element.libMessage = element.libMessage.replaceAll("\n", "<br/>");
-            return element
+            element.libMessage = element.libMessage.replaceAll('\n', '<br/>');
+            return element;
           });
           this.messages = res;
         })

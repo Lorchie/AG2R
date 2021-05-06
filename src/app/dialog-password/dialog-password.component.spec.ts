@@ -13,7 +13,7 @@ import { of } from 'rxjs';
 describe('DialogPasswordComponent', () => {
   let component: DialogPasswordComponent;
   let fixture: ComponentFixture<DialogPasswordComponent>;
-  let apiService : ApiCallService;
+  let apiService: ApiCallService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -40,7 +40,7 @@ describe('DialogPasswordComponent', () => {
     fixture = TestBed.createComponent(DialogPasswordComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-    apiService = TestBed.get(ApiCallService)
+    apiService = TestBed.get(ApiCallService);
   });
 
   it('should create', () => {
@@ -48,10 +48,10 @@ describe('DialogPasswordComponent', () => {
   });
 
   it('should call method wrong checkPassword', () => {
-    let role1 = {
+    const role1 = {
       role: 'error',
       message: 'password no exist'
-    }
+    };
 
     spyOn(apiService, 'checkpassword').and.returnValue(of(role1));
     component.checkPassword();
@@ -60,10 +60,10 @@ describe('DialogPasswordComponent', () => {
 
   it('should call method true checkPassword', () => {
 
-    let role1 = {
+    const role1 = {
       role: 'exist',
       message: 'password exist'
-    }
+    };
     spyOn(apiService, 'checkpassword').and.returnValue(of(role1));
     component.checkPassword();
     expect(component.passwordOk).toBeTrue;

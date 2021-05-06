@@ -27,7 +27,7 @@ export class ApiCallService {
 
   uploadSuspendedUrl = this.startUrl + 'upload/suspended';
 
-  lastUpdateUrl = this.startUrl + 'businessUpdateDate?businessCode='
+  lastUpdateUrl = this.startUrl + 'businessUpdateDate?businessCode=';
 
   httpOptions = {
     headers: new HttpHeaders(

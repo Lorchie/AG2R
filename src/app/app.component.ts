@@ -15,11 +15,11 @@ export class AppComponent  {
 
   title = 'FRONTTableauDeBord';
   metierCurrent: Metier = MetierConstants.metiers[0];
-  day: string = "";
-  month: string = "";
+  day = '';
+  month = '';
   date: any;
 
-  displayDate : boolean = true;
+  displayDate = true;
 
 
   constructor(private router: Router, private api: ApiCallService){
@@ -32,9 +32,9 @@ export class AppComponent  {
   }
 
   getLastDate(): void {
-   if(this.metierCurrent.code != ''){
+   if (this.metierCurrent.code != ''){
     this.displayDate = true;
-      this.api.getLastUpdate(this.metierCurrent.code).toPromise()
+    this.api.getLastUpdate(this.metierCurrent.code).toPromise()
       .then((res: any) => {
         this.date = new Date(res.updateDate);
         this.updateDate();
@@ -43,7 +43,7 @@ export class AppComponent  {
     }else{
       this.displayDate = false;
     }
-    
+
   }
   getCurrentMetier(url: string): Metier{
     for (const object of MetierConstants.metiers) {
@@ -54,58 +54,58 @@ export class AppComponent  {
     return MetierConstants.metiers[0];
   }
 
-  
+
 
   updateDate(): void{
 
    // alert(this.date+ "est"+new Date())
-    if(this.date == undefined){
+    if (this.date == undefined){
       this.date = new Date();
     }
 
     switch (this.date.getDay()) {
       case 0:
-        this.day = "Dimanche";
+        this.day = 'Dimanche';
         break;
       case 1:
-        this.day = "Lundi";
+        this.day = 'Lundi';
         break;
       case 2:
-        this.day = "Mardi";
+        this.day = 'Mardi';
         break;
       case 3:
-        this.day = "Mercredi";
+        this.day = 'Mercredi';
         break;
       case 4:
-        this.day = "Jeudi";
+        this.day = 'Jeudi';
         break;
       case 5:
-        this.day = "Vendredi";
+        this.day = 'Vendredi';
         break;
       case 6:
-        this.day = "Samedi";
+        this.day = 'Samedi';
     }
     switch (this.date.getMonth()) {
       case 0:
-        this.month = "Janvier";
+        this.month = 'Janvier';
         break;
       case 1:
-        this.month = "Février";
+        this.month = 'Février';
         break;
       case 2:
-        this.month = "Mars";
+        this.month = 'Mars';
         break;
       case 3:
-        this.month = "Avril";
+        this.month = 'Avril';
         break;
       case 4:
-        this.month = "Mai";
+        this.month = 'Mai';
         break;
       case 5:
-        this.month = "Juin";
+        this.month = 'Juin';
         break;
       case 6:
-        this.month = "Juillet";
+        this.month = 'Juillet';
     }
   }
 }

@@ -36,8 +36,8 @@ export class SaisieMessagesComponent implements OnInit {
       .then((res: any) => {
         if (res){
           res = res.map((element: any) => {
-            element.libMessage = element.libMessage.replaceAll("\n", "<br/>");
-            return element
+            element.libMessage = element.libMessage.replaceAll('\n', '<br/>');
+            return element;
           });
           this.faitsMarquants = res;
         }else{

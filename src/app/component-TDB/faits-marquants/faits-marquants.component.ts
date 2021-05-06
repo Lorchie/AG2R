@@ -26,8 +26,8 @@ export class FaitsMarquantsComponent implements OnInit {
           if (res instanceof Array){
             this.longer = res.length;
             res = res.map((element: any) => {
-              element.libMessage = element.libMessage.replaceAll("\n", "<br/>");
-              return element
+              element.libMessage = element.libMessage.replaceAll('\n', '<br/>');
+              return element;
             });
           }
           this.faitsMarquants = res;

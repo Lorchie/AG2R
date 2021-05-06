@@ -35,6 +35,10 @@ header{
     float: right;
 }
 
+::ng-deep .pointer{
+    cursor: pointer;
+}
+
 * {
     font-family: 'GOTHAM';
     font-size: 16px;

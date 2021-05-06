@@ -30,9 +30,9 @@
                 <div [ngClass]="{'actif': menu == 'Fonctions_supports'}" class="svg text-center my-auto" [inlineSVG]="'assets/svg/Fonctions_supports.svg'"></div>
             </a>
         </li>
-        <li class="list-inline-item list-group-item">
-            <a routerLink="/saisie-manuelle-component" routerLinkActive="active" data-toggle="tooltip" title="SAISIE  MANUELLE">
-                <div [ngClass]="{'actif': menu == 'Reglages'}" class="svg text-center my-auto" [inlineSVG]="'assets/svg/Reglages.svg'"></div>
+        <li class="list-inline-item list-group-item" data-toggle="tooltip" title="SAISIE  MANUELLE">
+            <a routerLink="/saisie-manuelle-component" routerLinkActive="active">
+                <div [ngClass]="{'actifReglage': menu == 'Reglages'}" class="svg text-center my-auto" [inlineSVG]="'assets/svg/Reglages.svg'"></div>
             </a>
         </li>
     </ul>

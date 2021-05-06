@@ -8,7 +8,7 @@ export const   metiers: Array<Metier> = [
   {id: 2, route: '/retraite-complementaire-component', titre: 'Retraite Complémentaire et Action Sociale',
    menu: 'Retraite', code: 'RCAS', typeMessage: 'Faits Marquants'},
 
-  {id: 3, route: '/client-distribution-component', titre: 'Clients, Distribution & Digital',
+  {id: 3, route: '/client-distribution-component', titre: 'Clients, Distribution et Digital',
    menu: 'Digital', code: 'CDD', typeMessage: 'Faits Marquants'},
 
   {id: 4, route: '/prevoyance-sante-component', titre: 'Prévoyance Santé',
@@ -17,7 +17,7 @@ export const   metiers: Array<Metier> = [
   {id: 5, route: '/epargne-retraite-component', titre: 'Épargne et Retraite Supplémentaire',
    menu: 'Epargne', code: 'ERS', typeMessage: 'Faits Marquants'},
 
-  {id: 6, route: '/finance-rh-component', titre: 'Finance, RH & autres\nFonctions Support',
+  {id: 6, route: '/finance-rh-component', titre: 'Finance, RH et autres\nFonctions Support',
    menu: 'Fonctions_supports', code: 'FRFS', typeMessage: 'Faits Marquants'},
 
   {id: 7, route: '/saisie-manuelle-component', titre: 'Saisie données',

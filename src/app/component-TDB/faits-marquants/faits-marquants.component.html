@@ -1,8 +1,8 @@
 
     <p class="font-weight-bold m-1">FAITS MARQUANTS :</p> 
-    <div class="textFaitsMarquants" (click)="clickMessage(index)">
+    <div [ngClass]="{'pointer': longer > 0}" class="textFaitsMarquants" (click)="clickMessage(index)">
         <div *ngIf="longer == 0">Aucun fait marquant.</div>
-        <div class="pointer" *ngIf="longer > 0" [innerHTML]="faitsMarquants[index].libMessage"></div>
+        <div *ngIf="longer > 0" [innerHTML]="faitsMarquants[index].libMessage"></div>
     </div>
     <mat-radio-group class="d-flex justify-content-center radioFaitsMarquants" name="opList" [(ngModel)]="radioOptions">
         <mat-radio-button  name="opList" *ngFor="let op of faitsMarquants, let i = index" [value]="i" (click)="clickRadio(i)"></mat-radio-button>

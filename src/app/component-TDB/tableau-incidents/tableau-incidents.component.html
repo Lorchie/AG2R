@@ -8,8 +8,8 @@
 
     <div class="col" [ngClass]="{'zoom': zoom}">
         <p class="textTitre text-left">{{texteTitre}}
-            <span *ngIf="zoom" class="zoomColor" (click)="zoomCompnent(false)" [inlineSVG]="'assets/svg/zoom-out.svg'"></span>
-            <span *ngIf="!zoom" class="zoomColor" (click)="zoomCompnent(true)" [inlineSVG]="'assets/svg/zoom-in.svg'"></span>
+            <span *ngIf="zoom" class="zoomColor pointer" (click)="zoomCompnent(false)" [inlineSVG]="'assets/svg/zoom-out.svg'"></span>
+            <span *ngIf="!zoom" class="zoomColor pointer" (click)="zoomCompnent(true)" [inlineSVG]="'assets/svg/zoom-in.svg'"></span>
           </p>
 
         <div class="table-wrapper-scroll-y my-custom-scrollbar" [ngClass]="{'zoomTableau': zoom}">

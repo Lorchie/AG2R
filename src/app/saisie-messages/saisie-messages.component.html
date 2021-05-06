@@ -1,6 +1,6 @@
 
 <div class="padding">
-    <select class="custom-select" (change)="changeMetier($event)">
+    <select class="custom-select pointer" (change)="changeMetier($event)">
         <option value="" selected disabled>Choisir business line</option>
         <option *ngFor="let metier of metierArrayMessage; let i = index" [value]="i">{{metier?.titre}}</option>
      </select>

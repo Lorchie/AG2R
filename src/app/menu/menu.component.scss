@@ -76,6 +76,12 @@
   }
 }
 
+@media only screen and (max-height: 620px){
+  .svg{
+    width: 27px;
+  }
+}
+
 .actif::before{
   content: '';
   position: absolute;

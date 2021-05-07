@@ -34,4 +34,19 @@ describe('AccueilComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have method clickMessage', () => {
+    component.longer = 2;
+    component.clickMessage(1);
+    expect(component.radioOptions).toEqual(0);
+    component.clickMessage(0);
+    expect(component.radioOptions).toEqual(1);
+
+  });
+
+  it('should have method clickRadio', () => {
+    component.clickRadio(1);
+    expect(component.clickRadio).toHaveBeenCalled;
+
+  });
 });

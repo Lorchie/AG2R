@@ -1,30 +1,30 @@
 <div class="row tableauIncident">
     <div class="col-2 d-flex align-items-center borderNB" *ngIf="!zoom">
         <div class="row d-flex justify-content-center" style="display: inline;" >
-                <p class="gradiant text-center">{{nombre}}</p>     
-                <span class="text text-center fontSize14">{{texteNb}}</span>
+                <div class="gradiant text-center">{{nombre}}</div><br>    
+                <div class="text text-center fontSize14 m-1">{{texteNb}}</div>
         </div>
     </div>
 
     <div class="col" [ngClass]="{'zoom': zoom}">
         <p class="textTitre text-left">{{texteTitre}}
-            <a *ngIf="zoom" class="zoomColor" style="float:right;" (click)="zoomCompnent(false)" [inlineSVG]="'assets/svg/zoom-out.svg'"></a>
-            <a *ngIf="!zoom" class="zoomColor" style="float:right;"(click)="zoomCompnent(true)" [inlineSVG]="'assets/svg/zoom-in.svg'"></a>
+            <span *ngIf="zoom" class="zoomColor pointer" (click)="zoomCompnent(false)" [inlineSVG]="'assets/svg/zoom-out.svg'"></span>
+            <span *ngIf="!zoom" class="zoomColor pointer" (click)="zoomCompnent(true)" [inlineSVG]="'assets/svg/zoom-in.svg'"></span>
           </p>
 
         <div class="table-wrapper-scroll-y my-custom-scrollbar" [ngClass]="{'zoomTableau': zoom}">
             <table class="table table-striped table-sm">
                 <thead>
                     <tr>
-                        <th  *ngFor = "let column of headers" class="font-weight-bold text-uppercase text-center th-sm fontSize11">
+                        <th *ngFor = "let column of headers" class="font-weight-bold text-uppercase text-left th-sm align-middle fontSize11">
                             {{column.libelle}}
                         </th>
                     </tr>
                 </thead>
                 <tbody class="tabIncident">
-                    <tr *ngFor = "let incident of incidents" class="text-center fontSize11">
-                        <td *ngFor = "let column of headers">
-                            {{incident[column.id]}}        
+                    <tr *ngFor = "let incident of incidents" class="text-left  fontSize11">
+                        <td [ngClass]="{'text-center': column.id === 'prioriteInc'}" class="align-middle" *ngFor = "let column of headers">
+                            {{incident[column.id]}}  
                         </td>
                         <td></td>
                     </tr>

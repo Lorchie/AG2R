@@ -1,31 +1,84 @@
  .svg {
-    fill: #C6C6C6;
+    fill: #6e6e6e;
     height: 25px;
-    width: 25px; 
+    width: 30px; 
 }
 
 .actif{
-  fill: #00B9E4;
+  fill: #04b3dc;
 }
 
-@media only screen and (max-width: 1024px) and (min-width: 901px) {
-  .actif::before{
-    left: -100% !important;
-    border-left: 5px solid #00B9E4 !important;
-  }
+.actifReglage{
+  fill: #04b3dc;
 }
 
-@media only screen and (max-width: 900px) {
-  .actif::before{
-    left: -70% !important;
-    border-left: 5px solid #00B9E4 !important;
-  }
-}
-
-@media only screen and (max-width: 1100px) and (min-width: 1025px) {
+@media only screen and (min-width: 1651px) {
   .actif::before{
     left: -120% !important;
-    border-left: 5px solid #00B9E4 !important;
+  }
+  .actifReglage::before{
+    left: -95% !important;
+  }
+}
+
+@media only screen and (min-width: 1551px) and (max-width: 1650px) {
+  .actif::before{
+    left: -110% !important;
+  }
+  .actifReglage::before{
+    left: -85% !important;
+  }
+}
+
+@media only screen and (min-width: 1451px) and (max-width: 1550px) {
+  .actif::before{
+    left: -100% !important;
+  }
+  .actifReglage::before{
+    left: -75% !important;
+  }
+}
+
+@media only screen and (min-width: 1351px) and (max-width: 1450px) {
+  .actif::before{
+    left: -90% !important;
+  }
+  .actifReglage::before{
+    left: -65% !important;
+  }
+}
+
+@media only screen and (min-width: 1251px) and (max-width: 1350px) {
+  .actif::before{
+    left: -75% !important;
+  }
+  .actifReglage::before{
+    left: -50% !important;
+  }
+}
+
+@media only screen and (min-width: 1101px) and (max-width: 1250px) {
+  .actif::before{
+    left: -65% !important;
+  }
+  .actifReglage::before{
+    left: -40% !important;
+  }
+}
+
+
+@media only screen and (max-width: 1100px) and (min-width: 1000px) {
+  .actif::before{
+    left: -55% !important;
+  }
+  .actifReglage::before{
+    left: -30% !important;
+  }
+}
+
+@media only screen and (max-height: 620px){
+  .svg{
+    width: 27px;
   }
 }
 
@@ -35,7 +88,17 @@
   top: 0px;
   right: 0px;
   bottom: 0px;
-  left: -170%;
+  left: -40%;
+  border-left: 5px solid #00B9E4;
+}
+
+.actifReglage::before{
+  content: '';
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: -30%;
   border-left: 5px solid #00B9E4;
 }
 

@@ -23,12 +23,15 @@ export class AccueilComponent implements OnInit {
 
   ngOnInit(): void {
     this.metierArray.splice(7, 1);
-    this.metierArray.splice(0, 1);
     this.api.getMessages('accueil').toPromise()
-      .then((res) => {
+      .then((res: any) => {
           if (res instanceof Array){
             this.longer = res.length;
           }
+          res = res.map((element: any) => {
+            element.libMessage = element.libMessage.replaceAll('\n', '<br/>');
+            return element;
+          });
           this.messages = res;
         })
       .catch();

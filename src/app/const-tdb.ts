@@ -2,22 +2,22 @@ import { Metier } from './interfaces/metier';
 
 export const   metiers: Array<Metier> = [
 
-  {id: 1, route: '/accueil-component', titre: 'Resultats d’exploitations',
+  {id: 1, route: '/accueil-component', titre: 'Résultats d’exploitation',
    menu: 'Home', code: 'accueil', typeMessage: 'Accueil'},
 
-  {id: 2, route: '/retraite-complementaire-component', titre: 'Retraite Complémentaire & Action Sociale',
+  {id: 2, route: '/retraite-complementaire-component', titre: 'Retraite Complémentaire et Action Sociale',
    menu: 'Retraite', code: 'RCAS', typeMessage: 'Faits Marquants'},
 
-  {id: 3, route: '/client-distribution-component', titre: 'Clients, Distribution & Digital',
+  {id: 3, route: '/client-distribution-component', titre: 'Clients, Distribution et Digital',
    menu: 'Digital', code: 'CDD', typeMessage: 'Faits Marquants'},
 
   {id: 4, route: '/prevoyance-sante-component', titre: 'Prévoyance Santé',
    menu: 'Prevoyance_sante', code: 'PS', typeMessage: 'Faits Marquants'},
 
-  {id: 5, route: '/epargne-retraite-component', titre: 'Epargne et Retraite Supplémentaire',
+  {id: 5, route: '/epargne-retraite-component', titre: 'Épargne et Retraite Supplémentaire',
    menu: 'Epargne', code: 'ERS', typeMessage: 'Faits Marquants'},
 
-  {id: 6, route: '/finance-rh-component', titre: 'Finance, RH & autres\nFonction support',
+  {id: 6, route: '/finance-rh-component', titre: 'Finance, RH et autres\nFonctions Support',
    menu: 'Fonctions_supports', code: 'FRFS', typeMessage: 'Faits Marquants'},
 
   {id: 7, route: '/saisie-manuelle-component', titre: 'Saisie données',
@@ -28,7 +28,7 @@ export const headers = [
   {
     type:  'batch',
     array: [
-      {id: 'numInc', libelle: 'n° incident'},
+      {id: 'numInc', libelle: 'référence'},
       {id: 'eltConfInc', libelle: 'élément de configuration'},
       {id: 'libInc', libelle: 'libellé'},
       {id: 'prioriteInc', libelle: 'priorité'}
@@ -45,7 +45,7 @@ export const headers = [
   {
     type:  'intervention',
     array: [
-      {id: 'numIntervention', libelle: 'numéro'},
+      {id: 'numIntervention', libelle: 'référence'},
       {id: 'eltConfIntervention', libelle: 'élément de configuration'},
       {id: 'libIntervention', libelle: 'libellé'}
     ]

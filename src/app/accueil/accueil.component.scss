@@ -48,21 +48,21 @@
 }
 
 .blueUnderline{
-    text-decoration: underline;
     color: #00B9E4;
     font-size: 20px;
 }
 
 .iconAccueil{
     
-    background-color: #F5F6FA;
+    background-color: #dbdbdb66;
     margin-right: 50px;
     text-align: center;
     position: relative;
 
     .svg {
         width: 70px;
-        margin-left: 25%;
+        margin-left: auto!important;
+        margin-right: auto!important;
         shape-rendering: crispEdges;
         fill: url(#gradient);
         padding-bottom: 20px;

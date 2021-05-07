@@ -97,6 +97,16 @@ td{
     padding: 15px 17px;
 }
 
+.gradiantSuspendu{
+    font-weight: bold;
+    background: linear-gradient(to right, #00BAE3 0%, #5AB88D 100%);
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 70px;
+    padding: 15px 5px;
+}
+
 ::-webkit-scrollbar {
     width: 5px;
 }
@@ -140,11 +150,21 @@ td{
 }
 
 @media screen and (min-width: 500px) and (max-width: 1007px)
+{    
+    .gradiant{
+        padding: 15px 17px;
+    }
+}
+@media screen and (min-width: 1200px)
 {
     .fontSize11{
-        font-size: 10px !important;
+        font-size: 14px !important;
     }
     .fontSize14{
-        font-size: 13px !important;
+        font-size: 16px !important;
+    }
+    
+    .gradiant{
+        padding: 15px 40px;
     }
 }

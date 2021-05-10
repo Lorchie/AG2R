@@ -1,7 +1,3 @@
-td{
-    padding: 0px !important;
-}
-
 .textTitre{
     color: #00BAE3;
     font-size: 14px;
@@ -73,6 +69,10 @@ td{
         }
     }
 }
+canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
 
 .textFaitsMarquants{
     height: 80px;

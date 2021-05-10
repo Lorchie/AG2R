@@ -1,10 +1,10 @@
 <header class="row" >
     <img class="col-1 logo_AG2R" src="assets/img/Logo-ag2r.png">
     <h2 [ngStyle]="{'margin-left':displayDate ? '6%' : '0%' }" class="text-center my-auto col">{{metierCurrent.titre |uppercase}}</h2>
-    <p class="text-center my-auto" *ngIf="displayDate">{{day}} {{date  | date:'dd'}} {{month}} {{date  | date:'YYYY'}}</p>
+    <p class="text-center my-auto mr-2" *ngIf="displayDate">{{day}} {{date  | date:'dd'}} {{month}} {{date  | date:'YYYY'}}</p>
 </header>
 <div class="row">
-    <app-menu [menu]="metierCurrent.menu" class="col-1"></app-menu>
+    <app-menu [menu]="metierCurrent.menu" class="col-1" style="padding: 0px 0px;"></app-menu>
     <router-outlet></router-outlet>
     <svg style="width:0px;height:0px;">
         <linearGradient id="gradient">

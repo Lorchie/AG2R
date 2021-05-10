@@ -5,7 +5,8 @@
       <span *ngIf="!zoom" class="zoomColor pointer" (click)="zoomCompnent(true)" [inlineSVG]="'assets/svg/zoom-in.svg'"></span>
     </p>
 
-      <canvas baseChart 
+      <canvas baseChart
+      style="height: 100% !important; width: 100% !important;"
         [datasets]="barChartData"
         [colors]="chartColors"
         [labels]="barChartLabels"

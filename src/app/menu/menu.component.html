@@ -1,36 +1,43 @@
 <nav class="d-flex">
     <ul class="list-inline mx-auto justify-content-center list-group">
-        <li class="list-inline-item list-group-item" >
+        <li class="d-flex justify-content-center list-group-item" >
+            <div [ngClass]="{'actifBar': menu == 'Home'}"> </div>
             <a routerLink="/accueil-component" routerLinkActive="active" data-toggle="tooltip" title="RESULTATS D’EXPLOITATIONS">
                 <div [ngClass]="{'actif': menu == 'Home'}" class="svg text-center my-auto" [inlineSVG]="'assets/svg/Home.svg'"></div>
             </a>
         </li>
-        <li class="list-inline-item list-group-item">
-            <a routerLink="/retraite-complementaire-component" routerLinkActive="active" data-toggle="tooltip" title="RETRAITE COMPLÉMENTAIRE ET ACTION SOCIALE">
+        <li class="d-flex justify-content-center list-group-item">
+            <div [ngClass]="{'actifBar': menu == 'Retraite'}"> </div>
+            <a routerLink="/retraite-complementaire-component" routerLinkActive="active" data-toggle="tooltip" title="RETRAITE COMPLÉMENTAIRE & ACTION SOCIALE">
                 <div [ngClass]="{'actif': menu == 'Retraite'}" class="svg text-center my-auto" [inlineSVG]="'assets/svg/Retraite.svg'"></div>
             </a>
         </li>
-        <li class="list-inline-item list-group-item">
-            <a routerLink="/client-distribution-component" routerLinkActive="active" data-toggle="tooltip" title="CLIENTS, DISTRIBUTION ET DIGITAL">
+        <li class="d-flex justify-content-center list-group-item">
+            <div [ngClass]="{'actifBar': menu == 'Digital'}"> </div>
+            <a routerLink="/client-distribution-component" routerLinkActive="active" data-toggle="tooltip" title="CLIENTS, DISTRIBUTION & DIGITAL">
                 <div [ngClass]="{'actif': menu == 'Digital'}" class="svg text-center my-auto" [inlineSVG]="'assets/svg/Digital.svg'"></div>
             </a>
         </li>
-        <li class="list-inline-item list-group-item" data-toggle="tooltip" title="PRÉVOYANCE SANTÉ">
+        <li class="d-flex justify-content-center list-group-item" data-toggle="tooltip" title="PRÉVOYANCE SANTÉ">
+            <div [ngClass]="{'actifBar': menu == 'Prevoyance_sante'}"> </div>
             <a routerLink="/prevoyance-sante-component" routerLinkActive="active" >
                 <div [ngClass]="{'actif': menu == 'Prevoyance_sante'}" class="svg text-center my-auto" [inlineSVG]="'assets/svg/Prevoyance_sante.svg'"></div>
             </a>
         </li>
-        <li class="list-inline-item list-group-item" data-toggle="tooltip" title="ÉPARGNE ET RETRAITE SUPPLÉMENTAIRE">
+        <li  class="list-group-item d-flex justify-content-center" data-toggle="tooltip" title="ÉPARGNE & RETRAITE SUPPLÉMENTAIRE">
+            <div [ngClass]="{'actifBar': menu == 'Epargne'}"> </div>
             <a routerLink="/epargne-retraite-component" routerLinkActive="active">
                 <div [ngClass]="{'actif': menu == 'Epargne'}" class="svg text-center my-auto" [inlineSVG]="'assets/svg/Epargne.svg'"></div>
             </a>
         </li>
-        <li class="list-inline-item list-group-item" data-toggle="tooltip" title="FINANCE, RH ET AUTRES FONCTIONS SUPPORT">
+        <li class="d-flex justify-content-center list-group-item" data-toggle="tooltip" title="FINANCE, RH & AUTRES FONCTIONS SUPPORT">
+            <div [ngClass]="{'actifBar': menu == 'Fonctions_supports'}"> </div>
             <a routerLink="/finance-rh-component" routerLinkActive="active">
                 <div [ngClass]="{'actif': menu == 'Fonctions_supports'}" class="svg text-center my-auto" [inlineSVG]="'assets/svg/Fonctions_supports.svg'"></div>
             </a>
         </li>
-        <li class="list-inline-item list-group-item" data-toggle="tooltip" title="SAISIE  MANUELLE">
+        <li class="d-flex justify-content-center list-group-item" data-toggle="tooltip" title="SAISIE  MANUELLE">
+            <div [ngClass]="{'actifBar': menu == 'Reglages'}"> </div>
             <a routerLink="/saisie-manuelle-component" routerLinkActive="active">
                 <div [ngClass]="{'actifReglage': menu == 'Reglages'}" class="svg text-center my-auto" [inlineSVG]="'assets/svg/Reglages.svg'"></div>
             </a>

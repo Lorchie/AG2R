@@ -5,19 +5,19 @@ export const   metiers: Array<Metier> = [
   {id: 1, route: '/accueil-component', titre: 'Résultats d’exploitation',
    menu: 'Home', code: 'accueil', typeMessage: 'Accueil'},
 
-  {id: 2, route: '/retraite-complementaire-component', titre: 'Retraite Complémentaire et Action Sociale',
+  {id: 2, route: '/retraite-complementaire-component', titre: 'Retraite Complémentaire & Action Sociale',
    menu: 'Retraite', code: 'RCAS', typeMessage: 'Faits Marquants'},
 
-  {id: 3, route: '/client-distribution-component', titre: 'Clients, Distribution et Digital',
+  {id: 3, route: '/client-distribution-component', titre: 'Clients, Distribution & Digital',
    menu: 'Digital', code: 'CDD', typeMessage: 'Faits Marquants'},
 
   {id: 4, route: '/prevoyance-sante-component', titre: 'Prévoyance Santé',
    menu: 'Prevoyance_sante', code: 'PS', typeMessage: 'Faits Marquants'},
 
-  {id: 5, route: '/epargne-retraite-component', titre: 'Épargne et Retraite Supplémentaire',
+  {id: 5, route: '/epargne-retraite-component', titre: 'Épargne & Retraite Supplémentaire',
    menu: 'Epargne', code: 'ERS', typeMessage: 'Faits Marquants'},
 
-  {id: 6, route: '/finance-rh-component', titre: 'Finance, RH et autres\nFonctions Support',
+  {id: 6, route: '/finance-rh-component', titre: 'Finance, RH & autres\nFonctions Support',
    menu: 'Fonctions_supports', code: 'FRFS', typeMessage: 'Faits Marquants'},
 
   {id: 7, route: '/saisie-manuelle-component', titre: 'Saisie données',
@@ -37,9 +37,9 @@ export const headers = [
   {
     type:  'scenario',
     array: [
+      {id: 'refScenario', libelle: 'référence'},
       {id: 'libScenario', libelle: 'scénario en erreur'},
-      {id: 'appAssScenario', libelle: 'application associée'},
-      {id: 'refScenario', libelle: 'référence'}
+      {id: 'appAssScenario', libelle: 'application associée'}
     ]
   },
   {

@@ -3,7 +3,6 @@
     color: #ffffff;
     width: 30%;
     position: absolute;
-    top: 40%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     flex: 0 0 230px;
@@ -14,16 +13,18 @@
 }
 
 .textMessage{
-    height: 150px;
+    height: 180px;
     max-width: 100%;
-    overflow-x:hidden;
-    overflow-y:auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     padding-bottom: 15px;
+    margin-bottom: 20px;
+    padding-top: 2.8%;
     font-size: 20px;
 }
 
 .radioMessage{
-    padding-bottom: 20px;
+    padding-bottom: 2%;
 }
 
 .colorMessage{
@@ -54,8 +55,8 @@
 
 .iconAccueil{
     
-    background-color: #dbdbdb66;
-    margin-right: 50px;
+    background-color: #dbdbdb91;
+    margin-right: 30px;
     text-align: center;
     position: relative;
 

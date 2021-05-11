@@ -1,7 +1,8 @@
 <div class="row tableauIncident">
     <div class="col-2 d-flex align-items-center borderNB" *ngIf="!zoom">
         <div class="row d-flex justify-content-center" style="display: inline;" >
-                <div class="gradiant text-center">{{nombre}}</div><br>    
+                <div [ngClass]="{'gradientOrange': nombre > 0 && (type ==='scenario' || type ==='batch') }"
+                      class="gradiant text-center">{{nombre}}</div><br>    
                 <div class="text text-center fontSize14 m-1">{{texteNb}}</div>
         </div>
     </div>
@@ -30,7 +31,8 @@
                         </td>
                     </tr>
                     <tr *ngFor="let in of incidentsVide">
-                        <td *ngFor = "let column of headers">
+                        <td *ngFor = "let column of headers" [ngClass]="{'widthPetit': column.id === 'numInc' || column.id === 'refScenario' || column.id === 'numIntervention',
+                        'widthMoyen': column.id === 'eltConfInc' || column.id === 'libScenario' || column.id === 'eltConfIntervention'}">
                             &nbsp;
                         </td>
                     </tr>

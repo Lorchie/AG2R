@@ -32,7 +32,8 @@
                     </tr>
                     <tr *ngFor="let in of incidentsVide">
                         <td *ngFor = "let column of headers" [ngClass]="{'widthPetit': column.id === 'numInc' || column.id === 'refScenario' || column.id === 'numIntervention',
-                        'widthMoyen': column.id === 'eltConfInc' || column.id === 'libScenario' || column.id === 'eltConfIntervention'}">
+                        'widthMoyen': column.id === 'eltConfInc' || column.id === 'libScenario' || column.id === 'eltConfIntervention',
+                        'width3': column.id == 'prioriteInc'}">
                             &nbsp;
                         </td>
                     </tr>

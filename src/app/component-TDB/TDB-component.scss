@@ -1,11 +1,23 @@
-td{
-    padding: 0px !important;
-}
-
 .textTitre{
     color: #00BAE3;
     font-size: 14px;
     margin:10px;
+}
+
+.widthPetit{
+    width: 15%;
+}
+
+.width3{
+    width: 3%;
+}
+
+.widthMoyen{
+    width: 25%;
+}
+
+.widthGrand{
+    width: 55%;
 }
 
 .tableauIncident{
@@ -73,6 +85,10 @@ td{
         }
     }
 }
+canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
 
 .textFaitsMarquants{
     height: 80px;
@@ -90,6 +106,16 @@ td{
 .gradiant{
     font-weight: bold;
     background: linear-gradient(to right, #00BAE3 0%, #5AB88D 100%);
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 70px;
+    padding: 15px 17px;
+}
+
+.gradientOrange{
+    font-weight: bold;
+    background: linear-gradient(to right, #FFA500 0%, #ff000091 100%);
     -webkit-background-clip: text;
             background-clip: text;
     -webkit-text-fill-color: transparent;

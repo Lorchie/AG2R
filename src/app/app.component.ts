@@ -32,7 +32,7 @@ export class AppComponent  {
   }
 
   getLastDate(): void {
-   if (this.metierCurrent.code != ''){
+   if (this.metierCurrent.code !== ''){
     this.displayDate = true;
     this.api.getLastUpdate(this.metierCurrent.code).toPromise()
       .then((res: any) => {
@@ -59,7 +59,7 @@ export class AppComponent  {
   updateDate(): void{
 
    // alert(this.date+ "est"+new Date())
-    if (this.date == undefined){
+    if (this.date === undefined){
       this.date = new Date();
     }
 

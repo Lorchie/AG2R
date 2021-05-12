@@ -20,7 +20,7 @@ export class TableauIncidentsComponent implements OnInit {
   textes: any;
   incidentsVide: any;
   texteNb = '';
-  nombre = '0';
+  nombre: number = 0;
   texteTitre = '';
 
   constructor(private api: ApiDonneService) { }
@@ -35,7 +35,7 @@ export class TableauIncidentsComponent implements OnInit {
   }
 
   setTextNb(): void{
-    if (parseInt(this.nombre, 10) < 2){
+    if (this.nombre < 2){
       this.texteNb = this.textes.find((user: any) => user.id === 'num').libelle;
     }else{
       this.texteNb = this.textes.find((user: any) => user.id === 'numPluriel').libelle;
@@ -63,11 +63,10 @@ export class TableauIncidentsComponent implements OnInit {
           this.api.getDonneeIncidents(this.metier.code).toPromise()
           .then((res) => {
               if (res instanceof Array){
-                const numberInt = res.length;
-                if (numberInt < 3){
-                  this.incidentsVide = this.createColEmpty(numberInt);
+                this.nombre = res.length;
+                if (this.nombre < 3){
+                  this.incidentsVide = this.createColEmpty(this.nombre);
                 }
-                this.nombre = numberInt.toString();
               }else{
                 this.incidentsVide = new Array(3);
               }
@@ -82,11 +81,10 @@ export class TableauIncidentsComponent implements OnInit {
         this.api.getDonneeStatesScenarios(this.metier.code).toPromise()
         .then((res) => {
             if (res instanceof Array){
-              const numberInt = res.length;
-              if (numberInt < 3){
-                this.incidentsVide = this.createColEmpty(numberInt);
+              this.nombre = res.length;
+              if (this.nombre < 3){
+                this.incidentsVide = this.createColEmpty(this.nombre);
               }
-              this.nombre = numberInt.toString();
             }else{
               this.incidentsVide = new Array(3);
             }
@@ -101,11 +99,10 @@ export class TableauIncidentsComponent implements OnInit {
           this.api.getDonneeInterventions(this.metier.code).toPromise()
           .then((res) => {
               if (res instanceof Array){
-                const numberInt = res.length;
-                if (numberInt < 3){
-                  this.incidentsVide = this.createColEmpty(numberInt);
+                this.nombre = res.length;
+                if (this.nombre < 3){
+                  this.incidentsVide = this.createColEmpty(this.nombre);
                 }
-                this.nombre = numberInt.toString();
               }else{
                 this.incidentsVide = new Array(3);
               }

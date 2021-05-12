@@ -7,8 +7,8 @@
             </div>
             <div class="textMessage" *ngIf="!messages"><span class="colorMessage">Message: </span> Aucun message</div>
         </div>
-        <div class="col-1">
-            <div class="containerMessage vertical-center pointer">
+        <div class="col-1" style="padding-top: 3%;">
+            <div class="containerMessage pointer">
                 <div class="bulle">
                     <div class="text-center my-auto" style="width:100%;" [inlineSVG]="'assets/svg/bulle_message.svg'"></div>
                     <div class="nbMessage">{{longer}}</div>
@@ -22,7 +22,7 @@
     <mat-radio-button  name="opList" *ngFor="let op of messages, let i = index" [value]="i" (click)="clickRadio(i)"></mat-radio-button>
 </mat-radio-group>
 
-<p class="blueUnderline">Business Line</p>
+<p class="blueUnderline">Business Line :</p>
 
 <div class="row">
     <div class="d-flex justify-content-center align-items-center col iconAccueil shadow p-3 mb-5 rounded pointer" routerLink="/retraite-complementaire-component" routerLinkActive="active">
